@@ -1,0 +1,22 @@
+{
+    "players" : {
+        "xacas23r23": {
+            "name": "Serghei Nedelcu",
+            "id": "xacas23r23",
+            "rate" : "1000",
+            "style": "defender",
+            "shake": "classic",
+            "age": "45"
+        },
+
+        "ads232f23": {
+            "name": "Eduard Gorenstein",
+            "id": "ads232f23",
+            "rate" : "1000",
+            "style": "attacker",
+            "shake": "classic",
+            "age": "55"
+        }
+
+    }
+}
