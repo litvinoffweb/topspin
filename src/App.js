@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import './config';
+import { base } from './config';
+import Root from './containers/Routes/Root'
+
+import Box from 'grommet/components/Box';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        .......go
-      </div>
+      <Box className="App">
+        <Root />
+      </Box>
     );
   }
 }

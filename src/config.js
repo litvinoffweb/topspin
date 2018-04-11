@@ -1,4 +1,5 @@
 import firebase from 'firebase';
+import Rebase from 're-base';
 
 export const appName = "top-spin-9cfa5"
 
@@ -11,6 +12,8 @@ export const firebaseConfig = {
     messagingSenderId: "516816900643"
   };
 
-  firebase.initializeApp(firebaseConfig);
+  const app = firebase.initializeApp(firebaseConfig);
 
+  export const base = Rebase.createClass(app.database());
+  
   const database = firebase.database();
