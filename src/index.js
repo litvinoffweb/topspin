@@ -6,8 +6,9 @@ import 'rxjs';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import history from './history';
-import { store } from './redux/store'
+import { store } from './redux/store';
 import firebase from 'firebase';
+import './styles/index.scss';
 
 ReactDOM.render(
     <Provider store={store}>
