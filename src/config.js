@@ -12,8 +12,4 @@ export const firebaseConfig = {
     messagingSenderId: "516816900643"
   };
 
-  const app = firebase.initializeApp(firebaseConfig);
-
-  export const base = Rebase.createClass(app.database());
-  
-  const database = firebase.database();
+ firebase.initializeApp(firebaseConfig);

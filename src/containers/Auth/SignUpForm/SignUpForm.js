@@ -14,14 +14,15 @@ class SignUpForm extends Component {
     };
 
     render() {
-        const { handleSignUp } = this.props;
+        const { handleSubmit } = this.props;
+        
         return(
             <Box>
                 <Heading tag='h2'>Sign up</Heading>
-                <form onSubmit={handleSignUp}>
+                <form onSubmit={handleSubmit}>
                     <Box>
                         <Box>
-                            <Label labelFor='email'>Email :</Label>
+                            
                             <Field 
                                 name="email"
                                 component={ErrorField}
@@ -29,11 +30,10 @@ class SignUpForm extends Component {
                                 />
                         </Box>
                         <Box>
-                            <Label labelFor='password'>Password :</Label>
+                            
                             <Field 
                                 name="password"
                                 component={ErrorField}
-                                id="password"
                                 type="password"
                                 />
                         </Box>
@@ -54,7 +54,7 @@ const validate = ({email, password}) => {
     else if (!emailValidator.validate(email)) errors.email = 'invalid email';
 
     if(!password) errors.password = 'password is required';
-    // else ( password.length < 8 ) errors.password = 'password must be more than 8 characters';
+    else if ( password.length < 8 ) errors.password = 'password must be more than 8 characters';
 
     return errors;
 }

@@ -8,7 +8,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import history from './history';
 import { store } from './redux/store';
 import firebase from 'firebase';
-import './styles/index.scss';
+import './index.scss';
+
 
 ReactDOM.render(
     <Provider store={store}>
@@ -17,6 +18,11 @@ ReactDOM.render(
         </ConnectedRouter>
     </Provider>
     , document.getElementById('root'));
+
+
+
+
+
 
 
     // const firebaseRef = firebase.database().ref();
@@ -36,6 +42,6 @@ ReactDOM.render(
     //     });
     //   }
 
-    //   writeUserData("asd23r2asda", 'Petr Shevchenko', 1000, 'attacker', 'classic', 25);
+    //   writeUserData("asd23r2asdasss213123", 'Petr2 Shevchenko', 1000, 'attacker', 'classic', 25);
       
 

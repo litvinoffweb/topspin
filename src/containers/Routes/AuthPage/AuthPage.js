@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Heading from 'grommet/components/Heading';
 import Box from 'grommet/components/Box';

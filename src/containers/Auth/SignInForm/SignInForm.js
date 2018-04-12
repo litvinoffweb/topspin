@@ -15,7 +15,12 @@ class SignInForm extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <Box>
+            <Box direction='column'
+            justify='start'
+            align='center'
+            wrap={true}
+            pad='medium'
+            margin='medium'>
                 <Heading tag='h2'>Sign in</Heading>
                 <form onSubmit={handleSubmit}>
                    <Box >

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { base } from './config';
+import './config';
 import Root from './containers/Routes/Root'
 
 import Box from 'grommet/components/Box';
