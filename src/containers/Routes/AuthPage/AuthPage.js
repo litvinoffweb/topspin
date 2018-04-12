@@ -9,17 +9,11 @@ import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
 
 import { Route, NavLink } from 'react-router-dom';
 import { signUpRequest } from '../../Auth/SignUpForm/module/actions';
-import Loader from '../../../components/Loader/Loader'
+import { signInRequest } from '../../Auth/SignInForm/module/actions';
+
+import Loader from '../../../components/Loader/Loader';
 
 class AuthPage extends Component {
-
-    handleSignIn = (values) => {
-        console.log(values, 'values')
-    }
-
-    componentDidMount() {
-
-    }
 
     render() {
         return (
@@ -31,7 +25,7 @@ class AuthPage extends Component {
                     
                     <NavLink to='/auth/signin' activeStyle={{color : 'red'}}> Sign in </NavLink>
                     <NavLink to='/auth/signup' activeStyle={{color : 'red'}}> Sign up </NavLink>                
-                    <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.handleSignIn}/>}/>
+                    <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                     <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
                     {this.props.isLoading && <Loader />}
                 </Box>
@@ -45,6 +39,9 @@ const mapDispatchToProps = dispatch => {
     return {
         signUp: values => {
             dispatch(signUpRequest(values.email, values.password));
+        },
+        signIn: values => {
+            dispatch(signInRequest(values.email, values.password));
         }
     }
 }

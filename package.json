@@ -28,10 +28,10 @@
     "rxjs": "^5.5.8"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar ./node_modules/grommet/node_modules -o src/ ",
+    "watch-css": "npm run build-css && node-sass-chokidar ./node_modules src/ -o ./node_modules src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
+    "start": "npm-run-all -p start-js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",

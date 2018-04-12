@@ -22,8 +22,9 @@ ReactDOM.render(
     , document.getElementById('root'));
 
 
-    store.dispatch( ping('takaea data') );
 
+    firebase.auth().signInWithEmailAndPassword('1@1.ru', '11111111')
+        .then(result => console.log(result))
     // const firebaseRef = firebase.database().ref();
 
     // console.log(firebaseRef.child("players"))

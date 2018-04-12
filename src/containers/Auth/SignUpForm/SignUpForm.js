@@ -18,7 +18,13 @@ class SignUpForm extends Component {
         const { handleSubmit } = this.props;
         
         return(
-            <Box>
+            <Box direction='column'
+            justify='start'
+            align='center'
+            wrap={true}
+            pad='medium'
+            margin='small'
+            colorIndex='light-2'>
                 <Heading tag='h2'>Sign up</Heading>
                 <form onSubmit={handleSubmit}>
                     <Box>
@@ -43,7 +49,6 @@ class SignUpForm extends Component {
                         </Box>
                     </Box>
                 </form>
-                <Link to='/admin'>admin </Link>
             </Box>
         )
     }

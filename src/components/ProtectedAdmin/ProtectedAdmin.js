@@ -5,7 +5,7 @@ import UnAuthorized from '../UnAuthorized/UnAuthorized';
 
 import { Route } from 'react-router-dom';
 
-class ProtectedRoute extends Component {
+class ProtectedAdmin extends Component {
 
     render() {
         console.log(this.props, 'ProtectedRoute');
@@ -28,4 +28,4 @@ const mapStateToProps = state => ({
     authorized: state.signUp.user.id
 });
 
-export default connect()(ProtectedRoute);
+export default connect()(ProtectedAdmin);

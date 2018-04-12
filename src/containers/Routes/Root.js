@@ -6,6 +6,7 @@ import Heading from 'grommet/components/Heading';
 import { Route } from 'react-router-dom';
 import AdminPage from './AdminPage/AdminPage';
 import AuthPage from './AuthPage/AuthPage';
+import UserPage from './UserPage/UserPage';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
 
@@ -15,6 +16,7 @@ class Root extends Component {
             <Box>
                 <ProtectedRoute path="/admin" component={AdminPage}/>
                 <Route path="/auth" component={AuthPage}/>
+                <ProtectedRoute path="/user:id" component={UserPage}/>
             </Box>
         );
     }

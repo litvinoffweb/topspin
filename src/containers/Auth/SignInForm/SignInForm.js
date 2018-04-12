@@ -5,12 +5,7 @@ import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
 
-
-
 class SignInForm extends Component {
-
-    componentDidMount() {
-    }
 
     render() {
         const { handleSubmit } = this.props;
