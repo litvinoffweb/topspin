@@ -9,6 +9,8 @@ import history from './history';
 import { store } from './redux/store';
 import firebase from 'firebase';
 import './index.scss';
+import { signUpRequest } from './containers/Auth/SignUpForm/module/actions';
+import { ping } from './test/action';
 
 
 ReactDOM.render(
@@ -20,10 +22,7 @@ ReactDOM.render(
     , document.getElementById('root'));
 
 
-
-
-
-
+    store.dispatch( ping('takaea data') );
 
     // const firebaseRef = firebase.database().ref();
 

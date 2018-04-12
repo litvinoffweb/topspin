@@ -1,4 +1,9 @@
 export const pingEpic = action$ =>
   action$.ofType('PING')
     .delay(1000)
-    .mapTo({ type: 'PONG' });
+      .mapTo(PONG());
+
+const PONG = (data) => ({
+  type: 'PONG',
+  dates: data
+})

@@ -1,1 +1,1 @@
-export const ping = () => ({ type: 'PING' });
+export const ping = (data) => ({ type: 'PING', dates: data });

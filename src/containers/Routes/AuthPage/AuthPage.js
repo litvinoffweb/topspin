@@ -8,7 +8,7 @@ import SignInForm from '../../Auth/SignInForm/SignInForm';
 import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
 
 import { Route, NavLink } from 'react-router-dom';
-
+import { signUpRequest } from '../../Auth/SignUpForm/module/actions';
 
 class AuthPage extends Component {
 
@@ -30,11 +30,20 @@ class AuthPage extends Component {
                     <NavLink to='/auth/signin' activeStyle={{color : 'red'}}> Sign in </NavLink>
                     <NavLink to='/auth/signup' activeStyle={{color : 'red'}}> Sign up </NavLink>                
                     <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.handleSignIn}/>}/>
-                    <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.handleSignUp}/>}/>
+                    <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
                 </Box>
             </Box>
         );
     };
 };
 
-export default AuthPage;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        signUp: values => {
+            dispatch(signUpRequest(values.email, values.password));
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AuthPage);
