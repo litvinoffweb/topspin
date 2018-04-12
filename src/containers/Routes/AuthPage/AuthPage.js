@@ -9,6 +9,7 @@ import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
 
 import { Route, NavLink } from 'react-router-dom';
 import { signUpRequest } from '../../Auth/SignUpForm/module/actions';
+import Loader from '../../../components/Loader/Loader'
 
 class AuthPage extends Component {
 
@@ -16,8 +17,8 @@ class AuthPage extends Component {
         console.log(values, 'values')
     }
 
-    handleSignUp = (values) => {
-        console.log(values, 'values')
+    componentDidMount() {
+
     }
 
     render() {
@@ -27,10 +28,12 @@ class AuthPage extends Component {
                     Auth Page
                 </Heading>
                 <Box>
+                    
                     <NavLink to='/auth/signin' activeStyle={{color : 'red'}}> Sign in </NavLink>
                     <NavLink to='/auth/signup' activeStyle={{color : 'red'}}> Sign up </NavLink>                
                     <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.handleSignIn}/>}/>
                     <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
+                    {this.props.isLoading && <Loader />}
                 </Box>
             </Box>
         );
@@ -46,4 +49,10 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(AuthPage);
+const mapStateToProps = state => {
+    return {
+        isLoading: state.signUp.isLoading
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthPage);

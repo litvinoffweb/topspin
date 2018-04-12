@@ -6,15 +6,15 @@ import Heading from 'grommet/components/Heading';
 import { Route } from 'react-router-dom';
 import AdminPage from './AdminPage/AdminPage';
 import AuthPage from './AuthPage/AuthPage';
+import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 
 
 class Root extends Component {
     render() {
         return (
             <Box>
-                <Route path="/admin" component={AdminPage}/>
+                <ProtectedRoute path="/admin" component={AdminPage}/>
                 <Route path="/auth" component={AuthPage}/>
-                
             </Box>
         );
     }

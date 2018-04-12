@@ -4,9 +4,9 @@ import firebase from 'firebase';
 export const moduleName = 'auth';
 
 export const actionTypes = {
-    SIGN_UP_REQUEST: `${appName}/${moduleName}/SIGN_UP_REQUEST`,
-    SIGN_UP_SUCCESS: `${appName}/${moduleName}/SIGN_UP_SUCCESS`,
-    SIGN_UP_ERROR: `${appName}/${moduleName}/SIGN_UP_ERROR`,
+    SIGN_UP_REQUEST: 'SIGN_UP_REQUEST',
+    SIGN_UP_SUCCESS: 'SIGN_UP_SUCCESS',
+    SIGN_UP_ERROR: 'SIGN_UP_ERROR',
     TEST: 'TEST'
 };
 

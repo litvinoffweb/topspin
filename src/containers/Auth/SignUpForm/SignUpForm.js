@@ -5,7 +5,8 @@ import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
 import emailValidator from 'email-validator';
-import ErrorField from '../ErrorField/ErrorField';
+import ErrorField from '../../../components/ErrorField/ErrorField';
+import { Link } from 'react-router-dom';
 
 class SignUpForm extends Component {
 
@@ -42,6 +43,7 @@ class SignUpForm extends Component {
                         </Box>
                     </Box>
                 </form>
+                <Link to='/admin'>admin </Link>
             </Box>
         )
     }
