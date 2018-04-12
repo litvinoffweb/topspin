@@ -23,8 +23,7 @@ class SignUpForm extends Component {
             align='center'
             wrap={true}
             pad='medium'
-            margin='small'
-            colorIndex='light-2'>
+            margin='medium'>
                 <Heading tag='h2'>Sign up</Heading>
                 <form onSubmit={handleSubmit}>
                     <Box>

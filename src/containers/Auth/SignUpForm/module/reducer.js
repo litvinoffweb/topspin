@@ -9,9 +9,9 @@ export const ACTION_HANDLERS = {
     [actionTypes.SIGN_UP_REQUEST]: (state, action) => immutableSet(['isLoading'], true, state),
     [actionTypes.SIGN_UP_SUCCESS]: (state, action) => compose(
         immutableSet(['isLoading'], false),
-        immutableSet(['user'], action.payload)
-    )(state),
-    [actionTypes.TEST]: (state, action) => immutableSet(['isoading'], false, state)
+        immutableSet(['user'], action.payload),
+        immutableSet(['authorized'], true)
+    )(state)
 }
 
 export default function signUp(state = defaultUser, action) {

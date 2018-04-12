@@ -9,7 +9,8 @@ export const ACTION_HANDLERS = {
     [actionTypes.SIGN_IN_REQUEST]: (state, action) => immutableSet(['isLoading'], true, state),
     [actionTypes.SIGN_IN_SUCCESS]: (state, action) => compose(
         immutableSet(['isLoading'], false),
-        immutableSet(['user'], action.payload)
+        immutableSet(['user'], action.payload),
+        immutableSet(['authorized'], true)
     )(state)
 }
 

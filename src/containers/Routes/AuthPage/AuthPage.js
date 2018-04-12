@@ -15,6 +15,10 @@ import Loader from '../../../components/Loader/Loader';
 
 class AuthPage extends Component {
 
+    handleSignIn = (values) => {
+        console.log(values)
+    }
+
     render() {
         return (
             <Box>
@@ -48,7 +52,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.signUp.isLoading
+        isLoading: state.signUp.isLoading,
+        user: state.signIn.user
     }
 }
 
