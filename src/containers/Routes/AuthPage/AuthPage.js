@@ -8,8 +8,8 @@ import SignInForm from '../../Auth/SignInForm/SignInForm';
 import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
 
 import { Route, NavLink } from 'react-router-dom';
-import { signUpRequest } from '../../Auth/SignUpForm/module/actions';
-import { signInRequest } from '../../Auth/SignInForm/module/actions';
+import { signUpRequest } from '../../Auth/module/actions';
+import { signInRequest } from '../../Auth/module/actions';
 
 import Loader from '../../../components/Loader/Loader';
 
@@ -20,6 +20,8 @@ class AuthPage extends Component {
     }
 
     render() {
+
+       
         return (
             <Box>
                 <Heading tag="h1">
@@ -32,6 +34,7 @@ class AuthPage extends Component {
                     <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                     <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
                     {this.props.isLoading && <Loader />}
+                    
                 </Box>
             </Box>
         );
@@ -52,8 +55,9 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.signUp.isLoading,
-        user: state.signIn.user
+        isLoading: state.authUser.isLoading,
+        user: state.authUser.user,
+        auththorized: state.authorized.authorized
     }
 }
 

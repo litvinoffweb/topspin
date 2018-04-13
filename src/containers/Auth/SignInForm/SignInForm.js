@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
 
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
@@ -8,6 +9,7 @@ import Label from 'grommet/components/Label';
 class SignInForm extends Component {
 
     render() {
+        
         const { handleSubmit } = this.props;
         return(
             <Box direction='column'
@@ -39,6 +41,7 @@ class SignInForm extends Component {
                             <Box>
                                 <input type="submit"/>
                             </Box>
+                            {this.props.auth ? 'auth' : 'not auth'}
                     </Box>
                 </form>
             </Box>
@@ -48,6 +51,13 @@ class SignInForm extends Component {
 
 
 
-export default reduxForm({
+const mapStateToProps = state => ({
+    auth: state.authorized.authorized,
+    userId: state.authUser.user
+})
+
+const reduxSignInForm = reduxForm({
     form: 'auth'
 })(SignInForm)
+
+export default connect(mapStateToProps, null)(reduxSignInForm);

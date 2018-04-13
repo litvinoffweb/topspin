@@ -25,7 +25,7 @@ class ProtectedAdmin extends Component {
 };
 
 const mapStateToProps = state => ({
-    authorized: state.signUp.user.id
+    authAdmin: state.authorized.authorized
 });
 
-export default connect()(ProtectedAdmin);
+export default connect(mapStateToProps, null)(ProtectedAdmin);
