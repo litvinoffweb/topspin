@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UnAuthorized from '../UnAuthorized/UnAuthorized';
 
-
 import { Route } from 'react-router-dom';
 
 class ProtectedRoute extends Component {
 
     render() {
-        console.log(this.props, 'ProtectedRoute');
+        //console.log(this.props, 'ProtectedRoute');
         const { component, ...rest } = this.props;
         return(
             <Route {...rest} render={this.renderProtected}/>
@@ -16,7 +15,7 @@ class ProtectedRoute extends Component {
     };
 
     renderProtected = (routeProps) => {
-        console.log(this.props, 'renderProtcted');
+        //console.log(this.props, 'renderProtected');
         const { component: ProtectedComponent, authorized } = this.props;
         return(
             authorized ? <ProtectedComponent {...routeProps}/> : <UnAuthorized />
@@ -24,8 +23,6 @@ class ProtectedRoute extends Component {
     };
 };
 
-const mapStateToProps = state => ({
-    authorized: state.signUp.user.id
-});
 
-export default connect()(ProtectedRoute);
+
+export default connect(null, null)(ProtectedRoute);

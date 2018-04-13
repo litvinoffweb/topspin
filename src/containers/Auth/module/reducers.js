@@ -3,6 +3,7 @@ import { actionTypes } from './actions';
 import { immutableSet } from '../../../utils/immutable';
 import { compose } from 'ramda';
 
+
 export const ACTION_HANDLERS = {
     [actionTypes.SIGN_IN_REQUEST]: (state, action) => immutableSet(['isLoading'], true, state),
     [actionTypes.SIGN_IN_SUCCESS]: (state, action) => compose(

@@ -9,7 +9,7 @@ class UserPage extends Component {
         return (
             <Box>
                 <Heading tag="h1">
-                    Admin Page
+                    UserPage
                 </Heading>
             </Box>
         );

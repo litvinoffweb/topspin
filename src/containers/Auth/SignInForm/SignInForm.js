@@ -9,7 +9,7 @@ import Label from 'grommet/components/Label';
 class SignInForm extends Component {
 
     render() {
-        
+        console.log(this.props.location, 'location')
         const { handleSubmit } = this.props;
         return(
             <Box direction='column'
@@ -51,13 +51,14 @@ class SignInForm extends Component {
 
 
 
-const mapStateToProps = state => ({
-    auth: state.authorized.authorized,
-    userId: state.authUser.user
-})
+// const mapStateToProps = (state, ownProps) => ({
+//     auth: state.authorized.authorized,
+//     userId: state.authUser.user,
+//     location: ownProps
+// })
 
 const reduxSignInForm = reduxForm({
     form: 'auth'
 })(SignInForm)
 
-export default connect(mapStateToProps, null)(reduxSignInForm);
+export default connect(null, null)(reduxSignInForm);

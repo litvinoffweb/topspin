@@ -7,7 +7,7 @@ import Box from 'grommet/components/Box';
 import SignInForm from '../../Auth/SignInForm/SignInForm';
 import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
 
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import { signUpRequest } from '../../Auth/module/actions';
 import { signInRequest } from '../../Auth/module/actions';
 
@@ -21,22 +21,28 @@ class AuthPage extends Component {
 
     render() {
 
-       
+        const { authorized } = this.props;
+        
         return (
-            <Box>
-                <Heading tag="h1">
-                    Auth Page
-                </Heading>
-                <Box>
-                    
-                    <NavLink to='/auth/signin' activeStyle={{color : 'red'}}> Sign in </NavLink>
-                    <NavLink to='/auth/signup' activeStyle={{color : 'red'}}> Sign up </NavLink>                
-                    <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
-                    <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
-                    {this.props.isLoading && <Loader />}
-                    
-                </Box>
-            </Box>
+            <div>
+                {authorized ? <Redirect to='/user:id'/> : <Box>
+        <Heading tag="h1">
+            Auth Page
+        </Heading>
+        <Box>
+            
+            <NavLink to='/auth/signin' activeStyle={{color : 'red'}}> Sign in </NavLink>
+            <NavLink to='/auth/signup' activeStyle={{color : 'red'}}> Sign up </NavLink>
+
+            <Switch>
+                <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
+                <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
+            </Switch>
+            {this.props.isLoading && <Loader />}
+            
+        </Box>
+    </Box>}
+            </div>
         );
     };
 };
@@ -57,7 +63,7 @@ const mapStateToProps = state => {
     return {
         isLoading: state.authUser.isLoading,
         user: state.authUser.user,
-        auththorized: state.authorized.authorized
+        authorized: state.authorized.authorized
     }
 }
 

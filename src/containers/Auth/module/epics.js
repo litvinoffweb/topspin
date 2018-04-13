@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs/Observable';
 import firebase from 'firebase';
 import { actionTypes, signUpSuccess, signUpError, signInSuccess, signInError } from './actions';
+import { ajax } from 'rxjs/observable/dom/ajax';
 
 export const signUpUserEpic = action$ =>
     action$.ofType(actionTypes.SIGN_UP_REQUEST)
@@ -13,9 +14,12 @@ export const signUpUserEpic = action$ =>
 export const signInUserEpic = action$ =>
     action$.ofType(actionTypes.SIGN_IN_REQUEST)
         .switchMap(({email, password}) => 
-             Observable.of(firebase.auth().signInWithEmailAndPassword(email, password))
-            .do( )
+            Observable.of(firebase.auth().signInWithEmailAndPassword(email, password))
             .map(result => signInSuccess(result))
-            .catch(error => signInError(error))
+            .catch(error => Observable.od(signInError(error)))
         
         )
+
+const fromJson = data => {
+    return data.json()
+}

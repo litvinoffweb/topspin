@@ -10,7 +10,8 @@ import { store } from './redux/store';
 import firebase from 'firebase';
 import './index.scss';
 import { signUpRequest } from './containers/Auth/SignUpForm/module/actions';
-import { ping } from './test/action';
+import Root from './containers/Routes/Root' 
+
 
 
 ReactDOM.render(
