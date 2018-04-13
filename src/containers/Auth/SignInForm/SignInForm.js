@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
+import Form from 'grommet/components/Form';
+import Button from 'grommet/components/Button';
+
 
 class SignInForm extends Component {
 
@@ -19,7 +22,7 @@ class SignInForm extends Component {
             pad='medium'
             margin='medium'>
                 <Heading tag='h2'>Sign in</Heading>
-                <form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                    <Box >
                             <Box>
                                 <Label labelFor='email'>Email :</Label>
@@ -39,11 +42,11 @@ class SignInForm extends Component {
                                     />
                             </Box>
                             <Box>
-                                <input type="submit"/>
+                                <Button type='submit' label='Submit' className='submit-btn'/>
                             </Box>
                             {this.props.auth ? 'auth' : 'not auth'}
                     </Box>
-                </form>
+                </Form>
             </Box>
         )
     }

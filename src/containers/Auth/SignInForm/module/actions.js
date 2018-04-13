@@ -22,6 +22,3 @@ export const signInError = error => ({
         error: error
 });
 
-export const signInWithSignUp = () => ({
-    type: actionTypes.SIGN_IN_WITH_SIGN_UP
-})

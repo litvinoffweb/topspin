@@ -15,14 +15,13 @@ const ErrorField = props => {
 
     return(
         <Box>
-            <Label>
-                {input.name}
+            
                 <input
                     {...input}
                     type={type}
                     />
                     {errorText}
-            </Label>
+            
         </Box>
     )
 }

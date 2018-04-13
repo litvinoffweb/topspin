@@ -24,16 +24,16 @@ class AuthPage extends Component {
         const { authorized } = this.props;
         
         return (
-            <div>
+            <Box>
                 {authorized ? <Redirect to='/user:id'/> : <Box>
         <Heading tag="h1">
             Auth Page
         </Heading>
         <Box>
-            
-            <NavLink to='/auth/signin' activeStyle={{color : 'red'}}> Sign in </NavLink>
-            <NavLink to='/auth/signup' activeStyle={{color : 'red'}}> Sign up </NavLink>
-
+            <Box direction='row' justify='center'>
+                <NavLink to='/auth/signin' className='nav-link' activeStyle={{backgroundColor : '#CDDC39', color: '#fff'}}> Sign in </NavLink>
+                <NavLink to='/auth/signup' className='nav-link' activeStyle={{backgroundColor : '#CDDC39', color: '#fff'}}> Sign up </NavLink>
+            </Box>
             <Switch>
                 <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                 <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
@@ -42,7 +42,7 @@ class AuthPage extends Component {
             
         </Box>
     </Box>}
-            </div>
+            </Box>
         );
     };
 };

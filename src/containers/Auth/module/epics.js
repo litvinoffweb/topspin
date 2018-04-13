@@ -15,6 +15,7 @@ export const signInUserEpic = action$ =>
     action$.ofType(actionTypes.SIGN_IN_REQUEST)
         .switchMap(({email, password}) => 
             Observable.of(firebase.auth().signInWithEmailAndPassword(email, password))
+            .do(result => console.log(result))
             .map(result => signInSuccess(result))
             .catch(error => Observable.od(signInError(error)))
         
@@ -22,4 +23,9 @@ export const signInUserEpic = action$ =>
 
 const fromJson = data => {
     return data.json()
+}
+
+const go = (email, password) => {
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+    
 }

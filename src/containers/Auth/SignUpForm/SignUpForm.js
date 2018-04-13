@@ -7,6 +7,8 @@ import Label from 'grommet/components/Label';
 import emailValidator from 'email-validator';
 import ErrorField from '../../../components/ErrorField/ErrorField';
 import { Link } from 'react-router-dom';
+import Button from 'grommet/components/Button';
+import Form from 'grommet/components/Form';
 
 class SignUpForm extends Component {
 
@@ -25,18 +27,20 @@ class SignUpForm extends Component {
             pad='medium'
             margin='medium'>
                 <Heading tag='h2'>Sign up</Heading>
-                <form onSubmit={handleSubmit}>
+                <Form onSubmit={handleSubmit}>
                     <Box>
                         <Box>
-                            
-                            <Field 
-                                name="email"
-                                component={ErrorField}
-                                id="email"
-                                />
+                            <Box>
+                                <Label labelFor='email'>Email :</Label>
+                                <Field 
+                                    name="email"
+                                    component={ErrorField}
+                                    id="email"
+                                    />
+                            </Box>
                         </Box>
                         <Box>
-                            
+                        <Label labelFor='password'>Password :</Label>
                             <Field 
                                 name="password"
                                 component={ErrorField}
@@ -44,10 +48,10 @@ class SignUpForm extends Component {
                                 />
                         </Box>
                         <Box>
-                            <input type="submit"/>
+                            <Button type='submit' label='Submit' className='submit-btn'/>
                         </Box>
                     </Box>
-                </form>
+                </Form>
             </Box>
         )
     }
