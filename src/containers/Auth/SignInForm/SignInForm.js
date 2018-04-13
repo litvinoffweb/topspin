@@ -12,7 +12,7 @@ import Button from 'grommet/components/Button';
 class SignInForm extends Component {
 
     render() {
-        console.log(this.props.location, 'location')
+        console.log(this.props.userId, 'luserId')
         const { handleSubmit } = this.props;
         return(
             <Box direction='column'
@@ -27,6 +27,7 @@ class SignInForm extends Component {
                             <Box>
                                 <Label labelFor='email'>Email :</Label>
                                 <Field 
+                                    className='input-main'
                                     name="email"
                                     component="input"
                                     id="email"
@@ -35,6 +36,7 @@ class SignInForm extends Component {
                             <Box>
                                 <Label labelFor='password'>Password :</Label>
                                 <Field 
+                                    className='input-main'
                                     name="password"
                                     component="input"
                                     id="password"
@@ -60,8 +62,13 @@ class SignInForm extends Component {
 //     location: ownProps
 // })
 
+const mapStateToProps = state => ({
+    userId: state.authUser.user,
+    auth: state.authorized.authorized
+})
+
 const reduxSignInForm = reduxForm({
     form: 'auth'
 })(SignInForm)
 
-export default connect(null, null)(reduxSignInForm);
+export default connect(mapStateToProps, null)(reduxSignInForm);

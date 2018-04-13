@@ -15,17 +15,16 @@ export const signInUserEpic = action$ =>
     action$.ofType(actionTypes.SIGN_IN_REQUEST)
         .switchMap(({email, password}) => 
             Observable.of(firebase.auth().signInWithEmailAndPassword(email, password))
-            .do(result => console.log(result))
             .map(result => signInSuccess(result))
-            .catch(error => Observable.od(signInError(error)))
+            .catch(error => Observable.of(signInError(error)))
         
         )
 
-const fromJson = data => {
-    return data.json()
-}
+async function signInAndChangeState(email, password) {
+    
+    const user = await firebase.auth().signInWithEmailAndPassword(email, password);
 
-const go = (email, password) => {
-    return firebase.auth().signInWithEmailAndPassword(email, password)
+    const parsedUser = await firebase.auth().onAuthStateChanged(user => user)
+
     
 }

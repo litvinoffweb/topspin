@@ -17,6 +17,7 @@ const ErrorField = props => {
         <Box>
             
                 <input
+                    className='input-main'
                     {...input}
                     type={type}
                     />

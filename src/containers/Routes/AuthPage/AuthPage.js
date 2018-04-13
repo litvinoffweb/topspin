@@ -25,24 +25,22 @@ class AuthPage extends Component {
         
         return (
             <Box>
-                {authorized ? <Redirect to='/user:id'/> : <Box>
-        <Heading tag="h1">
-            Auth Page
-        </Heading>
-        <Box>
-            <Box direction='row' justify='center'>
-                <NavLink to='/auth/signin' className='nav-link' activeStyle={{backgroundColor : '#CDDC39', color: '#fff'}}> Sign in </NavLink>
-                <NavLink to='/auth/signup' className='nav-link' activeStyle={{backgroundColor : '#CDDC39', color: '#fff'}}> Sign up </NavLink>
-            </Box>
+                <Heading tag="h1">
+                    Auth Page
+                </Heading>
+            <Box>
+                <Box direction='row' justify='center'>
+                    <NavLink to='/auth/signin' className='nav-link' activeStyle={{backgroundColor : '#CDDC39', color: '#fff'}}> Sign in </NavLink>
+                    <NavLink to='/auth/signup' className='nav-link' activeStyle={{backgroundColor : '#CDDC39', color: '#fff'}}> Sign up </NavLink>
+                </Box>
             <Switch>
                 <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                 <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp}/>}/>
             </Switch>
             {this.props.isLoading && <Loader />}
             
-        </Box>
-    </Box>}
             </Box>
+        </Box>
         );
     };
 };
