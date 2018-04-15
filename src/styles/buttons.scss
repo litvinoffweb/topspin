@@ -1,0 +1,15 @@
+
+button.#{$grommet-namespace}button {
+    background-color: $btn-bg-color;
+    border-radius: 1px;
+    border: none;
+    color: #fff;
+    margin-top: 50px;
+    height: 45px;
+    width: 150px;
+    border-bottom: 3px #fff solid;
+    margin-bottom: 25px;
+}
+button.#{$grommet-namespace}button:hover {
+    background-color: $btn-bg-hover;
+}
