@@ -10,7 +10,7 @@ const AuthComponent = props => {
     return(
         <Box>
             <Box justify='center' direction='row' className='direction_box '>
-                    {(props.location.pathname == '/auth') ? <Image src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' className='size-img-large'/> : ''}
+                    {(props.location.pathname === '/auth') ? <Image src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' className='size-img-large'/> : ''}
                 </Box>
                 <Box>
                     

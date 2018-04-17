@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withFirebase } from 'react-redux-firebase';
-import { connect } from 'react-redux';
 import { compose } from 'ramda';
 import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
-import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
-import { Link, Redirect } from 'react-router-dom';
-
-import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
-
-class UserPage extends Component {
+import { Redirect } from 'react-router-dom';
 
 
+const UserPage = props => {
 
-    render() {
-        console.log(this.props, 'suerpage')
-        const { user } = this.props
+        const { user, firebase } = props
+
         return (
             <Box>           
                 {!user.uid 
@@ -28,12 +22,11 @@ class UserPage extends Component {
                             </Heading>
                         </Box>
                         <Box>
-                            <Button onClick={this.props.firebase.logout} className='log_out' label='LOGOUT'/>
+                            <Button onClick={firebase.logout} className='log_out' label='LOGOUT'/>
                         </Box>
                     </Box>}
             </Box>
         );
-    };
 };
 
 

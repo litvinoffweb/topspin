@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withFirebase } from 'react-redux-firebase';
-import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { compose } from 'ramda';
+
 import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
-import Image from 'grommet/components/Image';
 import Box from 'grommet/components/Box';
-import { Link, Redirect } from 'react-router-dom';
 
-import ProtectedAdmin from '../../../components/ProtectedAdmin/ProtectedAdmin';
+const AdminPage = props =>  {
 
-class AdminPage extends Component {
-
-
-
-    render() {
-        console.log(this.props, 'admin page')
-        const { admin, firebase: { logout } } = this.props
+        const { admin, firebase: { logout } } = props
         return (
             <Box>
-                
-                {!admin.uid && admin.isLoaded
+                {!admin.uid
                      ? <Redirect to='/auth'/> 
                      : <Box direction='row' justify='around'  className='direction_box'>
                             <Box> 
@@ -32,13 +24,8 @@ class AdminPage extends Component {
                                 <Button onClick={logout} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
-                
-                {/* {!user.email ? <Link to='/auth'className='nav-link'>Auth page </Link> : ''} */}
-
-
             </Box>
         );
-    };
 };
 
 

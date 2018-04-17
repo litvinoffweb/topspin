@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import Rebase from 're-base';
 
 export const appName = "top-spin-9cfa5"
 

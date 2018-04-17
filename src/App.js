@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Switch, Route, Link } from 'react-router-dom';
+import { withRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import './config';
 import AuthPage from './containers/Routes/AuthPage/AuthPage';

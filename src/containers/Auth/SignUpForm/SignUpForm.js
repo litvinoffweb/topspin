@@ -1,24 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { validate } from '../../../utils/validate';
 
 import Box from 'grommet/components/Box';
 import Image from 'grommet/components/Image';
-import Heading from 'grommet/components/Heading';
-import Label from 'grommet/components/Label';
-import emailValidator from 'email-validator';
-import ErrorField from '../../../components/ErrorField/ErrorField';
-import { Link } from 'react-router-dom';
 import Button from 'grommet/components/Button';
 import Form from 'grommet/components/Form';
 
-class SignUpForm extends Component {
+import ErrorField from '../../../components/ErrorField/ErrorField';
 
-    static propTypes = {
 
-    };
+const SignUpForm = props => {
 
-    render() {
-        const { handleSubmit } = this.props;
+        const { handleSubmit } = props;
         
         return(
             <Box direction='column'
@@ -28,8 +22,7 @@ class SignUpForm extends Component {
             pad='medium'
             margin='medium'
             className='opacity-bg-sign-form size-sign-form'>
-
-                
+  
                 <Form onSubmit={handleSubmit}>
                     <Box>
                         <Box>
@@ -46,7 +39,6 @@ class SignUpForm extends Component {
                             </Box>
                         </Box>
                         <Box>
-                        
                             <Field 
                                 name="password"
                                 component={ErrorField}
@@ -64,19 +56,6 @@ class SignUpForm extends Component {
                 </Form>
             </Box>
         )
-    }
-}
-
-const validate = ({email, password}) => {
-    const errors = {};
-
-    if(!email) errors.email = 'email is required';
-    else if (!emailValidator.validate(email)) errors.email = 'invalid email';
-
-    if(!password) errors.password = 'password is required';
-    else if ( password.length < 8 ) errors.password = 'password must be more than 8 characters';
-
-    return errors;
 }
 
 

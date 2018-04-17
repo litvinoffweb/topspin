@@ -1,33 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-import Heading from 'grommet/components/Heading';
 import Box from 'grommet/components/Box';
 import ErrorField from '../../../components/ErrorField/ErrorField';
-import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
-import Image from 'grommet/components/Image';
+import AuthComponent from '../../../components/AuthComponent/AuthComponent'
 
 import SignInForm from '../../Auth/SignInForm/SignInForm';
 import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
-import SignForm from '../../Auth/SignForm/SignForm';
 
-
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { signUpRequest } from '../../Auth/module/actions';
 import { signInRequest } from '../../Auth/module/actions';
 
-import Loader from '../../../components/Loader/Loader';
-import AuthComponent from '../../../components/AuthComponent/AuthComponent'
+const AuthPage = props => {
 
-class AuthPage extends Component {
-
-    handleSignIn = (values) => {
-        console.log(values)
-    }
-
-    render() {
-
-        const { authorized, user } = this.props;
+        const { user } = props;
         
         return (
             <Box 
@@ -37,23 +24,20 @@ class AuthPage extends Component {
                 justify='center'
                 responsive={true}
                 >
-                <AuthComponent {...this.props}/>
-                
+                <AuthComponent {...props}/>
                 <Box direction='row' justify='center' className='direction_box'>                    
                     <Switch>                        
-                        <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
-                        <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp} ErrorField={ErrorField}/>}/>
+                        <Route path='/auth/signin' render={ () => <SignInForm onSubmit={props.signIn}/>}/>
+                        <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={props.signUp} ErrorField={ErrorField}/>}/>
                     </Switch>
-            
                 {user.isLoaded && user.uid && user.uid !== 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
                     ? <Redirect to={`/user/id:${user.uid}`}/> 
                     : user.isLoaded && user.uid  === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
-                        ? <Redirect to={'/admin'} /> 
+                        ? <Redirect to={`/admin`} /> 
                         : null}
                 </Box>
         </Box>
-        );
-    };
+    );
 };
 
 
