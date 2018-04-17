@@ -19,13 +19,13 @@ button.#{$grommet-namespace}button.submit-btn {
 }
 
 button.#{$grommet-namespace}button.log_out {
-    background-color: $btn-bg-color;
+    background-color: $btn-bg-color-logout;
     border-radius: 3px;
     border: none;
     color: #fff;
-    margin-top: 25px;
+    margin-top: 15px;
     height: 45px;
-    width: 250px;
+    max-width: 150px;
     margin-bottom: 25px;
     font-size: 13px;
 }

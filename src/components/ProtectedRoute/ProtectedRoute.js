@@ -7,7 +7,6 @@ import { Route } from 'react-router-dom';
 class ProtectedRoute extends Component {
 
     render() {
-        console.log(this.props, 'protected route')
         const { component, ...rest } = this.props;
         return(
             <Route {...rest} render={this.renderProtected}/>
@@ -15,7 +14,6 @@ class ProtectedRoute extends Component {
     };
 
     renderProtected = (routeProps) => {
-        //console.log(this.props, 'render protected component')
         const { component: ProtectedComponent, authorized } = this.props;
         return(
             authorized ? <ProtectedComponent {...routeProps} {...this.props}/> : <UnAuthorized />
@@ -33,5 +31,5 @@ const mapStateToProps = state => {
 const withConnect = connect(mapStateToProps, null)
 
 export default compose(
-        withConnect
-)(ProtectedRoute);
+                 withConnect
+         )(ProtectedRoute);

@@ -40,13 +40,16 @@ class AuthPage extends Component {
                 <AuthComponent {...this.props}/>
                 
                 <Box direction='row' justify='center' className='direction_box'>                    
-                    <Switch>
-                        <Route path='/auth/user/1' render={ () => <ProtectedRoute id={user.uid} email={user.email} {...this.props}/>}/>                        
+                    <Switch>                        
                         <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                         <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp} ErrorField={ErrorField}/>}/>
                     </Switch>
             
-                {user.uid ? <Redirect to={`/user/id:${user.uid}`}/> : ''}
+                {user.isLoaded && user.uid && user.uid !== 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
+                    ? <Redirect to={`/user/id:${user.uid}`}/> 
+                    : user.isLoaded && user.uid  === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
+                        ? <Redirect to={'/admin'} /> 
+                        : null}
                 </Box>
         </Box>
         );
