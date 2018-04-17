@@ -11,7 +11,6 @@ import Image from 'grommet/components/Image';
 const SignInForm = props => {
 
         const { handleSubmit } = props;
-        console.log(props, 'signInForm')
         return(
             <Box
             align='center'

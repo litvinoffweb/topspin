@@ -32,40 +32,43 @@ const AdminPage = props =>  {
                                 <Button onClick={logout} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
+                <Box direction='row' justify='around'>
+                    <Box >
+                        <Form onSubmit={handleSubmit}>
+                            <Field className='input-main' name="name" component="input" id="name" placeholder='Name:'/>
+                            <Field className='input-main' name="surname" component="input" id="surname" placeholder='Surname:'/>
+                            <Field className='input-main' name="age"  component="input" id="age" placeholder='Age:'/>
+                            <Field className='input-main' name="rate" component="input" id="rate" placeholder='Rate:'/>
+                            
+                            <List align='center'>
+                                <ListItem justify='around'>
+                                    <span> Deffender : </span>
+                                    <Field className='input-main' name="radio" component="input" id="deffender" type="radio" value="deffender"/>
+                                </ListItem>
+                                <ListItem justify='around'>
+                                    <span> Attacker : </span>
+                                    <Field className='input-main' name="radio" component="input" id="attacker" type="radio" value="attacker"/>
+                                </ListItem>
+                                <ListItem justify='around'>
+                                    <span> Classic : </span>
+                                    <Field className='input-main' name='shake-classic' component='input' id='classic' type='checkbox' value='Classic'/>
+                                </ListItem>
+                                <ListItem justify='around'>
+                                    <span> Asian : </span>
+                                    <Field className='input-main' name='shake-asian' component='input' id='Asian' type='checkbox' value='Asian'/>
+                                </ListItem>
+                                <ListItem justify='around'>
+                                    <span> Japan : </span>
+                                    <Field className='input-main' name='shake-japan' component='input' id='Japan' type='checkbox' value='Japan'/>
+                                </ListItem>
+                            </List>
 
-                <Box >
-                    <Form onSubmit={handleSubmit}>
-                        <Field className='input-main' name="name" component="input" id="name" placeholder='Name:'/>
-                        <Field className='input-main' name="age"  component="input" id="age" placeholder='Age:'/>
-                        <Field className='input-main' name="rate" component="input" id="rate" placeholder='Rate:'/>
+                            <Button type='submit' label='ADD PLAYER'/>
+                        </Form>
                         
-                        <List align='center'>
-                            <ListItem justify='around'>
-                                <span> Deffender : </span>
-                                <Field className='input-main' name="radio" component="input" id="deffender" type="radio" value="deffender"/>
-                            </ListItem>
-                            <ListItem justify='around'>
-                                <span> Attacker : </span>
-                                <Field className='input-main' name="radio" component="input" id="attacker" type="radio" value="attacker"/>
-                            </ListItem>
-                            <ListItem justify='around'>
-                                <span> Classic : </span>
-                                <Field className='input-main' name='shake-classic' component='input' id='classic' type='checkbox' value='Classic'/>
-                            </ListItem>
-                            <ListItem justify='around'>
-                                <span> Asian : </span>
-                                <Field className='input-main' name='shake-asian' component='input' id='Asian' type='checkbox' value='Asian'/>
-                            </ListItem>
-                            <ListItem justify='around'>
-                                <span> Japan : </span>
-                                <Field className='input-main' name='shake-japan' component='input' id='Japan' type='checkbox' value='Japan'/>
-                            </ListItem>
-                        </List>
-
-                        <Button type='submit' label='ADD PLAYER'/>
-                    </Form>
-                    
+                    </Box>
                 </Box>
+                
             </Box>
             
         );

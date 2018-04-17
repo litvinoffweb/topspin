@@ -4,13 +4,14 @@ export const actionTypes = {
     ADD_PLAYER_ERROR: 'ADD_PLAYER_ERROR'
 }
 
-export const addPlayer = (name, age, rate, style, ...rest) => ({
+
+
+export const addPlayer = (name, surname, age, rate) => ({
     type: actionTypes.ADD_PLAYER,
         name,
+        surname,
         age,
-        rate,
-        style,
-        ...rest
+        rate
 })
         
 

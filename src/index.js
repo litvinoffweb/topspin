@@ -8,7 +8,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import history from './history';
 import { store } from './redux/store';
 import './index.scss';
-import firebase from 'firebase'
+import firebase from 'firebase';
+import { addPlayer } from './containers/Routes/AdminPage/module/actions';
 
 
 
@@ -21,21 +22,19 @@ ReactDOM.render(
     , document.getElementById('root'));
 
 
+    store.dispatch(addPlayer('a','a','a','a','a','a','a','a',));
 
+    // function writeUserData(userId, name, rate, style, shake, age) {
+    //     firebase.database().ref('players/' + userId).set({
+    //       name: name,
+    //       id : userId,
+    //       rate: rate,
+    //       style: style,
+    //       shake: shake,
+    //       age: age
+    //     });
+    //   }
 
-    
-
-    function writeUserData(userId, name, rate, style, shake, age) {
-        firebase.database().ref('players/' + userId).set({
-          name: name,
-          id : userId,
-          rate: rate,
-          style: style,
-          shake: shake,
-          age: age
-        });
-      }
-
-      writeUserData("1", 'Petr2 Shevchenko', 1000, 'attacker', 'classic', 25);
+    //   writeUserData("1", 'Petr2 Shevchenko', 1000, 'attacker', 'classic', 25);
       
 

@@ -9,9 +9,9 @@ const ProtectedAdmin = props => {
         const { component, ...rest } = props;
         
         const renderProtected = (routeProps) => {
-            const { component: ProtectedComponent, isAdmin } = props;
+            const { component: ProtectedComponent, isAdmin, addPlayers } = props;
             return(
-                isAdmin.uid ? <ProtectedComponent {...routeProps} {...props} onSubmit={props.addPlayers}/> : <UnAuthorized />
+                isAdmin.uid ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized />
             );
         };
 
@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => {
     return {
         addPlayers: values => {
             console.log(values)
-            dispatch(addPlayer(values.name, values.age, values.rate, values.style, ...values))
+            dispatch(addPlayer(values.name, values.surname, values.age, values.rate, values.style, ...values))
         }
     }
 }

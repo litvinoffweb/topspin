@@ -4,27 +4,23 @@ import firebase from 'firebase';
 
 
 export const addPlayerEpic = action$ =>
-    action$.ofType(actionTypes.addPlayer)
-        .switchMap(({name, age, rate, style, ...rest}) =>
-            Observable.of(addData({
-                name,
-                 age,
-                  rate,
-                   style,
-                    ...rest})
+    action$.ofType(actionTypes.ADD_PLAYER)
+        .switchMap( ({name, surname, age, rate}) =>
+            Observable.of(addData({name, surname, age, rate})
             )
             .map( () => addedPlayerSuccess())
             .catch(error => Observable.of(addPlayerError(error)))
     )
 
-    const addData = ({name, age, rate, style, ...rest}) => {
-        console.log({name, age, rate, style, ...rest})
-        firebase.database().ref('/players' + name).set({
+    const addData = ({name, surname, age, rate}) => {
+        console.log({name, surname, age, rate})
+        firebase.database().ref('players/' + name + surname).set({
             name,
+            surname,
              age,
               rate,
-               style,
-                id: Date.now().toString(),
-                ...rest})
+              id: Date.now().toString()
+               
+        })
 
     }
