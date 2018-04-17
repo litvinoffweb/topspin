@@ -19,6 +19,7 @@ class App extends Component {
 
     return (
       <Box className="App">
+      
         <Switch>
             <Route path="/auth" component={AuthPage}/>
             <Route path="/admin" component={AdminPage}/>

@@ -5,6 +5,7 @@ import Heading from 'grommet/components/Heading';
 import Box from 'grommet/components/Box';
 import ErrorField from '../../../components/ErrorField/ErrorField';
 import ProtectedRoute from '../../../components/ProtectedRoute/ProtectedRoute';
+import Image from 'grommet/components/Image';
 
 import SignInForm from '../../Auth/SignInForm/SignInForm';
 import SignUpForm from '../../Auth/SignUpForm/SignUpForm';
@@ -16,6 +17,7 @@ import { signUpRequest } from '../../Auth/module/actions';
 import { signInRequest } from '../../Auth/module/actions';
 
 import Loader from '../../../components/Loader/Loader';
+import AuthComponent from '../../../components/AuthComponent/AuthComponent'
 
 class AuthPage extends Component {
 
@@ -26,7 +28,7 @@ class AuthPage extends Component {
     render() {
 
         const { authorized, user } = this.props;
-        
+        console.log(this.props,'authpage')
         return (
             <Box 
                 className='main_background'
@@ -35,24 +37,17 @@ class AuthPage extends Component {
                 justify='center'
                 responsive={true}
                 >
-                <Box>
-                    <Heading tag="h1" uppercase={true} strong ={true} className='h1-color'>
-                        Auth Page
-                    </Heading>
-                    <Box direction='row' justify='center'>
-                            <NavLink to='/auth/signin' className='nav-link' activeStyle={{backgroundColor : '#FBC02D', color: '#fff'}}> SIGN IN </NavLink>
-                            <NavLink to='/auth/signup' className='nav-link' activeStyle={{backgroundColor : '#FBC02D', color: '#fff'}}> SIGN UP </NavLink>
-                    </Box>
-                </Box>
-                <Box justify='center' direction='row'>                    
+                <AuthComponent {...this.props}/>
+                
+                <Box direction='row' justify='center' className='direction_box'>                    
                     <Switch>
                         <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                         <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp} ErrorField={ErrorField}/>}/>
                         <Route path={`/user/id:${user.uid}`} render={ () => <ProtectedRoute id={user.uid} email={user.email}/>}/>
                     </Switch>
-                {/* {(user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3') ? <Redirect to={`/admin`}/> : <Redirect to={`/auth`}/>} */}
             
-            </Box>
+            
+                </Box>
         </Box>
         );
     };

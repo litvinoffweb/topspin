@@ -2,6 +2,7 @@ import { combineEpics } from 'redux-observable';
 import { pingEpic } from '../../test/epic';
 import { signUpUserEpic, signInUserEpic } from '../../containers/Auth/module/epics';
 import { signInOrSignUpEpic } from '../../containers/Auth/Authorized/module/epics';
+import { signOutEpic } from '../../components/SignOut/module/epics';
 
 
 import 'rxjs/add/observable/fromPromise';
@@ -23,7 +24,8 @@ export const rootEpics = combineEpics(
     pingEpic,
     signUpUserEpic,
     signInUserEpic,
-    signInOrSignUpEpic
+    signInOrSignUpEpic,
+    signOutEpic
 
 );
 

@@ -1,25 +1,26 @@
 .input-main {
     border: none;
     padding: 5px 10px;
-    background-color: #fff;
-    height: 30px;
-    border-left: 5px $input-border-color solid;
+    background-color: $input-bg-color;
+    height: 35px;
+    border-radius: 3px;
+    margin-bottom: 8px;
 }
 
 input:focus { 
-    border-left: 5px $input-focus-border-color solid;
+   
 }
 
 input[type=text] {
-    background-color: #fff;
+    background-color: $input-bg-color;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:active,
 input:-webkit-autofill:focus {
-    background-color: #FFFFFF !important;
+    background-color: $input-bg-color !important;
     color: #555 !important;
-    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+    -webkit-box-shadow: 0 0 0 1000px $input-bg-color inset !important;
     -webkit-text-fill-color: #555555 !important;
     }

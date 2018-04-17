@@ -7,26 +7,38 @@ import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
 import Form from 'grommet/components/Form';
 import Button from 'grommet/components/Button';
+import SVGIcon from 'grommet/components/SVGIcon';
+import MailIcon from 'grommet/components/icons/base/Mail';
+import SecureIcon from 'grommet/components/icons/base/Secure';
+import Image from 'grommet/components/Image';
+
+import SignOut from '../../../components/SignOut/SignOut';
+
+
 
 
 class SignInForm extends Component {
 
     render() {
-        console.log(this.props.userId, 'luserId')
         const { handleSubmit } = this.props;
         return(
-            <Box direction='column'
-            justify='start'
+            <Box
             align='center'
             wrap={true}
             pad='medium'
-            margin='medium'
-            className='opacity-bg-sign-form size-sign-form'>
-                <Heading tag='h2' uppercase={true} strong ={true}>Sign in</Heading>
+            margin='large'
+            className='opacity-bg-sign-form size-sign-form'
+            responsive={true}>
+            
+            <SignOut />
+
                 <Form onSubmit={handleSubmit}>
                    <Box >
-                            <Box>
-                                <Label labelFor='email'>Email :</Label>
+                        <Box direction='row' justify='center' className='direction_box'>
+                            <Image className='size-img-medium' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
+                        </Box>
+                        <Box>
+                                
                                 <Field 
                                     className='input-main'
                                     name="email"
@@ -35,7 +47,7 @@ class SignInForm extends Component {
                                     />
                             </Box>
                             <Box>
-                                <Label labelFor='password'>Password :</Label>
+
                                 <Field 
                                     className='input-main'
                                     name="password"
@@ -44,13 +56,19 @@ class SignInForm extends Component {
                                     type="password"
                                     />
                             </Box>
-                            <Box direction='row' justify='center'>
-                                <Button type='submit' label='SIGN IN' className='submit-btn'/>
+                            <Box>
+                                <Button type='submit' label='LOGIN' className='submit-btn'/>
                             </Box>
-                            {this.props.auth ? this.props.userId : 'not auth'}
+                            
+                            
+                            <Box justify='center'>
+                                <Image className='size-img-button-small' src='https://www.sahazamarline.com/labs/fbcmp/assets/img/facebook-login-button.png' />
+                                <Image className='size-img-button-small' src='http://najdik.com/images/sign-google.png' />
+                            </Box>
                     </Box>
                 </Form>
             </Box>
+            
         )
     }
 }

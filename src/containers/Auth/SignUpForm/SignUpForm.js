@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 
 import Box from 'grommet/components/Box';
+import Image from 'grommet/components/Image';
 import Heading from 'grommet/components/Heading';
 import Label from 'grommet/components/Label';
 import emailValidator from 'email-validator';
@@ -27,12 +28,15 @@ class SignUpForm extends Component {
             pad='medium'
             margin='medium'
             className='opacity-bg-sign-form size-sign-form'>
-                <Heading tag='h2' uppercase={true} strong ={true} className='h2-color'>Sign up</Heading>
+
+                <Box direction='row' justify='center' className='direction_box'>
+                            <Image className='size-img-medium' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
+                </Box>
                 <Form onSubmit={handleSubmit}>
                     <Box>
                         <Box>
                             <Box>
-                                <Label labelFor='email'>Email :</Label>
+                                
                                 <Field 
                                     name="email"
                                     component={ErrorField}
@@ -41,7 +45,7 @@ class SignUpForm extends Component {
                             </Box>
                         </Box>
                         <Box>
-                        <Label labelFor='password'>Password :</Label>
+                        
                             <Field 
                                 name="password"
                                 component={ErrorField}
@@ -50,6 +54,10 @@ class SignUpForm extends Component {
                         </Box>
                         <Box direction='row' justify='center'>
                             <Button type='submit' label='SIGN UP' className='submit-btn'/>
+                        </Box>
+                        <Box  justify='center'>
+                                <Image className='size-img-button-small' src='https://www.sahazamarline.com/labs/fbcmp/assets/img/facebook-login-button.png' />
+                                <Image className='size-img-button-small' src='http://najdik.com/images/sign-google.png' />
                         </Box>
                     </Box>
                 </Form>

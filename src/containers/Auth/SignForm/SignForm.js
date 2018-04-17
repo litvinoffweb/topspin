@@ -32,7 +32,7 @@ class SignForm extends Component {
                     <Box>
                         <Box>
                             <Box>
-                                <Label labelFor='email'>Email :</Label>
+                                <Heading tag='h6' >Email </Heading>
                                 <Field 
                                     name="email"
                                     component={ErrorField}
@@ -41,8 +41,8 @@ class SignForm extends Component {
                             </Box>
                         </Box>
                         <Box>
-                        <Label labelFor='password'>Password :</Label>
-                            <Field 
+                            <Field
+                                placeholder='email'
                                 name="password"
                                 component={ErrorField}
                                 type="password"
