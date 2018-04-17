@@ -46,7 +46,7 @@ class AuthPage extends Component {
                         <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp} ErrorField={ErrorField}/>}/>
                     </Switch>
             
-                {user.uid ? <Redirect to={`/u`}/> : ''}
+                {user.uid ? <Redirect to={`/user/id:${user.uid}`}/> : ''}
                 </Box>
         </Box>
         );

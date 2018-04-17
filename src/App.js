@@ -14,27 +14,26 @@ import Box from 'grommet/components/Box';
 
 class App extends Component {
 
-  componentWillMount() {
-    console.log(this.props, 'will')
-  }
+  // componentWillMount() {
+  //   console.log(this.props, 'will')
+  // }
 
-  componentDidMount() {
-    console.log(this.props, 'did')
-  }
+  // componentDidMount() {
+  //   console.log(this.props, 'did')
+  // }
 
 
   render() {
     const { user } = this.props;
-    console.log(this.props,' app ')
+    //console.log(this.props,' app ')
     return (
       <Box className="App">
       
         <Switch>
             <Route path="/auth" component={AuthPage}/>
             <Route path="/admin" component={AdminPage}/>
-            {user.isLoaded ? <ProtectedRoute path={`/user/id:${user.uid}`} component={UserPage}/> : ''}
-        </Switch> 
-        <Link to={`/user/id:${user.uid}`} > user </Link>
+            {user.isLoaded ? <ProtectedRoute path={`/user/id:${user.uid}`} component={UserPage} user={user}/> : ''}
+        </Switch>
       </Box>
     );
   }

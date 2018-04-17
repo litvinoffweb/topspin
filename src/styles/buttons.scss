@@ -17,3 +17,15 @@ button.#{$grommet-namespace}button:hover {
 button.#{$grommet-namespace}button.submit-btn {
     background-color: $btn-bg-color-submit;
 }
+
+button.#{$grommet-namespace}button.log_out {
+    background-color: $btn-bg-color;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    margin-top: 25px;
+    height: 45px;
+    width: 50px;
+    margin-bottom: 25px;
+    font-size: 13px;
+}
