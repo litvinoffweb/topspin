@@ -28,7 +28,7 @@ class AuthPage extends Component {
     render() {
 
         const { authorized, user } = this.props;
-        console.log(this.props,'authpage')
+        
         return (
             <Box 
                 className='main_background'
@@ -41,12 +41,12 @@ class AuthPage extends Component {
                 
                 <Box direction='row' justify='center' className='direction_box'>                    
                     <Switch>
+                        <Route path='/auth/user/1' render={ () => <ProtectedRoute id={user.uid} email={user.email} {...this.props}/>}/>                        
                         <Route path='/auth/signin' render={ () => <SignInForm onSubmit={this.props.signIn}/>}/>
                         <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={this.props.signUp} ErrorField={ErrorField}/>}/>
-                        <Route path={`/user/id:${user.uid}`} render={ () => <ProtectedRoute id={user.uid} email={user.email}/>}/>
                     </Switch>
             
-            
+                {user.uid ? <Redirect to={`/u`}/> : ''}
                 </Box>
         </Box>
         );

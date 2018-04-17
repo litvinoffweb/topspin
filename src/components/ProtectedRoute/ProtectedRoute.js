@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom';
 class ProtectedRoute extends Component {
 
     render() {
-        //console.log(this.props, 'ProtectedRoute');
+        console.log(this.props, 'protected rotue')
         const { component, ...rest } = this.props;
         return(
             <Route {...rest} render={this.renderProtected}/>
@@ -15,7 +15,7 @@ class ProtectedRoute extends Component {
     };
 
     renderProtected = (routeProps) => {
-        //console.log(this.props, 'renderProtected');
+        console.log(this.props, 'render protected component')
         const { component: ProtectedComponent, authorized } = this.props;
         return(
             authorized ? <ProtectedComponent {...routeProps}/> : <UnAuthorized />
@@ -24,5 +24,10 @@ class ProtectedRoute extends Component {
 };
 
 
+const mapStateToProps = state => {
+    return {
+        authorized: state.firebase.auth.isLoaded
+    }
+}
 
-export default connect(null, null)(ProtectedRoute);
+export default connect(mapStateToProps, null)(ProtectedRoute);

@@ -29,13 +29,14 @@ class SignUpForm extends Component {
             margin='medium'
             className='opacity-bg-sign-form size-sign-form'>
 
-                <Box direction='row' justify='center' className='direction_box'>
-                            <Image className='size-img-medium' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
-                </Box>
+                
                 <Form onSubmit={handleSubmit}>
                     <Box>
                         <Box>
                             <Box>
+                                <Box direction='row' justify='center' className='direction_box'>
+                                    <Image className='size-img-medium' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
+                                </Box>
                                 
                                 <Field 
                                     name="email"

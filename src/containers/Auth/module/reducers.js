@@ -8,13 +8,16 @@ export const ACTION_HANDLERS = {
     [actionTypes.SIGN_IN_REQUEST]: (state, action) => immutableSet(['isLoading'], true, state),
     [actionTypes.SIGN_IN_SUCCESS]: (state, action) => compose(
         immutableSet(['isLoading'], false),
-        immutableSet(['user'], action.payload),
         immutableSet(['authorized'], true)
     )(state),
     [actionTypes.SIGN_UP_REQUEST]: (state, action) => immutableSet(['isLoading'], true, state),
     [actionTypes.SIGN_UP_SUCCESS]: (state, action) => compose(
         immutableSet(['isLoading'], false),
-        immutableSet(['user'], action.payload),
+        immutableSet(['authorized'], true)
+    )(state),
+    [actionTypes.GET_USER]: (state, action) => compose(
+        immutableSet(['isLoading'], false),
+        immutableSet(['user'], action.user),        
         immutableSet(['authorized'], true)
     )(state)
 }

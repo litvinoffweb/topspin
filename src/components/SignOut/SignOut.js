@@ -13,7 +13,7 @@ const SignOut = props => {
     
     return(
         <Box>
-            <Button label='SIGN OUT' onClick={props.SignOut}/>
+            <Button label='SIGN OUT' onClick={props.signOut}/>
         </Box>
     )
 }

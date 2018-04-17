@@ -30,11 +30,12 @@ class SignInForm extends Component {
             className='opacity-bg-sign-form size-sign-form'
             responsive={true}>
             
-            <SignOut />
+            
 
                 <Form onSubmit={handleSubmit}>
                    <Box >
                         <Box direction='row' justify='center' className='direction_box'>
+                            
                             <Image className='size-img-medium' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
                         </Box>
                         <Box>
