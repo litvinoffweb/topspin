@@ -24,7 +24,4 @@ async function signInAndChangeState(email, password) {
     
     const user = await firebase.auth().signInWithEmailAndPassword(email, password);
 
-    const parsedUser = await firebase.auth().onAuthStateChanged(user => user)
-
-    
 }
