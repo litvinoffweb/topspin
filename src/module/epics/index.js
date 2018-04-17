@@ -3,7 +3,9 @@ import { pingEpic } from '../../test/epic';
 import { signUpUserEpic, signInUserEpic } from '../../containers/Auth/module/epics';
 import { signInOrSignUpEpic } from '../../containers/Auth/Authorized/module/epics';
 import { signOutEpic } from '../../components/SignOut/module/epics';
-import { getFirebase } from 'react-redux-firebase'
+import { addPlayerEpic } from '../../containers/Routes/AdminPage/module/epics';
+import { getFirebase } from 'react-redux-firebase';
+
 
 
 import 'rxjs/add/observable/fromPromise';
@@ -27,7 +29,8 @@ combineEpics(
     signUpUserEpic,
     signInUserEpic,
     signInOrSignUpEpic,
-    signOutEpic
+    signOutEpic,
+    addPlayerEpic
 
 )(...args, getFirebase);
 

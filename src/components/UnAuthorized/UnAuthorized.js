@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 
-class UnAuthorized extends Component {
+const UnAuthorized = props => {
 
-    render() {
         return (
             <Box>
-                <Heading tag='h1'>
+                <Heading tag='h2'>
                     Unauthorized, please 
-                    <Link to="/auth/signin">
+                    <Link to="/auth/signin" className='nav-link'>
                         Sign In
                     </Link>
                 </Heading>
             </Box>
         );
-    };
 };
 
 export default UnAuthorized;

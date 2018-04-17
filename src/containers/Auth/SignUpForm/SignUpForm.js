@@ -49,8 +49,8 @@ const SignUpForm = props => {
                             <Button type='submit' label='SIGN UP' className='submit-btn'/>
                         </Box>
                         <Box  justify='center'>
-                                <Image className='size-img-button-small' src='https://www.sahazamarline.com/labs/fbcmp/assets/img/facebook-login-button.png' />
-                                <Image className='size-img-button-small' src='http://najdik.com/images/sign-google.png' />
+                                {/* <Image className='size-img-button-small' src='https://www.sahazamarline.com/labs/fbcmp/assets/img/facebook-login-button.png' />
+                                <Image className='size-img-button-small' src='http://najdik.com/images/sign-google.png' /> */}
                         </Box>
                     </Box>
                 </Form>

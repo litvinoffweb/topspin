@@ -1,36 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import UnAuthorized from '../UnAuthorized/UnAuthorized';
 import { compose } from 'ramda';
 import { Route } from 'react-router-dom';
+import { addPlayer } from '../../containers/Routes/AdminPage/module/actions';
 
-class ProtectedAdmin extends Component {
+const ProtectedAdmin = props => {
+        const { component, ...rest } = props;
+        
+        const renderProtected = (routeProps) => {
+            const { component: ProtectedComponent, isAdmin } = props;
+            return(
+                isAdmin.uid ? <ProtectedComponent {...routeProps} {...props} onSubmit={props.addPlayers}/> : <UnAuthorized />
+            );
+        };
 
-    render() {
-        console.log(this.props, 'protected admin')
-        const { component, ...rest } = this.props;
         return(
-            <Route {...rest} render={this.renderProtected}/>
-        );
-    };
-
-    renderProtected = (routeProps) => {
-        const { component: ProtectedComponent, isAdmin, admin } = this.props;
-        return(
-            isAdmin.uid ? <ProtectedComponent {...routeProps} {...this.props} admin={admin}/> : <UnAuthorized />
-        );
-    };
+            <Route {...rest} render={renderProtected}/>
+        );   
 };
 
 
 const mapStateToProps = state => {
     return {
-        isAdmin: state.firebase.auth,
-        admin: state.firebase.auth
+        isAdmin: state.firebase.auth
     }
 }
 
-const withConnect = connect(mapStateToProps, null)
+const mapDispatchToProps = dispatch => {
+    return {
+        addPlayers: values => {
+            console.log(values)
+            dispatch(addPlayer(values.name, values.age, values.rate, values.style, ...values))
+        }
+    }
+}
+const withConnect = connect(mapStateToProps, mapDispatchToProps)
 
 export default compose(
         withConnect

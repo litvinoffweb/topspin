@@ -34,7 +34,7 @@ const AuthPage = props => {
                     ? <Redirect to={`/user/id:${user.uid}`}/> 
                     : user.isLoaded && user.uid  === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
                         ? <Redirect to={`/admin`} /> 
-                        : null}
+                        : ''}
                 </Box>
         </Box>
     );

@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import UnAuthorized from '../UnAuthorized/UnAuthorized';
 import { compose } from 'ramda';
 import { Route } from 'react-router-dom';
 
-class ProtectedRoute extends Component {
+const ProtectedRoute = props => {
 
-    render() {
-        const { component, ...rest } = this.props;
+    const { component, ...rest } = props;
+
+    const renderProtected = (routeProps) => {
+        const { component: ProtectedComponent, authorized } = props;
         return(
-            <Route {...rest} render={this.renderProtected}/>
+            authorized ? <ProtectedComponent {...routeProps} {...props}/> : <UnAuthorized />
         );
     };
 
-    renderProtected = (routeProps) => {
-        const { component: ProtectedComponent, authorized } = this.props;
         return(
-            authorized ? <ProtectedComponent {...routeProps} {...this.props}/> : <UnAuthorized />
-        );
-    };
+            <Route {...rest} render={renderProtected}/>
+        ); 
 };
 
 

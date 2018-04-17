@@ -11,6 +11,7 @@ import Image from 'grommet/components/Image';
 const SignInForm = props => {
 
         const { handleSubmit } = props;
+        console.log(props, 'signInForm')
         return(
             <Box
             align='center'
@@ -26,7 +27,8 @@ const SignInForm = props => {
                             <Image className='size-img-medium' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
                         </Box>
                          <Box>
-                            <Field 
+                            <Field
+                                placeholder='Email:'
                                 className='input-main'
                                 name="email"
                                 component="input"
@@ -35,7 +37,8 @@ const SignInForm = props => {
                         </Box>
                         <Box>
 
-                            <Field 
+                            <Field
+                                placeholder='Password:'
                                 className='input-main'
                                 name="password"
                                 component="input"
@@ -47,8 +50,8 @@ const SignInForm = props => {
                             <Button type='submit' label='LOGIN' className='submit-btn'/>
                         </Box>
                         <Box justify='center'>
-                            <Image className='size-img-button-small' src='https://www.sahazamarline.com/labs/fbcmp/assets/img/facebook-login-button.png' alt='facebook'/>
-                            <Image className='size-img-button-small' src='http://najdik.com/images/sign-google.png' alt='google'/>
+                            {/* <Image className='size-img-button-small' src='https://www.sahazamarline.com/labs/fbcmp/assets/img/facebook-login-button.png' alt='facebook'/>
+                            <Image className='size-img-button-small' src='http://najdik.com/images/sign-google.png' alt='google'/> */}
                         </Box>
                     </Box>
                 </Form>
