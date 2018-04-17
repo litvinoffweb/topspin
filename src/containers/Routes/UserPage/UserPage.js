@@ -19,11 +19,11 @@ class UserPage extends Component {
         const { user } = this.props
         return (
             <Box>
-                {!user.uid ? <Redirect to='/auth'/> : <Box direction='row' justify='center' align='center'>
+                {!user.uid ? <Redirect to='/auth'/> : <Box direction='row' justify='between' align='center'>
                     <Heading tag="h1">
                         Hello : {user.email}
                     </Heading>
-                    <Button onClick={this.props.firebase.logout} className='log_out'> logout </Button>
+                    <Button onClick={this.props.firebase.logout} className='log_out' label='LOGOUT'/>
                 </Box>}
                 
                 {/* {!user.email ? <Link to='/auth'className='nav-link'>Auth page </Link> : ''} */}
