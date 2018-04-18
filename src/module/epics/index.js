@@ -5,6 +5,7 @@ import { signInOrSignUpEpic } from '../../containers/Auth/Authorized/module/epic
 import { signOutEpic } from '../../components/SignOut/module/epics';
 import { addPlayerEpic } from '../../containers/Routes/AdminPage/module/epics';
 import { getFirebase } from 'react-redux-firebase';
+import { fetchPlayersEpic } from '../../components/PlayersList/module/epics';
 
 
 
@@ -30,7 +31,8 @@ combineEpics(
     signInUserEpic,
     signInOrSignUpEpic,
     signOutEpic,
-    addPlayerEpic
+    addPlayerEpic,
+    fetchPlayersEpic
 
 )(...args, getFirebase);
 

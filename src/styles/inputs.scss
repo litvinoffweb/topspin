@@ -8,11 +8,17 @@
 }
 
 input:focus { 
-   
 }
 
 input[type=text] {
     background-color: $input-bg-color;
+}
+
+input[type=radio] {
+    background-color: $input-bg-color;
+    margin-bottom: 0px 0px;
+    height: 25px;
+    padding: none;
 }
 
 input:-webkit-autofill,

@@ -4,6 +4,7 @@ import { reducer as formReducer } from 'redux-form';
 import { firebaseReducer } from 'react-redux-firebase';
 import authUser from '../../containers/Auth/module/reducers';
 import authorized from '../../containers/Auth/Authorized/module/reducer';
+import players from '../../components/PlayersList/module/reducer';
 
 
 
@@ -12,6 +13,7 @@ export const reducers = combineReducers({
     router: routerReducer,
     form: formReducer,
     authUser,
-    authorized
+    authorized,
+    players
 
 });

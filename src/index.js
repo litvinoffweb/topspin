@@ -21,19 +21,21 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 
+    // const getDataFromFirebase = (value) => {
 
+    //     const db = firebase.database();
+    //     const playersRef = db.ref().child(value);
+    
+    //     const dates = playersRef.on('value', snapshot => {
+    
+    //         const data = JSON.stringify(snapshot);
+    //         const parsedData = JSON.parse(data);
+    //         console.log(parsedData);
 
-    // function writeUserData(userId, name, rate, style, shake, age) {
-    //     firebase.database().ref('players/' + userId).set({
-    //       name: name,
-    //       id : userId,
-    //       rate: rate,
-    //       style: style,
-    //       shake: shake,
-    //       age: age
+    //         return parsedData;
     //     });
-    //   }
+        
+    //     return dates();
+    // }
 
-    //   writeUserData("1", 'Petr2 Shevchenko', 1000, 'attacker', 'classic', 25);
-      
-
+    // console.log(getDataFromFirebase('players'));

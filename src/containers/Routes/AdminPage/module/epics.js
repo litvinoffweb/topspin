@@ -5,30 +5,32 @@ import firebase from 'firebase';
 
 export const addPlayerEpic = action$ =>
     action$.ofType(actionTypes.ADD_PLAYER)
-        .switchMap( ({name, surname, age, rate, radio,  ...rest}) =>
-            Observable.of(addData({name, surname, age, rate, radio,  ...rest})
+        .switchMap( ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, }) =>
+            Observable.of(addData({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, })
             )
             .map( () => addedPlayerSuccess())
             .catch(error => Observable.of(addPlayerError(error)))
     )
 
-    const addData = ({name, surname, age, rate, radio, ...rest}) => {
-        console.log({name, surname, age, rate, radio,  ...rest})
+    const addData = ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, }) => {
+        console.log({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, })
         
-        const makeShortName = (name, surname) => {
+        const makeShortName = (Name, Surname) => {
            
-            return name.slice(0,1).toUpperCase() + '-' + surname.slice(0,1).toUpperCase() + surname.slice(1);
+            return Name.slice(0,1).toUpperCase() + '-' + Surname.slice(0,1).toUpperCase() + Surname.slice(1);
         }
 
-        firebase.database().ref('players/' + makeShortName(name, surname)).set({
-            name,
-            surname,
-             age,
-              rate,
-              id: Date.now().toString(),
-               radio,
-               
-               ...rest
+        firebase.database().ref('players/' + makeShortName(Name, Surname)).set({
+            Name,
+            Surname,
+            Age,
+            Rating,
+            id: Date.now().toString(),
+            Style,               
+            Classic,
+            Asian,
+            Japan
+            
                
         })
 

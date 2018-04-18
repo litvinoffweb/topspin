@@ -11,3 +11,12 @@ export const validate = ({email, password}) => {
 
     return errors;
 }
+
+export const validatePlayer = ({ Name }) => {
+    const errors = {};
+
+    if(!Name) errors.Name = 'Name is required';
+    else if(Name.length < 6) errors.Name = 'Name is invalid';
+    
+    return errors;
+}

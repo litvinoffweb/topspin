@@ -30,8 +30,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addPlayers: values => {
-            console.log(values)
-            dispatch(addPlayer(values.name, values.surname, values.age, values.rate, values.radio, values.checkboxClassic, values.checkboxAsian,values.checkboxJapan))
+            dispatch(addPlayer(values.Name, values.Surname, values.Age, values.Rating, values.Style, values.Classic, values.Asian,values.Japan))
         }
     }
 }

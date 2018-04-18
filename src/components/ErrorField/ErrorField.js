@@ -6,7 +6,7 @@ const ErrorField = props => {
 
     const { input, type, meta: {error, touched} } = props;
     const errorText = touched && error && <div style={{color: '#E65100'}}>{error}</div>
-
+    console.log(props, 'errorField')
     return(
         <Box>
             
