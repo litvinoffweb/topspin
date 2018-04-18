@@ -1,7 +1,7 @@
 export default {
     isFetching: true,
     isLoaded: false,
-    players: [],
+    players: {},
     error: null
 
 };

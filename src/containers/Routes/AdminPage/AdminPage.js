@@ -22,15 +22,15 @@ class AdminPage extends Component  {
     
     componentWillMount() {
         this.props.fetchPlayers();
-        console.log(this.props, ' will mount admin')
+        //console.log(this.props.players, ' array')
     }
 
     componentDidMount() {
-        console.log(this.props, 'did mount admin')
+        //console.log(this.props, 'did mount admin')
     }
     
     render() {
-        console.log(this.props, ' render adminpage')
+        //console.log(this.props, ' render adminpage')
         const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching } = this.props
         return (
             <Box>
@@ -81,9 +81,9 @@ class AdminPage extends Component  {
                         </Form>
                         
                     </Box>
-                    {isLoaded ?  <Box>
+                    <Box>
                         <PlayersList {...this.props}/>
-                    </Box> : 'not loaded'}
+                    </Box>
                 </Box>
                 
                 

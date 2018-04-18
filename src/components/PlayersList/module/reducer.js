@@ -1,7 +1,7 @@
 import defaultPlayers from './emptyState';
 import { actionTypes } from './actions';
 import { immutableSet } from '../../../utils/immutable';
-import { compose } from 'ramda';
+import { compose, values, keys } from 'ramda';
 
 
 export const ACTION_HANDLERS = {

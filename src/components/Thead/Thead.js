@@ -5,10 +5,10 @@ const Thead = props => {
         <thead>
             <tr>
                 <th>
-                    Name
+                    Name000
                 </th>
                 <th>
-                    Rating
+                    Rating22
                 </th>
                 <th>
                     Age

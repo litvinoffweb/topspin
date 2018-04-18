@@ -15,12 +15,13 @@ class PlayersList extends Component {
 
     componentWillMount() {
         //this.props.fetchPlayers();
-        console.log(this.props, 'will mount')
+        //console.log(this.props, 'will mount')
+        //console.log(this.props.players, 'players will')
     }
 
-    // componentDidMount() {
-    //     console.log(this.props, ' did mount');
-    // }
+    componentDidMount() {
+        //console.log(this.props, ' did mount');
+    }
     
 
     render() {
@@ -47,7 +48,8 @@ class PlayersList extends Component {
 
 const mapStateToProps = state => ({
     isLoaded: state.players.isLoaded,
-    isFetching: state.players.isFetching
+    isFetching: state.players.isFetching,
+    players: state.players.players
 })
 
 const mapDispatchToProps = dispatch => ({
