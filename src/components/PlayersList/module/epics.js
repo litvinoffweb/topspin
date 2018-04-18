@@ -6,24 +6,28 @@ export const fetchPlayersEpic = action$ =>
     action$.ofType(actionTypes.FETCH_PLAYERS)
         .switchMap( () => 
             Observable.of(getDataFromFirebase('players'))
-            .do(res => console.log(res))
+            .do(res => console.log(res, 'res'))
             .map( players => fetchPlayersSuccess(players))
+            .do(players => console.log(players))
             .catch( error => Observable.of(fetchPlayersError(error)))
         )
 
+
+
+        
 const getDataFromFirebase = (value) => {
 
     const db = firebase.database();
     const playersRef = db.ref().child(value);
-
-    return playersRef.on('value', snapshot => {
+    const items = [];
+    playersRef.on('value', snapshot => {
+        snapshot.forEach(snapshotChild => {
+            const item = snapshot.val();
+            item.key = snapshot.key;
+            return items.push(item)
+        })
         
-        const data = JSON.stringify(snapshot);
-        console.log(data)
-        const parsedData = JSON.parse(data);
-        console.log(parsedData)
-
-        return parsedData;
-    })();
+    });
+    return items;
 
 }

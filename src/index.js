@@ -21,21 +21,3 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 
-    // const getDataFromFirebase = (value) => {
-
-    //     const db = firebase.database();
-    //     const playersRef = db.ref().child(value);
-    
-    //     const dates = playersRef.on('value', snapshot => {
-    
-    //         const data = JSON.stringify(snapshot);
-    //         const parsedData = JSON.parse(data);
-    //         console.log(parsedData);
-
-    //         return parsedData;
-    //     });
-        
-    //     return dates();
-    // }
-
-    // console.log(getDataFromFirebase('players'));

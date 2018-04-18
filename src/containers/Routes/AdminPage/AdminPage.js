@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
 import { compose } from 'ramda';
@@ -12,15 +12,26 @@ import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
 import ErrorField from '../../../components/ErrorField/ErrorField';
 import PlayersList from '../../../components/PlayersList/PlayersList';
-
+import { fetchPlayer } from '../../../components/PlayersList/module/actions';
 
 
 
 import { Field, reduxForm } from 'redux-form';
 
-const AdminPage = props =>  {
+class AdminPage extends Component  {
+    
+    componentWillMount() {
+        this.props.fetchPlayers();
+        console.log(this.props, ' will mount admin')
+    }
 
-        const { admin, firebase: { logout }, handleSubmit } = props
+    componentDidMount() {
+        console.log(this.props, 'did mount admin')
+    }
+    
+    render() {
+        console.log(this.props, ' render adminpage')
+        const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching } = this.props
         return (
             <Box>
                 {!admin.uid
@@ -70,12 +81,16 @@ const AdminPage = props =>  {
                         </Form>
                         
                     </Box>
+                    {isLoaded ?  <Box>
+                        <PlayersList {...this.props}/>
+                    </Box> : 'not loaded'}
                 </Box>
-                <PlayersList />
+                
                 
             </Box>
             
         );
+    }
 };
 
 const reduxAdminPage = reduxForm({
@@ -85,10 +100,18 @@ const reduxAdminPage = reduxForm({
 })(AdminPage);
 
 const mapStateToProps = state => ({
-    state: state
+    isLoaded: state.players.isLoaded,
+    isFetching: state.players.isFetching,
+    players: state.players.players
 })
 
-const withConnect = connect(mapStateToProps, null);
+const mapDispatchToProps = dispatch => ({
+    fetchPlayers: () => {
+        dispatch(fetchPlayer())
+    }
+})
+
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 export default compose(
     withFirebase,

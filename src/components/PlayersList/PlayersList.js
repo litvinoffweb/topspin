@@ -14,35 +14,39 @@ import { fetchPlayer } from './module/actions';
 class PlayersList extends Component {
 
     componentWillMount() {
-        this.props.fetchPlayers();
+        //this.props.fetchPlayers();
+        console.log(this.props, 'will mount')
     }
 
+    // componentDidMount() {
+    //     console.log(this.props, ' did mount');
+    // }
+    
 
     render() {
-
+       // console.log(this.props, 'render')
         const { isLoaded, players, isFetching } = this.props;
         return(
-            isLoaded && !isFetching ? <Box>
-                            <Table>
-                                <Thead />
-                                <tbody>
-                                    {/* {players.map( player => {
-                                        return(
-                                            <NewTableRow player={player} {...this.props} />
+            <Box>
+                <Table>
+                    <Thead />
+                        <tbody>
+                            {players.map( (player, index) => {
+                                return(
+                                    <NewTableRow key={index} player={player} {...this.props} />
                                             
-                                        )
-                                    })} */}
-                                </tbody>
-                            </Table>
-                        </Box> 
-                    : ''
+                                    )
+                            })}
+                        </tbody>
+                </Table>
+           </Box> 
+            
         )
     }
 }
 
 const mapStateToProps = state => ({
     isLoaded: state.players.isLoaded,
-    players: state.players,
     isFetching: state.players.isFetching
 })
 
