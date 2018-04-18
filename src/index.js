@@ -22,7 +22,6 @@ ReactDOM.render(
     , document.getElementById('root'));
 
 
-    store.dispatch(addPlayer('a','a','a','a','a','a','a','a',));
 
     // function writeUserData(userId, name, rate, style, shake, age) {
     //     firebase.database().ref('players/' + userId).set({

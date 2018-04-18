@@ -51,15 +51,15 @@ const AdminPage = props =>  {
                                 </ListItem>
                                 <ListItem justify='around'>
                                     <span> Classic : </span>
-                                    <Field className='input-main' name='shake-classic' component='input' id='classic' type='checkbox' value='Classic'/>
+                                    <Field className='input-main' name='checkboxClassic' component='input' id='classic' type='checkbox' />
                                 </ListItem>
                                 <ListItem justify='around'>
                                     <span> Asian : </span>
-                                    <Field className='input-main' name='shake-asian' component='input' id='Asian' type='checkbox' value='Asian'/>
+                                    <Field className='input-main' name='checkboxAsian' component='input' id='Asian' type='checkbox' />
                                 </ListItem>
                                 <ListItem justify='around'>
                                     <span> Japan : </span>
-                                    <Field className='input-main' name='shake-japan' component='input' id='Japan' type='checkbox' value='Japan'/>
+                                    <Field className='input-main' name='checkboxJapan' component='input' id='Japan' type='checkbox' />
                                 </ListItem>
                             </List>
 

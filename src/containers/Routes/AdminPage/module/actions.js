@@ -6,12 +6,17 @@ export const actionTypes = {
 
 
 
-export const addPlayer = (name, surname, age, rate) => ({
+export const addPlayer = (name, surname, age, rate, radio, checkboxClassic = false, checkboxAsian = false, checkboxJapan = false, ...rest) => ({
     type: actionTypes.ADD_PLAYER,
         name,
         surname,
         age,
-        rate
+        rate,
+        radio,
+        checkboxClassic,
+        checkboxAsian,
+        checkboxJapan,
+         ...rest
 })
         
 
