@@ -9,6 +9,7 @@ import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import Form from 'grommet/components/Form';
 import List from 'grommet/components/List';
+import Image from 'grommet/components/Image';
 import ListItem from 'grommet/components/ListItem';
 import ErrorField from '../../../components/ErrorField/ErrorField';
 import PlayersList from '../../../components/PlayersList/PlayersList';
@@ -20,6 +21,10 @@ import { Field, reduxForm } from 'redux-form';
 
 class AdminPage extends Component  {
     
+    state = {
+        playersListOpen: false
+    }
+
     componentWillMount() {
         this.props.fetchPlayers();
         //console.log(this.props.players, ' array')
@@ -29,6 +34,12 @@ class AdminPage extends Component  {
         //console.log(this.props, 'did mount admin')
     }
     
+    togglePlayersList = () => {
+        this.setState({
+            playersListOpen: !this.state.playersListOpen
+        })
+    }
+
     render() {
         //console.log(this.props, ' render adminpage')
         const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching } = this.props
@@ -37,17 +48,21 @@ class AdminPage extends Component  {
                 {!admin.uid
                      ? <Redirect to='/auth'/> 
                      : <Box direction='row' justify='around'  className='direction_box'>
-                            <Box> 
-                                <Heading tag="h3" className='h3-style' strong={true}>
-                                    Admin : Stanislav
-                                </Heading>
+                            <Box>
+                            <Image className='size-img-small' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
+                                
                             </Box>
                             <Box>
                                 <Button onClick={logout} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
+                <Box>
+                    <Heading tag="h3" className='h3-style' strong={true}>
+                        Admin : Stanislav
+                    </Heading>
+                </Box>
                 <Box direction='row' justify='around'>
-                    <Box >
+                    <Box direction='row' align='center' justify='center' className='box-shadow'> 
                         <Form onSubmit={handleSubmit}>
                             <Field className='input-main' name="Name" component="input" id="name" placeholder='Name:'/>
                             <Field className='input-main' name="Surname" component="input" id="surname" placeholder='Surname:'/>
@@ -82,7 +97,8 @@ class AdminPage extends Component  {
                         
                     </Box>
                     <Box>
-                        <PlayersList {...this.props}/>
+                        <Button className='btn-toggle-list' onClick={this.togglePlayersList} label={!this.state.playersListOpen ? 'OPEN PLAYERS LIST': 'CLOSE PLAYERS LIST'}/>
+                        {this.state.playersListOpen ? <PlayersList /> : ''}
                     </Box>
                 </Box>
                 

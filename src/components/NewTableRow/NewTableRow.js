@@ -6,16 +6,16 @@ const NewTableRow = props => {
     return(
         <TableRow>
             <td>
-                1{Name} {Surname}
+                {Name} {Surname}
             </td>
             <td>
-                2{Rating}
+                {Rating}
             </td>
             <td>
-                3{Age}
+                {Age}
             </td>
             <td>
-                4{Style}
+                {Style}
             </td>
         </TableRow>
     )

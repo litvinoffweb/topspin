@@ -29,7 +29,39 @@ class PlayersList extends Component {
         const { isLoaded, players, isFetching } = this.props;
         return(
             <Box>
-                <Table>
+                <table>
+                    <thead >
+                        <tr><th>Name</th>
+                        <th>Age</th>
+                        <th>Rating</th>
+                        <th>Style</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        {players.map( (player) => {
+                            return(
+                                <tr key={player.Name + player.Surname + player.Raiting}>
+                                    <td className='td-float-left' key={player.Name + player.Surname}>
+                                        {player.Name} {player.Surname}
+                                    </td>
+                                    <td key={player.Age + player.Surname}>
+                                        {player.Age}
+                                    </td>
+                                    <td key={player.Rating + player.Surname}>
+                                        {player.Rating}
+                                    </td>
+                                    <td key={player.Style + player.Surname }>
+                                        {player.Style}
+                                    </td>
+                                </tr>
+                            )
+                        
+                            }
+                        )}
+                    </tbody>
+                </table>
+                {/* <Table>
                     <Thead />
                         <tbody>
                             {players.map( (player, index) => {
@@ -39,7 +71,7 @@ class PlayersList extends Component {
                                     )
                             })}
                         </tbody>
-                </Table>
+                </Table> */}
            </Box> 
             
         )

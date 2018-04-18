@@ -32,7 +32,7 @@ const SignUpForm = props => {
                                 </Box>
                                 
                                 <Field 
-                                    name="email"
+                                    name="Email:"
                                     component={ErrorField}
                                     id="email"
                                     />
@@ -40,7 +40,7 @@ const SignUpForm = props => {
                         </Box>
                         <Box>
                             <Field 
-                                name="password"
+                                name="Password:"
                                 component={ErrorField}
                                 type="password"
                                 />

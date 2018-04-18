@@ -18,12 +18,18 @@ button.#{$grommet-namespace}button.submit-btn {
     background-color: $btn-bg-color-submit;
 }
 
+button.#{$grommet-namespace}button.btn-toggle-list {
+    background-color: $btn-bg-color-submit;
+    margin-top: 0px;
+    margin-left: auto;
+}
+
 button.#{$grommet-namespace}button.log_out {
     background-color: $btn-bg-color-logout;
     border-radius: 3px;
     border: none;
     color: #fff;
-    margin-top: 15px;
+    margin-top: 45px;
     height: 45px;
     max-width: 150px;
     margin-bottom: 25px;
