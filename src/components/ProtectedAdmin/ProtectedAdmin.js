@@ -11,7 +11,7 @@ const ProtectedAdmin = props => {
         const renderProtected = (routeProps) => {
             const { component: ProtectedComponent, isAdmin, addPlayers, authorized } = props;
             return(
-                authorized ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized />
+                authorized ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized style={{color: '#fff'}}/>
             );
         };
 

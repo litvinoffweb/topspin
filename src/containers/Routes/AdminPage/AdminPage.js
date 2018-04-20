@@ -29,11 +29,11 @@ class AdminPage extends Component  {
 
     componentWillMount() {
         this.props.fetchPlayers();
-       // console.log(this.props, 'will mount')
+       console.log(this.props, 'will mount')
     }
 
     componentDidMount() {
-       // console.log(this.props, 'did mount admin')
+       console.log(this.props, 'did mount admin')
     }
     
     togglePlayersList = () => {
@@ -50,13 +50,21 @@ class AdminPage extends Component  {
     }
 
     componentWillUnmount() {
-       // console.log('will unmount', this.props)
+       console.log('will unmount', this.props)
        push('/auth');
     }
 
+    submitAndClearForms = (e) => {
+        console.log('reset!!')
+        this.props.handleSubmit();
+        this.props.reset();
+        e.preventDefault();
+        
+    }
+
     render() {
-        //console.log(this.props, ' render adminpage')
-        const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching, authorized } = this.props
+        console.log(this.props, ' render adminpage')
+        const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching, authorized, reset } = this.props
         return (
             <Box>
                 {!admin.uid && !authorized
@@ -67,7 +75,7 @@ class AdminPage extends Component  {
                                 
                             </Box>
                             <Box>
-                                <Button onClick={this.redirectAfterLogout} className='log_out' label='LOGOUT'/>
+                                <Button onClick={e => this.redirectAfterLogout(e)} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
                 <Box>
@@ -77,7 +85,7 @@ class AdminPage extends Component  {
                 </Box>
                 <Box direction='row' justify='around'>
                     <Box direction='row' align='center' justify='center' className='box-shadow'> 
-                        <Form onSubmit={handleSubmit}>
+                        <Form onSubmit={this.submitAndClearForms}>
                             <Field className='input-main' name="Name" component="input" id="name" placeholder='Name:'/>
                             <Field className='input-main' name="Surname" component="input" id="surname" placeholder='Surname:'/>
                             <Field className='input-main' name="Age"  component="input" id="age" placeholder='Age:'/>

@@ -14,7 +14,7 @@ import { fetchPlayer } from './module/actions';
 class PlayersList extends Component {
 
     componentWillMount() {
-        //this.props.fetchPlayers();
+        this.props.fetchPlayers();
         //console.log(this.props, 'will mount')
         //console.log(this.props.players, 'players will')
     }
