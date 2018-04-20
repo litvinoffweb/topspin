@@ -12,10 +12,12 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { signUpRequest } from '../../Auth/module/actions';
 import { signInRequest } from '../../Auth/module/actions';
 
+const adminID = 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3';
+
 const AuthPage = props => {
 
-        const { user } = props;
-        
+        const { user, auth } = props;
+        //const path = auth && user.uid === adminID ? '/admin' : '/'
         return (
             <Box 
                 className='main_background'
@@ -30,11 +32,17 @@ const AuthPage = props => {
                         <Route path='/auth/signin' render={ () => <SignInForm onSubmit={props.signIn}/>}/>
                         <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={props.signUp} ErrorField={ErrorField}/>}/>
                     </Switch>
-                {user.isLoaded && user.uid && user.uid !== 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
+                {/* {auth && user.uid && user.uid !== adminID
                     ? <Redirect to={`/user/id:${user.uid}`}/> 
-                    : user.isLoaded && user.uid  === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
+                    : auth && user.uid  === adminID 
                         ? <Redirect to={`/admin`} /> 
+                        : ''} */}
+                        {auth && user.uid === adminID
+                    ? <Redirect to={`/admin`} />
+                    : auth && user.uid
+                        ?  <Redirect to={`/user/id:${user.uid}`}/> 
                         : ''}
+                
                 </Box>
         </Box>
     );
@@ -55,7 +63,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
     return {
         isLoaded: state.firebase.profile.isLoaded,
-        user: state.firebase.auth
+        user: state.firebase.auth,
+        auth: state.authorized.authorized
     }
 }
 

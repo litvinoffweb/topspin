@@ -14,6 +14,8 @@ import ListItem from 'grommet/components/ListItem';
 import ErrorField from '../../../components/ErrorField/ErrorField';
 import PlayersList from '../../../components/PlayersList/PlayersList';
 import { fetchPlayer } from '../../../components/PlayersList/module/actions';
+import { push } from 'react-router-redux';
+import { logOut } from '../../Auth/Authorized/module/actions';
 
 
 
@@ -27,11 +29,11 @@ class AdminPage extends Component  {
 
     componentWillMount() {
         this.props.fetchPlayers();
-        //console.log(this.props.players, ' array')
+       // console.log(this.props, 'will mount')
     }
 
     componentDidMount() {
-        //console.log(this.props, 'did mount admin')
+       // console.log(this.props, 'did mount admin')
     }
     
     togglePlayersList = () => {
@@ -40,12 +42,24 @@ class AdminPage extends Component  {
         })
     }
 
+    redirectAfterLogout = () => {
+
+        this.props.firebase.logout();
+        this.props.authLogOut();
+        this.props.push('/auth')
+    }
+
+    componentWillUnmount() {
+       // console.log('will unmount', this.props)
+       push('/auth');
+    }
+
     render() {
         //console.log(this.props, ' render adminpage')
-        const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching } = this.props
+        const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching, authorized } = this.props
         return (
             <Box>
-                {!admin.uid
+                {!admin.uid && !authorized
                      ? <Redirect to='/auth'/> 
                      : <Box direction='row' justify='around'  className='direction_box'>
                             <Box>
@@ -53,7 +67,7 @@ class AdminPage extends Component  {
                                 
                             </Box>
                             <Box>
-                                <Button onClick={logout} className='log_out' label='LOGOUT'/>
+                                <Button onClick={this.redirectAfterLogout} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
                 <Box>
@@ -115,15 +129,23 @@ const reduxAdminPage = reduxForm({
 
 })(AdminPage);
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     isLoaded: state.players.isLoaded,
     isFetching: state.players.isFetching,
-    players: state.players.players
+    players: state.players.players,
+    route: state.router.location,
+    authorized: state.authorized.authorized
 })
 
 const mapDispatchToProps = dispatch => ({
     fetchPlayers: () => {
         dispatch(fetchPlayer())
+    },
+    push: path => {
+        dispatch(push(path))
+    },
+    authLogOut: () => {
+        dispatch(logOut())
     }
 })
 

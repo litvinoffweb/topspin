@@ -9,9 +9,9 @@ const ProtectedAdmin = props => {
         const { component, ...rest } = props;
         
         const renderProtected = (routeProps) => {
-            const { component: ProtectedComponent, isAdmin, addPlayers } = props;
+            const { component: ProtectedComponent, isAdmin, addPlayers, authorized } = props;
             return(
-                isAdmin.uid ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized />
+                authorized ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized />
             );
         };
 
@@ -23,7 +23,8 @@ const ProtectedAdmin = props => {
 
 const mapStateToProps = state => {
     return {
-        isAdmin: state.firebase.auth
+        isAdmin: state.firebase.auth,
+        authorized: state.authorized.authorized
     }
 }
 

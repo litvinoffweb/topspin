@@ -23,7 +23,7 @@ const ProtectedRoute = props => {
 
 const mapStateToProps = state => {
     return {
-        authorized: state.firebase.auth.isLoaded
+        authorized: state.authorized.authorized
     }
 }
 

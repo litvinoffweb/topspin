@@ -4,7 +4,9 @@ import initialState from './emptyState';
 
 
 const ACTION_HANDLERS = {
-    [actionTypes.SIGN_IN_OR_SIGN_UP]: (state, action) => immutableSet(['authorized'], true, state)
+    [actionTypes.SIGN_IN_OR_SIGN_UP]: (state, action) => immutableSet(['authorized'], true, state),
+    [actionTypes.LOG_OUT]: (state, action) => immutableSet(['authorized'], false, state),    
+
 };
 
 
