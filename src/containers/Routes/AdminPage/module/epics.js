@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { actionTypes, addPlayer, addedPlayerSuccess, addPlayerError } from './actions';
+import { actionTypes, addedPlayerSuccess, addPlayerError } from './actions';
 import firebase from 'firebase';
 
 

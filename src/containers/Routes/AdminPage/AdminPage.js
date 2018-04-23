@@ -11,7 +11,6 @@ import Form from 'grommet/components/Form';
 import List from 'grommet/components/List';
 import Image from 'grommet/components/Image';
 import ListItem from 'grommet/components/ListItem';
-import ErrorField from '../../../components/ErrorField/ErrorField';
 import PlayersList from '../../../components/PlayersList/PlayersList';
 import { fetchPlayer } from '../../../components/PlayersList/module/actions';
 import { push } from 'react-router-redux';
@@ -28,14 +27,11 @@ class AdminPage extends Component  {
     }
 
     componentWillMount() {
+
         this.props.fetchPlayers();
-       console.log(this.props, 'will mount')
+
     }
 
-    componentDidMount() {
-       console.log(this.props, 'did mount admin')
-    }
-    
     togglePlayersList = () => {
         this.setState({
             playersListOpen: !this.state.playersListOpen
@@ -49,13 +45,8 @@ class AdminPage extends Component  {
         this.props.push('/auth')
     }
 
-    componentWillUnmount() {
-       console.log('will unmount', this.props)
-       push('/auth');
-    }
-
     submitAndClearForms = (e) => {
-        console.log('reset!!')
+
         this.props.handleSubmit();
         this.props.reset();
         e.preventDefault();
@@ -63,8 +54,8 @@ class AdminPage extends Component  {
     }
 
     render() {
-        console.log(this.props, ' render adminpage')
-        const { admin, firebase: { logout }, handleSubmit, isLoaded, isFetching, authorized, reset } = this.props
+        
+        const { admin, authorized} = this.props
         return (
             <Box>
                 {!admin.uid && !authorized

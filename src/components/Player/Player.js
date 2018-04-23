@@ -1,10 +1,11 @@
 import React from 'react';
-import TableRow from 'grommet/components/TableRow';
 
-const NewTableRow = props => {
+const Player = props => {
+    
     const { player: {Name, Surname, Rating, Age, Style} } = props;
+    
     return(
-        <TableRow>
+        <tr>
             <td>
                 {Name} {Surname}
             </td>
@@ -17,8 +18,8 @@ const NewTableRow = props => {
             <td>
                 {Style}
             </td>
-        </TableRow>
+        </tr>
     )
 }
 
-export default NewTableRow;
+export default Player;

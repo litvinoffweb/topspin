@@ -17,6 +17,7 @@ const adminID = 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3';
 const AuthPage = props => {
 
         const { user, auth } = props;
+        //const path = auth && user.uid === adminID ? '/admin' : '/'
         return (
             <Box 
                 className='main_background'
@@ -31,12 +32,11 @@ const AuthPage = props => {
                         <Route path='/auth/signin' render={ () => <SignInForm onSubmit={props.signIn}/>}/>
                         <Route path='/auth/signup' render={ () => <SignUpForm onSubmit={props.signUp} ErrorField={ErrorField}/>}/>
                     </Switch>
-               
-                { auth && user.uid === adminID
+                {auth && user.uid === adminID
                     ? <Redirect to={`/admin`} />
                     : auth && user.uid
                         ?  <Redirect to={`/user/id:${user.uid}`}/> 
-                        : '' }
+                        : ''}
                 
                 </Box>
         </Box>

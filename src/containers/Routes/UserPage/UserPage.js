@@ -6,34 +6,39 @@ import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import { Redirect } from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
+import PlayersList from '../../../components/PlayersList/PlayersList';
 
 
 const UserPage = props => {
 
-        const { user, firebase } = props
+        const { user, firebase, players } = props
         return (
             <Box>           
                 {!user.uid 
                     ? <Redirect to='/auth'/> 
-                    : <Box direction='row' justify='around'  className='direction_box'>
-                        <Box> 
-                            <Heading tag="h3" className='h3-style' strong={true}>
-                                User : {user.email}
-                            </Heading>
-                        </Box>
-                        <Box>
-                            <Button onClick={firebase.logout} className='log_out' label='LOGOUT'/>
-                        </Box>
+                    :   <Box>
+                            <Box direction='row' justify='around'  className='direction_box'>
+                                <Box> 
+                                     <Heading tag="h3" className='h3-style' strong={true}>
+                                          User : {user.email}
+                                     </Heading>
+                                </Box>
+                            <Box>
+                                <Button onClick={firebase.logout} className='log_out' label='LOGOUT'/>
+                            </Box>
                         
-                    </Box>}
+                            </Box>
+                          <PlayersList />
+                        </Box>
+                }
                     
             </Box>
         );
 };
 
 const mapStateToProps = state => ({
-    state: state
+    players: state.players.players
 });
 
 const reduxUserPage = reduxForm({

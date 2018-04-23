@@ -10,7 +10,7 @@ const UnAuthorized = props => {
             <Box>
                 <Heading tag='h2'>
                     Unauthorized, please 
-                    <Link to="/auth/signin" className='nav-link'>
+                    <Link to="/auth" className='nav-link' style={{color: '#fff'}}>
                         Sign In
                     </Link>
                 </Heading>
