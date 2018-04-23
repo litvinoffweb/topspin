@@ -1,5 +1,5 @@
 export const actionTypes = {
-    SIGN_OUT: 'LOGOUT',
+    SIGN_OUT: 'SIGN_OUT',
     SIGN_OUT_ERROR: 'SIGN_OUT_ERROR',
     SIGN_OUT_SUCCESS: 'SIGN_OUT_SUCCESS'
 }

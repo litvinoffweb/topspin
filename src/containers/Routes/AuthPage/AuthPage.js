@@ -47,6 +47,7 @@ const AuthPage = props => {
 const mapDispatchToProps = dispatch => {
     return {
         signUp: values => {
+            
             dispatch(signUpRequest(values.email, values.password));
         },
         signIn: values => {
