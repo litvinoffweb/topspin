@@ -14,12 +14,20 @@ class PlayersList extends Component {
         this.props.fetchPlayers();
     }
 
+    shouldComponentUpdate(nextProps) {
+        if(this.props.players !== nextProps.players) {
+            console.log('players ne ravni')
+
+            return true;
+        }
+        return false;
+    }
+
     render() {
        console.log('render players list')
         const { players } = this.props;
         return(
-            players.length > 0 
-                ? <Box>
+                <Box>
                     <table>
                         <thead >
                             <tr><th>Name</th>
@@ -39,8 +47,7 @@ class PlayersList extends Component {
                             )}
                         </tbody>
                     </table>
-            </Box> 
-            : 'Not loaded...'
+            </Box>
         )
     }
 }
