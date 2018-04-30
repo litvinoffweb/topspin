@@ -16,7 +16,7 @@ class PlayersList extends Component {
 
     shouldComponentUpdate(nextProps) {
         if(this.props.players !== nextProps.players) {
-            //console.log('players ne ravni')
+            console.log(nextProps)
 
             return true;
         }
