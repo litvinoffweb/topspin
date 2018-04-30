@@ -16,7 +16,7 @@ class PlayersList extends Component {
 
     shouldComponentUpdate(nextProps) {
         if(this.props.players !== nextProps.players) {
-            console.log('players ne ravni')
+            //console.log('players ne ravni')
 
             return true;
         }
@@ -24,13 +24,15 @@ class PlayersList extends Component {
     }
 
     render() {
-       console.log('render players list')
+       //console.log(this.props)
         const { players } = this.props;
         return(
-                <Box>
+                players ? <Box>
                     <table>
-                        <thead >
-                            <tr><th>Name</th>
+                        <thead>
+                            <tr>
+                            <th> # </th>
+                            <th><span className='th-span-float-left'>Name</span></th>
                             <th>Age</th>
                             <th>Rating</th>
                             <th>Style</th>
@@ -47,7 +49,7 @@ class PlayersList extends Component {
                             )}
                         </tbody>
                     </table>
-            </Box>
+            </Box> : 'loading'
         )
     }
 }
