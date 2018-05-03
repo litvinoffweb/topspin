@@ -8,6 +8,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import history from './history';
 import { store } from './redux/store';
 import './index.scss';
+import firebase from 'firebase';
 
 
 
@@ -19,3 +20,6 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 
+const db = firebase.database();
+
+db.ref().child('players/' + 1525343751726 + '/').remove()

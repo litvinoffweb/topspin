@@ -29,7 +29,12 @@ class AdminPage extends Component  {
     componentWillMount() {
 
         this.props.fetchPlayers();
+        //console.log('fetch from adming page')
+        //console.log(this.props, 'will mount props from adminpage')
+    }
 
+    componentDidMount() {
+        //console.log(this.props, ' did mount adming page ')
     }
 
     togglePlayersList = () => {
@@ -57,7 +62,7 @@ class AdminPage extends Component  {
         
         const { admin, authorized} = this.props
         return (
-            <Box>
+            <Box >
                 {!admin.uid && !authorized
                      ? <Redirect to='/auth'/> 
                      : <Box direction='row' justify='around'  className='direction_box'>
@@ -74,7 +79,7 @@ class AdminPage extends Component  {
                         Admin : Stanislav
                     </Heading>
                 </Box>
-                <Box direction='row' justify='around'>
+                <Box direction='row' justify='around' className='col-12'>
                     <Box direction='row' align='center' justify='center' className='box-shadow'> 
                         <Form onSubmit={this.submitAndClearForms}>
                             <Field className='input-main' name="Name" component="input" id="name" placeholder='Name:'/>

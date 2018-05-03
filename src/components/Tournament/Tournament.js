@@ -8,8 +8,6 @@ import Form from 'grommet/components/Form';
 
 class CreateTournament extends Component {
 
-
-
     render() {
         return(
             <Box>

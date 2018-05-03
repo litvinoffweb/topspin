@@ -20,7 +20,7 @@ export const addPlayerEpic = action$ =>
             return Name.slice(0,1).toUpperCase() + '-' + Surname.slice(0,1).toUpperCase() + Surname.slice(1);
         }
 
-        firebase.database().ref('players/' + makeShortName(Name, Surname)).set({
+        firebase.database().ref('players/' + Date.now().toString()).set({
             Name,
             Surname,
             Age,

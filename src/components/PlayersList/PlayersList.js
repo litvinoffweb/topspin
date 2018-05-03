@@ -12,6 +12,8 @@ class PlayersList extends Component {
 
     componentWillMount() {
         this.props.fetchPlayers();
+        console.log('fetch from playerslist')
+        console.log(this.props, 'props playerslist page')
     }
 
     shouldComponentUpdate(nextProps) {
@@ -36,6 +38,7 @@ class PlayersList extends Component {
                             <th>Age</th>
                             <th>Rating</th>
                             <th>Style</th>
+                            <th>Delete</th>
                             </tr>
                             
                         </thead>

@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 
-export const appName = "top-spin-9cfa5"
+export const appName = "top-spin-9cfa5";
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAKGIegCMedxmgjrQlVeRIyJiXIqojn1ZI",
