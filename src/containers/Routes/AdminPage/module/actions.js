@@ -8,7 +8,7 @@ export const actionTypes = {
 
 
 
-export const addPlayer = (Name, Surname, Age, Rating, Style = 'Attacker', Classic = '', Asian = '', Japan = '') => ({
+export const addPlayer = (Name, Surname, Age, Rating, Style = 'Attacker', Classic = '', Asian = '', Japan = '', Checked = 'false') => ({
     type: actionTypes.ADD_PLAYER,
         Name,
         Surname,
@@ -17,7 +17,8 @@ export const addPlayer = (Name, Surname, Age, Rating, Style = 'Attacker', Classi
         Style,
         Classic,
         Asian,
-        Japan
+        Japan,
+        Checked
 })
         
 

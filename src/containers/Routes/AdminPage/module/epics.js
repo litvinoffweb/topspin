@@ -29,8 +29,8 @@ export const addPlayerEpic = action$ =>
             Style,               
             Classic,
             Asian,
-            Japan
-            
+            Japan,
+            Checked: false
                
         })
 

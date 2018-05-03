@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 const Player = props => {
-    
-    
 
     const { player: {Name, Surname, Rating, Age, Style, id}, user } = props;
     
