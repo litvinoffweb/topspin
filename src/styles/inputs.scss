@@ -5,13 +5,18 @@
     height: 35px;
     border-radius: 3px;
     margin-bottom: 8px;
+    .input-tournament {
+        width: 250px;
+    }
 }
 
 input:focus { 
 }
-
 input[type=text] {
     background-color: $input-bg-color;
+    .input-tournament {
+        width: 300px;
+    }
 }
 
 input[type=radio] {

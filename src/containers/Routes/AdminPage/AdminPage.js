@@ -11,10 +11,10 @@ import { fetchPlayer } from '../../../components/PlayersList/module/actions';
 import { push } from 'react-router-redux';
 import { logOut } from '../../Auth/Authorized/module/actions';
 import AddPlayers from '../../AddPlayers/AddPlayers';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CreateTournament from '../../../components/CreateTournament/CreateTournament';
+import { createTournament } from '../../../components/CreateTournament/module/actions';
 
-import { Field, reduxForm } from 'redux-form';
 
 class AdminPage extends Component  {
 
@@ -50,7 +50,7 @@ class AdminPage extends Component  {
 
     render() {
 
-        const { admin, authorized, location } = this.props
+        const { admin, location, createTour } = this.props
         return (
             <Box >
                 {!admin
@@ -84,7 +84,7 @@ class AdminPage extends Component  {
                     
                     <Box className='col-9'>
                         {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
-                        {location === '/admin/create_tournament' ? <CreateTournament {...this.props}/> : null}
+                        {location === '/admin/create_tournament' ? <CreateTournament {...this.props} onSubmit={createTour}/> : null}
                     </Box>
                 </Box>
                 
@@ -115,7 +115,12 @@ const mapDispatchToProps = dispatch => ({
     },
     authLogOut: () => {
         dispatch(logOut())
+    },
+    createTour: values => {
+        console.log(values)
+        dispatch(createTournament(values.name, values.date))
     }
+
 })
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

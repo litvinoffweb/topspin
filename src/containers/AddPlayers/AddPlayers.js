@@ -12,8 +12,7 @@ const AddPlayer = props => {
             <Box>
                 <CreatePlayer {...props} className='margin-right col-3' />
             </Box>
-            <Box className='col-1'>
-            </Box>
+            <Box className='col-1' />            
             <Box>
                 <PlayersList {...props} className='col-7'/>
             </Box>
