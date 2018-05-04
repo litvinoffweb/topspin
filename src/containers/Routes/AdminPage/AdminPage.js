@@ -12,6 +12,7 @@ import { push } from 'react-router-redux';
 import { logOut } from '../../Auth/Authorized/module/actions';
 import AddPlayers from '../../AddPlayers/AddPlayers';
 import { Route, Link, Switch } from 'react-router-dom';
+import CreateTournament from '../../../components/CreateTournament/CreateTournament';
 
 import { Field, reduxForm } from 'redux-form';
 
@@ -54,30 +55,36 @@ class AdminPage extends Component  {
             <Box >
                 {!admin
                      ? <Redirect to='/auth'/> 
-                     : <Box direction='row' justify='around'  className='direction_box'>
-                            <Box>
-                            <Image className='size-img-small' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
-                                
+                     : <Box direction='row' className='direction_box'>
+                            <Box className='col-1'/>
+                            <Box className='col-2'>
+                                <Image className='size-img-small' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
                             </Box>
-                            <Box>
+                            <Box className='col-6' />
+                            <Box className='col-2'>
                                 <Button onClick={e => this.redirectAfterLogout(e)} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
-                <Box>
-                    <Heading tag="h3" className='h3-style' strong={true}>
-                        Admin : Stanislav
-                    </Heading>
-                </Box>     
+                    <Box direction='row'>
+                        <Box className='col-1'/>
+                        <Box className='col-2'>
+                            <Heading tag="h3" className='h3-style' strong={true}>
+                                Admin : Stanislav
+                            </Heading>
+                        </Box>
+                    </Box>     
                 <Box direction='row' justify='around'>
                     <Box className='col-1'>
                     </Box>
                     <Box className='col-2'>
-                        <Link to='/admin/add_player' className='nav-link-admin'> CREATE PLAYER </Link>
-                        <Link to='/admin' className='nav-link-admin'> ADMIN </Link>
+                        <Link to='/admin' className='nav-link-admin'>ADMIN</Link>
+                        <Link to='/admin/create_player' className='nav-link-admin'>CREATE PLAYER</Link>
+                        <Link to='/admin/create_tournament' className='nav-link-admin'>CREATE TOURNAMENT</Link>
                     </Box>
                     
                     <Box className='col-9'>
-                        {location === '/admin/add_player' ? <AddPlayers {...this.props}/> : null}
+                        {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
+                        {location === '/admin/create_tournament' ? <CreateTournament {...this.props}/> : null}
                     </Box>
                 </Box>
                 

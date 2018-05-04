@@ -10,7 +10,7 @@ const AddPlayer = props => {
         <Box direction='row'>
             
             <Box>
-                <CreatePlayer {...props} className='margin-right' className='col-3'/>
+                <CreatePlayer {...props} className='margin-right col-3' />
             </Box>
             <Box className='col-1'>
             </Box>
