@@ -20,14 +20,6 @@ class CreatePlayer extends Component  {
         this.props.fetchPlayers();
     }
 
-
-    redirectAfterLogout = () => {
-
-        this.props.firebase.logout();
-        this.props.authLogOut();
-        this.props.push('/auth')
-    }
-
     submitAndClearForms = (e) => {
 
         this.props.handleSubmit();
@@ -38,12 +30,10 @@ class CreatePlayer extends Component  {
     }
 
     render() {
-
-        const { admin, authorized } = this.props
         return (
             <Box >
                 
-                <Box direction='row' justify='around' className='col-12'>
+                <Box direction='row' justify='around'>
                     <Box direction='row' align='center' justify='center' className='box-shadow'> 
                         <Form onSubmit={this.submitAndClearForms}>
                             <Field className='input-main' name="Name" component="input" id="name" placeholder='Name:'/>
@@ -96,9 +86,7 @@ const reduxCreatePlayer = reduxForm({
 const mapStateToProps = (state, ownProps) => ({
     isLoaded: state.players.isLoaded,
     isFetching: state.players.isFetching,
-    players: state.players.players,
-    route: state.router.location,
-    authorized: state.authorized.authorized
+    players: state.players.players
 })
 
 const mapDispatchToProps = dispatch => ({

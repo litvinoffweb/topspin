@@ -11,6 +11,7 @@ table
         
     tr:nth-child(2n) {
         background-color: $td-bg-color-nth-child-2;
+        border-radius: 2px;
     }
     td {
         border: none;

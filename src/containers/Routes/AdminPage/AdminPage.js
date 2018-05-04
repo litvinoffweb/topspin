@@ -67,17 +67,16 @@ class AdminPage extends Component  {
                     <Heading tag="h3" className='h3-style' strong={true}>
                         Admin : Stanislav
                     </Heading>
-                </Box>
-                <Box>
-
                 </Box>     
-                <Box className='direction_box' justify='around'>
-                    <Box >
-                        <Link to='/admin/add_player' className='nav-link-admin'> ADD PLAYER </Link>
+                <Box direction='row' justify='around'>
+                    <Box className='col-1'>
+                    </Box>
+                    <Box className='col-2'>
+                        <Link to='/admin/add_player' className='nav-link-admin'> CREATE PLAYER </Link>
                         <Link to='/admin' className='nav-link-admin'> ADMIN </Link>
                     </Box>
                     
-                    <Box>
+                    <Box className='col-9'>
                         {location === '/admin/add_player' ? <AddPlayers {...this.props}/> : null}
                     </Box>
                 </Box>
