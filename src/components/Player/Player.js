@@ -1,20 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { deletePlayer as deletePlayerAction} from './module/actions';
 import firebase from 'firebase';
+import { fetchPlayer } from '../PlayersList/module/actions';
 
 const Player = props => {
 
-    const { player: {Name, Surname, Rating, Age, Style, id}, user, deletePlayer } = props;
+    const { player: {Name, Surname, Rating, Age, Style, id}, user, fetchPlayers } = props;
     
     const handleDelete = (id) => {
-        console.log('id = ', id)
 
-        deletePlayer(id);
-        const db = firebase.database();
-        
+        console.log('id = ', id);
+
+        const db = firebase.database();   
+
         db.ref().child('players/' + id + '/').remove();
+
+        fetchPlayers();
     }
     
 
@@ -54,8 +56,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    deletePlayer: id => {
-        dispatch(deletePlayerAction(id))
+    fetchPlayers: () => {
+        dispatch(fetchPlayer())
     }
 })
 

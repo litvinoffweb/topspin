@@ -21,8 +21,8 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 
-const db = firebase.database();
+// const db = firebase.database();
 
-db.ref().child('players/' + 1525352326608 + '/').remove()
+// db.ref().child('players/' + 1525352326608 + '/').remove()
 
-//store.dispatch(fetchPlayer());
+store.dispatch(fetchPlayer());

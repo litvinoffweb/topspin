@@ -29,11 +29,11 @@ class AdminPage extends Component  {
     componentWillMount() {
 
         this.props.fetchPlayers();
-        console.log('willmount', this.props);
+       // console.log('willmount', this.props);
     }
 
     componentDidMount() {
-        console.log(this.props, ' did mount adming page ')
+        //console.log(this.props, ' did mount adming page ')
     }
 
     togglePlayersList = () => {
@@ -52,13 +52,14 @@ class AdminPage extends Component  {
     submitAndClearForms = (e) => {
 
         this.props.handleSubmit();
+        this.props.fetchPlayers();
         this.props.reset();
         e.preventDefault();
         
     }
 
     render() {
-        console.log('render', this.props.players.length, this.props.players)
+        //console.log('render', this.props.players.length, this.props.players)
         const { admin, authorized, players} = this.props
         return (
             <Box >
@@ -114,9 +115,9 @@ class AdminPage extends Component  {
                         
                     </Box>
                     <Box>
-                        <Button className='btn-toggle-list' onClick={this.togglePlayersList} label={!this.state.playersListOpen ? 'OPEN PLAYERS LIST': 'CLOSE PLAYERS LIST'}/>
-                        {this.state.playersListOpen ? <PlayersList players={players}/> : ''}
-                        {/* {isEmpty(players) ? 'loading' : <PlayersList />} */}
+                        {/* <Button className='btn-toggle-list' onClick={this.togglePlayersList} label={!this.state.playersListOpen ? 'OPEN PLAYERS LIST': 'CLOSE PLAYERS LIST'}/>
+                        {this.state.playersListOpen ? <PlayersList players={players}/> : ''} */}
+                        <PlayersList />
                     </Box>
                 </Box>
                 
