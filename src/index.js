@@ -8,7 +8,6 @@ import { ConnectedRouter } from 'react-router-redux';
 import history from './history';
 import { store } from './redux/store';
 import './index.scss';
-import firebase from 'firebase';
 import { fetchPlayer } from './components/PlayersList/module/actions';
 
 

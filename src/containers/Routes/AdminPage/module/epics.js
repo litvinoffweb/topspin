@@ -15,10 +15,10 @@ export const addPlayerEpic = action$ =>
     const addData = ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, }) => {
         console.log({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, })
         
-        const makeShortName = (Name, Surname) => {
+        // const makeShortName = (Name, Surname) => {
            
-            return Name.slice(0,1).toUpperCase() + '-' + Surname.slice(0,1).toUpperCase() + Surname.slice(1);
-        }
+        //     return Name.slice(0,1).toUpperCase() + '-' + Surname.slice(0,1).toUpperCase() + Surname.slice(1);
+        // }
 
         firebase.database().ref('players/' + Date.now().toString()).set({
             Name,
