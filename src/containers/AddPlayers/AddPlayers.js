@@ -7,9 +7,9 @@ import Box from 'grommet/components/Box';
 
 const AddPlayer = props => {
     return(
-        <Box className='direction_box'>
+        <Box className='direction_box' justify='around'>
             <Box>
-                <CreatePlayer {...props}/>
+                <CreatePlayer {...props} className='margin-right'/>
             </Box>
             <Box>
                 <PlayersList {...props} />

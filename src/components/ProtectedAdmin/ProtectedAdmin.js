@@ -7,11 +7,11 @@ import { addPlayer } from '../../containers/Routes/AdminPage/module/actions';
 
 const ProtectedAdmin = props => {
         const { component, ...rest } = props;
-        
+        const adminID = 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3';
         const renderProtected = (routeProps) => {
-            const { component: ProtectedComponent, addPlayers, authorized } = props;
+            const { component: ProtectedComponent, addPlayers, authorized, isAdmin } = props;
             return(
-                authorized ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized style={{color: '#fff'}}/>
+                isAdmin === adminID  ? <ProtectedComponent {...routeProps} {...props} onSubmit={addPlayers}/> : <UnAuthorized style={{color: '#fff'}}/>
             );
         };
 
@@ -23,8 +23,9 @@ const ProtectedAdmin = props => {
 
 const mapStateToProps = state => {
     return {
-        isAdmin: state.firebase.auth,
-        authorized: state.authorized.authorized
+        isAdmin: state.firebase.auth.uid,
+        authorized: state.authorized.authorized,
+
     }
 }
 

@@ -7,13 +7,11 @@ import Heading from 'grommet/components/Heading';
 import Button from 'grommet/components/Button';
 import Box from 'grommet/components/Box';
 import Image from 'grommet/components/Image';
-import PlayersList from '../../../components/PlayersList/PlayersList';
 import { fetchPlayer } from '../../../components/PlayersList/module/actions';
 import { push } from 'react-router-redux';
 import { logOut } from '../../Auth/Authorized/module/actions';
-import CreatePlayer from '../../../components/CreatePlayer/CreatePlayer';
 import AddPlayers from '../../AddPlayers/AddPlayers';
-
+import { Route, Link, Switch } from 'react-router-dom';
 
 import { Field, reduxForm } from 'redux-form';
 
@@ -21,6 +19,10 @@ class AdminPage extends Component  {
 
     componentWillMount() {
         this.props.fetchPlayers();
+    }
+
+    componentDidMount() {
+        console.log(this.props, 'admin page')
     }
 
     togglePlayersList = () => {
@@ -47,10 +49,10 @@ class AdminPage extends Component  {
 
     render() {
 
-        const { admin, authorized } = this.props
+        const { admin, authorized, location } = this.props
         return (
             <Box >
-                {!admin.uid && !authorized
+                {!admin
                      ? <Redirect to='/auth'/> 
                      : <Box direction='row' justify='around'  className='direction_box'>
                             <Box>
@@ -66,13 +68,17 @@ class AdminPage extends Component  {
                         Admin : Stanislav
                     </Heading>
                 </Box>
-                <Box direction='row' justify='around' className='col-12'>
-                    <Box direction='row' align='center' justify='center' className='box-shadow'> 
-                        
-                        
+                <Box>
+
+                </Box>     
+                <Box className='direction_box' justify='around'>
+                    <Box >
+                        <Link to='/admin/add_player' className='nav-link-admin'> ADD PLAYER </Link>
+                        <Link to='/admin' className='nav-link-admin'> ADMIN </Link>
                     </Box>
+                    
                     <Box>
-                        <AddPlayers {...this.props} />
+                        {location === '/admin/add_player' ? <AddPlayers {...this.props}/> : null}
                     </Box>
                 </Box>
                 
@@ -88,8 +94,10 @@ const mapStateToProps = (state, ownProps) => ({
     isLoaded: state.players.isLoaded,
     isFetching: state.players.isFetching,
     players: state.players.players,
-    route: state.router.location,
-    authorized: state.authorized.authorized
+    location: state.router.location.pathname,
+    authorized: state.authorized.authorized,
+    admin: state.firebase.auth.uid
+    
 })
 
 const mapDispatchToProps = dispatch => ({
