@@ -9,6 +9,7 @@ import history from './history';
 import { store } from './redux/store';
 import './index.scss';
 import firebase from 'firebase';
+import { fetchPlayer } from './components/PlayersList/module/actions';
 
 
 
@@ -22,4 +23,6 @@ ReactDOM.render(
 
 const db = firebase.database();
 
-db.ref().child('players/' + 1525343751726 + '/').remove()
+db.ref().child('players/' + 1525352326608 + '/').remove()
+
+//store.dispatch(fetchPlayer());

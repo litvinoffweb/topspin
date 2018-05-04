@@ -9,16 +9,15 @@ const Player = props => {
     const { player: {Name, Surname, Rating, Age, Style, id}, user, deletePlayer } = props;
     
     const handleDelete = (id) => {
-        
         console.log('id = ', id)
-        //deletePlayer(id);
-    
+
+        deletePlayer(id);
         const db = firebase.database();
         
-        db.ref().child('players/' + id + '/').remove()
-        
+        db.ref().child('players/' + id + '/').remove();
     }
     
+
     return(
         <tr>
             {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Field component='input' type='checkbox' name={Name + Surname} /> </td> : <td> - </td>}
@@ -37,7 +36,7 @@ const Player = props => {
             
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
-                    <button onClick={handleDelete(id)}>
+                    <button onClick={() => handleDelete(id)}>
                         x
                     </button>
                  </td> :

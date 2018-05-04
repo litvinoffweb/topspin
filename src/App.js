@@ -11,11 +11,9 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdmin from './components/ProtectedAdmin/ProtectedAdmin';
 
 
-
 import Box from 'grommet/components/Box';
 
 class App extends Component {
-
 
 
   render() {

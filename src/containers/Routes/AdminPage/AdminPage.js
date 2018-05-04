@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
-import { compose } from 'ramda';
+import { compose, isEmpty } from 'ramda';
 import { connect } from 'react-redux';
 import { validatePlayer } from '../../../utils/validate';
 import Heading from 'grommet/components/Heading';
@@ -29,12 +29,11 @@ class AdminPage extends Component  {
     componentWillMount() {
 
         this.props.fetchPlayers();
-        //console.log('fetch from adming page')
-        //console.log(this.props, 'will mount props from adminpage')
+        console.log('willmount', this.props);
     }
 
     componentDidMount() {
-        //console.log(this.props, ' did mount adming page ')
+        console.log(this.props, ' did mount adming page ')
     }
 
     togglePlayersList = () => {
@@ -59,8 +58,8 @@ class AdminPage extends Component  {
     }
 
     render() {
-        
-        const { admin, authorized} = this.props
+        console.log('render', this.props.players.length, this.props.players)
+        const { admin, authorized, players} = this.props
         return (
             <Box >
                 {!admin.uid && !authorized
@@ -116,7 +115,8 @@ class AdminPage extends Component  {
                     </Box>
                     <Box>
                         <Button className='btn-toggle-list' onClick={this.togglePlayersList} label={!this.state.playersListOpen ? 'OPEN PLAYERS LIST': 'CLOSE PLAYERS LIST'}/>
-                        {this.state.playersListOpen ? <PlayersList /> : ''}
+                        {this.state.playersListOpen ? <PlayersList players={players}/> : ''}
+                        {/* {isEmpty(players) ? 'loading' : <PlayersList />} */}
                     </Box>
                 </Box>
                 

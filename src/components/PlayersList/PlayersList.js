@@ -12,13 +12,16 @@ class PlayersList extends Component {
 
     componentWillMount() {
         this.props.fetchPlayers();
-        console.log('fetch from playerslist')
-        console.log(this.props, 'props playerslist page')
+        //console.log('will mount', this.props)
+    }
+
+    componentDidMount() {
+        //console.log('did mount ', this.props)
     }
 
     shouldComponentUpdate(nextProps) {
         if(this.props.players !== nextProps.players) {
-            console.log(nextProps)
+            console.log(nextProps, 'nextprops')
 
             return true;
         }
@@ -26,7 +29,6 @@ class PlayersList extends Component {
     }
 
     render() {
-       //console.log(this.props)
         const { players } = this.props;
         return(
                 players ? <Box>
