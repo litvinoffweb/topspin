@@ -14,6 +14,7 @@ import AddPlayers from '../../AddPlayers/AddPlayers';
 import { Link } from 'react-router-dom';
 import CreateTournament from '../../../components/CreateTournament/CreateTournament';
 import { createTournament } from '../../../components/CreateTournament/module/actions';
+import TournamentsList from '../../../components/TournamentsList/TournamentsList';
 
 
 class AdminPage extends Component  {
@@ -84,7 +85,7 @@ class AdminPage extends Component  {
                     
                     <Box className='col-9'>
                         {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
-                        {location === '/admin/create_tournament' ? <CreateTournament {...this.props} onSubmit={createTour}/> : null}
+                        {location === '/admin/create_tournament' ? <Box><CreateTournament {...this.props} onSubmit={createTour}/> <TournamentsList {...this.props}/> </Box>: null}
                     </Box>
                 </Box>
                 

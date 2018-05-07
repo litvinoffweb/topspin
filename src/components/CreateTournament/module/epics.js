@@ -11,9 +11,12 @@ export const createTournamentEpic = action$ =>
     
 
 const createTournamentOnDB = ({name, date}) => {
-    firebase.database().ref('tournaments/' + date + ' ' + Date.now().toString()).set({
+    firebase.database().ref('tournaments/' + Date.now().toString()).set({
         name,
         date,
-        id: Date.now().toString()
+        id: Date.now().toString(),
+        current: false,
+        players: [],
+        tables: []
     })
 }

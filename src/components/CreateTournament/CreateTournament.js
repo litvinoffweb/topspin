@@ -10,8 +10,8 @@ import Heading from 'grommet/components/Heading';
 class CreateTournament extends Component {
 
     createTournament = (e) => {
-        console.log('send !')
         this.props.handleSubmit();
+        this.props.reset();
         e.preventDefault();
     }
 
@@ -37,12 +37,7 @@ const withReduxFormTournament = reduxForm({
     form: 'new-tournament'
 })(CreateTournament);
 
-const mapDispatchToProps = dispatch => ({
-    x: () => {
-        dispatch();
-    }
-});
 
-const withConnect = connect(null, mapDispatchToProps);
+const withConnect = connect(null, null);
 
 export default compose(withConnect)(withReduxFormTournament);

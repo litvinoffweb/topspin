@@ -9,6 +9,7 @@ import history from './history';
 import { store } from './redux/store';
 import './index.scss';
 import { fetchPlayer } from './components/PlayersList/module/actions';
+import { fetchTournaments } from './components/TournamentsList/module/actions';
 
 
 
@@ -24,4 +25,12 @@ ReactDOM.render(
 
 // db.ref().child('players/' + 1525352326608 + '/').remove()
 
+
+const obj = {
+    players: []
+}
+
+console.log(obj)
+
 store.dispatch(fetchPlayer());
+store.dispatch(fetchTournaments());

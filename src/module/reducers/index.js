@@ -5,6 +5,8 @@ import { firebaseReducer } from 'react-redux-firebase';
 import authUser from '../../containers/Auth/module/reducers';
 import authorized from '../../containers/Auth/Authorized/module/reducer';
 import players from '../../components/PlayersList/module/reducer';
+import tournaments from '../../components/TournamentsList/module/reducer';
+
 
 
 
@@ -14,6 +16,7 @@ export const reducers = combineReducers({
     form: formReducer,
     authUser,
     authorized,
-    players
+    players,
+    tournaments
 
 });

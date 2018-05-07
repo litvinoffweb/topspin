@@ -8,6 +8,8 @@ import { getFirebase } from 'react-redux-firebase';
 import { fetchPlayersEpic } from '../../components/PlayersList/module/epics';
 import { deletePlayerEpic } from '../../components/Player/module/epics';
 import { createTournamentEpic } from '../../components/CreateTournament/module/epics';
+import { fetchTournamentsEpic } from '../../components/TournamentsList/module/epics';
+
 
 
 
@@ -36,7 +38,8 @@ combineEpics(
     addPlayerEpic,
     fetchPlayersEpic,
     deletePlayerEpic,
-    createTournamentEpic
+    createTournamentEpic,
+    fetchTournamentsEpic
 
 )(...args, getFirebase);
 
