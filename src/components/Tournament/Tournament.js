@@ -9,11 +9,13 @@ const Tournament = props => {
 
     const { tournament: {name, date, current, id}, user, fetchTournament} = props;
     
-    const handleUpdate = () => {
+    const handleUpdate = (id) => {
 
         const db = firebase.database()
-        db.ref.child('tournaments/' + id + '/current/').update('true');
+        db.ref().child('tournaments/' + id + '/current/').set(true);
         fetchTournament();
+        
+        console.log('udate')
     }
 
     const handleDelete = (id) => {
@@ -28,7 +30,7 @@ const Tournament = props => {
 
     return(
         <tr>
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button onClick={() => handleUpdate()}>Start</Button></td> : <td> - </td>}
+            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button onClick={() => handleUpdate(id)}>{current ? 'Finish' : 'Start'}</Button></td> : <td> - </td>}
             <td>
                 <span className='td-span-float-left'>{name}</span>
             </td>

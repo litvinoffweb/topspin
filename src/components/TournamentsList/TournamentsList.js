@@ -28,7 +28,7 @@ class TournamentsList extends Component {
                         <tbody>
                             {tournaments.map( (tournament, index) => {
                                 return(
-                                    <Tournament key={index} tournament={tournament} hui='hui'/>
+                                    <Tournament key={index} tournament={tournament} />
                                 )
                             
                                 }
