@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import firebase from 'firebase';
 import { fetchPlayer } from '../PlayersList/module/actions';
+import Button from 'grommet/components/Button';
 
 const Player = props => {
 
     const { player: {Name, Surname, Rating, Age, Style, id}, user, fetchPlayers } = props;
-    
+    console.log(props);
     const handleDelete = (id) => {
-
-        console.log('id = ', id);
 
         const db = firebase.database();   
 
@@ -38,9 +37,9 @@ const Player = props => {
             
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
-                    <button onClick={() => handleDelete(id)}>
+                    <Button className='button-delete' onClick={() => handleDelete(id)}>
                         x
-                    </button>
+                    </Button>
                  </td> :
                  <td>
                      :P

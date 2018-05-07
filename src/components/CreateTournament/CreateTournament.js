@@ -9,10 +9,13 @@ import Heading from 'grommet/components/Heading';
 
 class CreateTournament extends Component {
 
+
+
     createTournament = (e) => {
         this.props.handleSubmit();
         this.props.reset();
         e.preventDefault();
+        
     }
 
     render() {
@@ -22,7 +25,7 @@ class CreateTournament extends Component {
                 </Box>
                 <Box className='col-10'>
                     <Form onSubmit={this.createTournament} className='create-tournament'>
-                        <Heading tag='h2'>NEW TOURNAMENT</Heading>
+                        {/* <Heading tag='h2'>NEW TOURNAMENT</Heading> */}
                         <Field component='input' type='text' name='name' className='input-main input-tournament' style={{width: '100%'}} placeholder='Name:'/>
                         <Field component='input' type='date' name='date' className='input-main input-tournament' style={{width: '100%'}} placeholder='New tournament:'/>
                         <Button type='submit' label='CREATE' />

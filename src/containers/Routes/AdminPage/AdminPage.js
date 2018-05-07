@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom';
 import CreateTournament from '../../../components/CreateTournament/CreateTournament';
 import { createTournament } from '../../../components/CreateTournament/module/actions';
 import TournamentsList from '../../../components/TournamentsList/TournamentsList';
+import AddTournaments from '../../AddTournaments/AddTournaments';
+import { fetchTournaments } from '../../../components/TournamentsList/module/actions';
 
 
 class AdminPage extends Component  {
@@ -85,7 +87,10 @@ class AdminPage extends Component  {
                     
                     <Box className='col-9'>
                         {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
-                        {location === '/admin/create_tournament' ? <Box><CreateTournament {...this.props} onSubmit={createTour}/> <TournamentsList {...this.props}/> </Box>: null}
+                        {location === '/admin/create_tournament' ? <Box direction='row'>
+                            <Box className='col-4'><CreateTournament {...this.props} onSubmit={createTour}/> </Box>
+                            <Box className='col-8'><TournamentsList {...this.props}/></Box>
+                            </Box> : null}
                     </Box>
                 </Box>
                 
@@ -103,7 +108,8 @@ const mapStateToProps = (state, ownProps) => ({
     players: state.players.players,
     location: state.router.location.pathname,
     authorized: state.authorized.authorized,
-    admin: state.firebase.auth.uid
+    admin: state.firebase.auth.uid,
+    tournaments: state.tournaments.tournaments,
     
 })
 
@@ -120,6 +126,9 @@ const mapDispatchToProps = dispatch => ({
     createTour: values => {
         console.log(values)
         dispatch(createTournament(values.name, values.date))
+    },
+    fetchTournament: () => {
+        dispatch(fetchTournaments());
     }
 
 })

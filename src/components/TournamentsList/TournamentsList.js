@@ -7,7 +7,9 @@ import { fetchTournaments } from './module/actions';
 
 class TournamentsList extends Component {
 
-
+    componentWillMount() {
+        console.log(this.props, 'tounrmaneslist ')
+    }
     render() {
         const { tournaments } = this.props;
         return(
@@ -19,13 +21,14 @@ class TournamentsList extends Component {
                             <th><span className='th-span-float-left'>Name</span></th>
                             <th>Date</th>
                             <th>Current</th>
+                            <th>Delete</th>
                             </tr>
                             
                         </thead>
                         <tbody>
                             {tournaments.map( (tournament, index) => {
                                 return(
-                                    <Tournament key={index} tournament={tournament}/>
+                                    <Tournament key={index} tournament={tournament} hui='hui'/>
                                 )
                             
                                 }

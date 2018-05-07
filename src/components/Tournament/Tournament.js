@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import firebase from 'firebase';
 import { fetchTournaments } from '../TournamentsList/module/actions';
+import Button from 'grommet/components/Button';
 
 const Tournament = props => {
 
     const { tournament: {name, date, current, id}, user, fetchTournament} = props;
     
-    console.log(current, 'current')
-    const handleDelete = (id) => {
+    const handleUpdate = () => {
 
-        console.log('id = ', id);
+        const db = firebase.database()
+        db.ref.child('tournaments/' + id + '/current/').update('true');
+        fetchTournament();
+    }
+
+    const handleDelete = (id) => {
 
         const db = firebase.database();   
 
@@ -23,7 +28,7 @@ const Tournament = props => {
 
     return(
         <tr>
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Field component='input' type='checkbox' name={name} /> </td> : <td> - </td>}
+            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button onClick={() => handleUpdate()}>Start</Button></td> : <td> - </td>}
             <td>
                 <span className='td-span-float-left'>{name}</span>
             </td>
@@ -36,9 +41,9 @@ const Tournament = props => {
             
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
-                    <button onClick={() => handleDelete(id)}>
+                    <Button className='button-delete' style={{width: '45px', heigth: '45px'}} onClick={() => handleDelete(id)}>
                         x
-                    </button>
+                    </Button>
                  </td> :
                  <td>
                      :P
@@ -59,8 +64,8 @@ const mapDispatchToProps = dispatch => ({
     }
 })
 
-const withReduxFormPlayer = reduxForm({
+const withReduxTournament = reduxForm({
     form : 'checked-players'
 })(Tournament)
 
-export default connect(mapStateToProps, mapDispatchToProps )(withReduxFormPlayer);
+export default connect(mapStateToProps, mapDispatchToProps )(withReduxTournament);

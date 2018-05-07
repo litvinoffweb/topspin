@@ -1,23 +1,24 @@
 import React from 'react';
-import PlayersList from '../../components/PlayersList/PlayersList';
-import CreatePlayer from '../../components/CreatePlayer/CreatePlayer';
+import TournamentsList from '../../components/TournamentsList/TournamentsList';
+import CreateTournament from '../../components/Tournament/Tournament';
 
 import Box from 'grommet/components/Box';
 
 
-const AddPlayer = props => {
+const AddTournaments = props => {
+    console.log(props)
     return(
         <Box direction='row'>
             
             <Box>
-                <CreatePlayer {...props} className='margin-right col-3' />
+                <CreateTournament {...props} className='margin-right col-3' />
             </Box>
             <Box className='col-1' />            
             <Box>
-                <PlayersList {...props} className='col-7'/>
+                <TournamentsList {...props} className='col-7'/>
             </Box>
         </Box>
     )
 }
 
-export default AddPlayer;
+export default AddTournaments;
