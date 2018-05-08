@@ -30,7 +30,3 @@ ReactDOM.render(
 
 store.dispatch(fetchPlayer());
 store.dispatch(fetchTournaments());
-
-console.log(fetch('https://graph.facebook.com/v3.0/820882001277849')
-    .then(res => console.log(res.json())
-    ));

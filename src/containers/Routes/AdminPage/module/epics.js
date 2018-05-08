@@ -5,20 +5,14 @@ import firebase from 'firebase';
 
 export const addPlayerEpic = action$ =>
     action$.ofType(actionTypes.ADD_PLAYER)
-        .switchMap( ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, }) =>
-            Observable.of(addData({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, })
+        .switchMap( ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, Checked, facebookID}) =>
+            Observable.of(addData({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, Checked, facebookID })
             )
             .map( () => addedPlayerSuccess())
             .catch(error => Observable.of(addPlayerError(error)))
     )
 
-    const addData = ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, }) => {
-        console.log({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, })
-        
-        // const makeShortName = (Name, Surname) => {
-           
-        //     return Name.slice(0,1).toUpperCase() + '-' + Surname.slice(0,1).toUpperCase() + Surname.slice(1);
-        // }
+    const addData = ({Name, Surname, Age, Rating, Style, Classic, Asian, Japan, Checked, facebookID}) => {
 
         firebase.database().ref('players/' + Date.now().toString()).set({
             Name,
@@ -30,7 +24,8 @@ export const addPlayerEpic = action$ =>
             Classic,
             Asian,
             Japan,
-            Checked: false
+            Checked: false,
+            facebookID: 0
                
         })
 

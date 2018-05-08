@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import { fetchTournaments } from '../TournamentsList/module/actions';
 import Button from 'grommet/components/Button';
 import { Link } from 'react-router-dom';
+import PlayersList from '../PlayersList/PlayersList';
 
 const Tournament = props => {
 
@@ -12,7 +13,8 @@ const Tournament = props => {
 
     const handleUpdate = (id) => {
         const db = firebase.database()
-        db.ref().child('tournaments/' + id + '/current/').set(true);
+        current ? db.ref().child('tournaments/' + id + '/current/').set(false) 
+                : db.ref().child('tournaments/' + id + '/current/').set(true);
         fetchTournament();
     }
 
@@ -25,7 +27,7 @@ const Tournament = props => {
 
     return(
         <tr>
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button onClick={() => handleUpdate(id)}>{current ? 'Finish' : 'Start'}</Button></td> : <td> - </td>}
+            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button style={{width: '70px'}} onClick={() => handleUpdate(id)}>{current ? 'Finish' : 'Start'}</Button></td> : <td> - </td>}
             <td>
                 <span className='td-span-float-left'><Link to={`tournaments/${id}`}>{name}</Link></span>
             </td>
@@ -33,7 +35,7 @@ const Tournament = props => {
                 {date}
             </td>
             <td>
-                {current.toString()}
+                {current}
             </td>
             
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 

@@ -1,17 +1,19 @@
 import { Observable } from 'rxjs/Observable';
-import { actionTypes, fetchTournamentsSuccess, fetchTournamentsError } from './actions';
+import { actionTypes, fetchRegisteredPlayersSuccess, fetchRegisteredPlayersError } from './actions';
 import { contains } from 'ramda';
 import firebase from 'firebase'
 
-export const fetchTournamentsEpic = action$ =>
-    action$.ofType(actionTypes.FETCH_TOURNAMENTS)
-        .switchMap( () => 
-            Observable.of(getTournamentsFromFirebase('tournaments'))
-            .map( tournaments => fetchTournamentsSuccess(tournaments))
-            .catch( error => Observable.of(fetchTournamentsError(error)))
+export const fetchRegisteredPlayersEpic = action$ =>
+    action$.ofType(actionTypes.FETCH_REGISTERED_PLAYERS)
+    .do(({id}) => console.log({id}))
+        .switchMap( ({id}) => 
+            Observable.of(getRegisteredPlayersFromFirebase('tournaments/' + id + '/players'))
+            .do( tours => console.log(tours, 'tours'))
+            .map( players => fetchRegisteredPlayersSuccess(players))
+            .catch( error => Observable.of(fetchRegisteredPlayersError(error)))
     )
 
-    const getTournamentsFromFirebase = (value) => {
+    const getRegisteredPlayersFromFirebase = (value) => {
 
         const db = firebase.database();
         const playersRef = db.ref().child(value);
@@ -24,6 +26,7 @@ export const fetchTournamentsEpic = action$ =>
                 
                 for (let keys in item) {
                     if(contains(item[keys], items)) {
+                        console.log(item[keys])
                     }
                     else {
                         const newItem = item[keys]

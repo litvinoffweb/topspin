@@ -10,8 +10,12 @@ button.#{$grommet-namespace}button {
     margin-bottom: 25px;
     font-size: 13px;
     .button-delete {
-        height: 20px;
-        width: 20px;
+        height: 70px;
+        width: 70px;
+    }
+    .button-add {
+        height: 70px !important;
+        width: 70px !important;
     }
 }
 button.#{$grommet-namespace}button:hover {

@@ -29,7 +29,8 @@ class PlayersList extends Component {
     }
 
     render() {
-        const { players } = this.props;
+        console.log(this.props)
+        const { players, location, match } = this.props;
         return(
                 players ? <Box>
                     <table>
@@ -41,13 +42,14 @@ class PlayersList extends Component {
                             <th>Rating</th>
                             <th>Style</th>
                             <th>Delete</th>
+                            {location.pathname === `/admin/tournaments/${match.params.id}` ? <th> Add </th> : null}
                             </tr>
                             
                         </thead>
                         <tbody>
                             {players.map( (player, index) => {
                                 return(
-                                    <Player key={index} player={player}/>
+                                    <Player key={index} player={player} {...this.props}/>
                                 )
                             
                                 }

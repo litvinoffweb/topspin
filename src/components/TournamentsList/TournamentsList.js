@@ -4,6 +4,7 @@ import { compose } from 'ramda';
 import Box from 'grommet/components/Box';
 import Tournament from '../Tournament/Tournament';
 import { fetchTournaments } from './module/actions';
+import { contains } from 'ramda';
 
 class TournamentsList extends Component {
 

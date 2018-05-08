@@ -26,9 +26,6 @@ class AdminPage extends Component  {
         this.props.fetchPlayers();
     }
 
-    componentDidMount() {
-        console.log(this.props, 'admin page')
-    }
 
     togglePlayersList = () => {
         this.setState({
@@ -55,7 +52,7 @@ class AdminPage extends Component  {
     render() {
         
         const { admin, location, createTour, match } = this.props
-        console.log(this.props)
+        
         return (
             <Box >
                 {!admin
