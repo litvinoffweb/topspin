@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Box from 'grommet/components/Box'
+import { fetchRegisteredPlayers } from '../module/actions';
+import Player from '../../../components/Player/Player'
 
 class RegisteredPlayers extends Component {
 
+    componentWillMount() {
+        console.log('willt', this.props)
+    }
+
     render() {
-        console.log(this.props)
-        const {Name, Surname, Age, Style, facebookID, Rating} = this.props
+        console.log('render',this.props)
+        const {Name, Surname, Age, Style, facebookID, Rating, registeredPlayers} = this.props
         return(
             <Box>
                 <table>
@@ -18,13 +24,29 @@ class RegisteredPlayers extends Component {
                         <th>Rating</th>
                         <th>Age</th>
                         <th>Style</th>
-                        <th>{this.props.registeredPlayers ? this.props.registeredPlayers.length : ''}</th>
                         
                     </thead>
+                    <tbody>
+                        {registeredPlayers.map( (player, index) => {
+                            return(
+                                <Player key={index} player={player} {...this.props}/>
+                            )
+                        })}
+                    </tbody>
                 </table>
             </Box>
         )
     }
 }
 
-export default RegisteredPlayers;
+const mapStateToProps = state => ({
+    registeredPlayers: state.registeredPlayers.registeredPlayers
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchRegisteredPlayerss: id => {
+        dispatch(fetchRegisteredPlayers(id))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisteredPlayers);

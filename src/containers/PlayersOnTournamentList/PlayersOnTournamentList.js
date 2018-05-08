@@ -14,7 +14,7 @@ class PlayersOnTournamentList extends Component {
         render() {
             return(
                 <Box direction='row'>
-                    <Box className='col-6'><RegisteredPlayers /></Box>
+                    <Box className='col-6'><RegisteredPlayers {...this.props}/></Box>
                     <Box className='col-6'><PlayersList {...this.props}/></Box>
                     
                 </Box>
@@ -24,7 +24,7 @@ class PlayersOnTournamentList extends Component {
 }
 
 const mapStateToProps = state => ({
-    registeredPlayers: state.registeredPlayers.players
+    registeredPlayers: state.registeredPlayers.registeredPlayers
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -112,6 +112,7 @@ const mapStateToProps = (state, ownProps) => ({
     location: state.router.location.pathname,
     admin: state.firebase.auth.uid,
     tournaments: state.tournaments.tournaments,
+    registeredPlayers: state.registeredPlayers.registeredPlayers
     
 })
 
