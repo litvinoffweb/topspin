@@ -1,0 +1,33 @@
+.opacity-bg-sign-form {
+    background-color: rgba(255, 255, 255, 1);
+    //box-shadow: 0px 1px 15px 0px #888888;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.main_background {
+    //background-image: url('./img/background/main_bg.jpg');
+    background-color: #fff;
+}
+
+.size-sign-form {
+    max-width: 250px;
+}
+
+.#{$namespace}box.direction_box {
+    flex-direction: row;
+}
+
+.box-shadow {
+    //box-shadow: 0px 1px 15px 0px #888888;
+    padding-top: 10px;
+}
+
+.margin-right {
+    margin-right: 150px;
+    box-shadow: 0px 1px 15px 0px #888888;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}

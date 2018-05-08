@@ -1,0 +1,10 @@
+form.#{$grommet-namespace}form {
+    max-width: 250px;
+}
+
+form.create-tournament {
+    max-width: 280px;
+    .input {
+        width: 280px;
+    }
+}

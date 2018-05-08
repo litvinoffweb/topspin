@@ -1,0 +1,26 @@
+table
+    th {
+        background-color: $input-bg-color;
+        padding: 7px 5px;
+        color: #555;
+
+    }
+        .th-span-float-left {
+            float: left;
+        }
+        
+    tr:nth-child(2n) {
+        background-color: $td-bg-color-nth-child-2;
+        border-radius: 2px;
+    }
+        td {
+            
+        }
+    td {
+        border: none;
+        padding: 4px 8px;
+    }
+        .td-span-float-left {
+                padding: 7px 10px;
+                float: left;
+            }

@@ -1,0 +1,41 @@
+
+button.#{$grommet-namespace}button {
+    background-color: $btn-bg-color;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    margin-top: 25px;
+    height: 45px;
+    width: 100%;
+    margin-bottom: 25px;
+    font-size: 13px;
+    .button-delete {
+        height: 20px;
+        width: 20px;
+    }
+}
+button.#{$grommet-namespace}button:hover {
+    background-color: $btn-bg-hover;
+}
+
+button.#{$grommet-namespace}button.submit-btn {
+    background-color: $btn-bg-color-submit;
+}
+
+button.#{$grommet-namespace}button.btn-toggle-list {
+    background-color: $btn-bg-color-submit;
+    margin-top: 0px;
+    margin-left: auto;
+}
+
+button.#{$grommet-namespace}button.log_out {
+    background-color: $btn-bg-color-logout;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    margin-top: 45px;
+    height: 45px;
+    max-width: 150px;
+    margin-bottom: 25px;
+    font-size: 13px;
+}

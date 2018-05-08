@@ -1,0 +1,37 @@
+.input-main {
+    border: none;
+    padding: 5px 10px;
+    background-color: $input-bg-color;
+    height: 35px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    .input-tournament {
+        width: 250px;
+    }
+}
+
+input:focus { 
+}
+input[type=text] {
+    background-color: $input-bg-color;
+    .input-tournament {
+        width: 300px;
+    }
+}
+
+input[type=radio] {
+    background-color: $input-bg-color;
+    margin-bottom: 0px 0px;
+    height: 25px;
+    padding: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+    background-color: $input-bg-color !important;
+    color: #555 !important;
+    -webkit-box-shadow: 0 0 0 1000px $input-bg-color inset !important;
+    -webkit-text-fill-color: #555555 !important;
+    }
