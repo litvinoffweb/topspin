@@ -26,11 +26,7 @@ ReactDOM.render(
 // db.ref().child('players/' + 1525352326608 + '/').remove()
 
 
-const obj = {
-    players: []
-}
 
-console.log(obj)
 
 store.dispatch(fetchPlayer());
 store.dispatch(fetchTournaments());
