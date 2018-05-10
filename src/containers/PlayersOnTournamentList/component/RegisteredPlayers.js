@@ -3,17 +3,17 @@ import { connect } from 'react-redux';
 
 import Box from 'grommet/components/Box'
 import { fetchRegisteredPlayers } from '../module/actions';
-import Player from '../../../components/Player/Player'
+import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered'
 
 class RegisteredPlayers extends Component {
 
     componentWillMount() {
-        console.log('willt', this.props)
+        //console.log('willt', this.props)
     }
 
     render() {
-        console.log('render',this.props)
-        const {Name, Surname, Age, Style, facebookID, Rating, registeredPlayers} = this.props
+        //console.log('render',this.props)
+        const {registeredPlayers} = this.props
         return(
             <Box>
                 <table>
@@ -29,7 +29,7 @@ class RegisteredPlayers extends Component {
                     <tbody>
                         {registeredPlayers.map( (player, index) => {
                             return(
-                                <Player key={index} player={player} {...this.props}/>
+                                <PlayerRegistered key={index} player={player} {...this.props}/>
                             )
                         })}
                     </tbody>

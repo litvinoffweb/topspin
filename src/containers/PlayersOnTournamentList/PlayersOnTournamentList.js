@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Box';
+
 import PlayersList from '../../components/PlayersList/PlayersList';
 import RegisteredPlayers from './component/RegisteredPlayers';
 import { fetchRegisteredPlayers } from './module/actions';
@@ -13,10 +15,18 @@ class PlayersOnTournamentList extends Component {
 
         render() {
             return(
-                <Box direction='row'>
-                    <Box className='col-6'><RegisteredPlayers {...this.props}/></Box>
-                    <Box className='col-6'><PlayersList {...this.props}/></Box>
-                    
+                <Box>
+                    <Box direction='row'>
+                        <Box className='col-3' ><Heading tag='h3'>Registered players:</Heading></Box>
+                        <Box className='col-3'/>
+                        <Box className='col-3' ><Heading tag='h3'>Players list:</Heading></Box>
+                        <Box className='col-3'/>
+                    </Box>
+                    <Box direction='row'>
+                        <Box className='col-6'><RegisteredPlayers {...this.props}/></Box>
+                        <Box className='col-6'><PlayersList {...this.props}/></Box>
+                        
+                    </Box>
                 </Box>
                 
             )

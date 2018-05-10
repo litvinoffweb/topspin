@@ -10,6 +10,8 @@ import { deletePlayerEpic } from '../../components/Player/module/epics';
 import { createTournamentEpic } from '../../components/CreateTournament/module/epics';
 import { fetchTournamentsEpic } from '../../components/TournamentsList/module/epics';
 import { fetchRegisteredPlayersEpic } from '../../containers/PlayersOnTournamentList/module/epics';
+import { deletePlayerRegisteredEpic } from '../../components/PlayerRegistered/module/epics';
+
 
 
 
@@ -41,7 +43,8 @@ combineEpics(
     deletePlayerEpic,
     createTournamentEpic,
     fetchTournamentsEpic,
-    fetchRegisteredPlayersEpic
+    fetchRegisteredPlayersEpic,
+    deletePlayerRegisteredEpic
 
 )(...args, getFirebase);
 

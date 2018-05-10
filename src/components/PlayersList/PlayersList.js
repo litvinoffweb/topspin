@@ -30,7 +30,7 @@ class PlayersList extends Component {
 
     render() {
         console.log(this.props)
-        const { players, location, match } = this.props;
+        const { players, location, match, userID } = this.props;
         return(
                 players ? <Box>
                     <table>
@@ -42,7 +42,7 @@ class PlayersList extends Component {
                             <th>Rating</th>
                             <th>Style</th>
                             <th>Delete</th>
-                            {location.pathname === `/admin/tournaments/${match.params.id}` ? <th> Add </th> : null}
+                            {userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` ? <th> Add </th> : null}
                             </tr>
                             
                         </thead>
@@ -64,7 +64,9 @@ class PlayersList extends Component {
 const mapStateToProps = state => ({
     isLoaded: state.players.isLoaded,
     isFetching: state.players.isFetching,
-    players: state.players.players
+    players: state.players.players,
+    location: state.router.location,
+    userID: state.firebase.auth.uid
 })
 
 const mapDispatchToProps = dispatch => ({

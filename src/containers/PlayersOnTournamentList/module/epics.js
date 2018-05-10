@@ -5,10 +5,10 @@ import firebase from 'firebase'
 
 export const fetchRegisteredPlayersEpic = action$ =>
     action$.ofType(actionTypes.FETCH_REGISTERED_PLAYERS)
-    .do(({id}) => console.log({id}))
+    //.do(({id}) => console.log({id}))
         .switchMap( ({id}) => 
             Observable.of(getRegisteredPlayersFromFirebase('tournaments/' + id + '/players'))
-            .do( tours => console.log(tours, 'tours'))
+            //.do( tours => console.log(tours, 'tours'))
             .map( players => fetchRegisteredPlayersSuccess(players))
             .catch( error => Observable.of(fetchRegisteredPlayersError(error)))
     )
@@ -26,7 +26,7 @@ export const fetchRegisteredPlayersEpic = action$ =>
                 
                 for (let keys in item) {
                     if(contains(item[keys], items)) {
-                        console.log(item[keys])
+                        //console.log(item[keys])
                     }
                     else {
                         const newItem = item[keys]

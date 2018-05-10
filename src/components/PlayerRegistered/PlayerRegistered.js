@@ -7,18 +7,21 @@ import Button from 'grommet/components/Button';
 import { fetchTournaments } from '../TournamentsList/module/actions';
 import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList/module/actions';
 
-const Player = props => {
+const PlayerRegistered = props => {
 
     const { player: {Name, Surname, Rating, Age, Style, id, facebookID}, user, fetchPlayers, match, location, fetchTournaments, fetchRegisteredPlayerss } = props;
-   
-    const handleDelete = (id) => {
+    const tourID = match.params.id
+
+    const handleDelete = (id, tourID) => {
 
         const db = firebase.database();   
 
-        db.ref().child('players/' + id + '/').remove();
-
+        db.ref().child('tournaments/' + tourID + '/' + id).remove();
+        
         fetchPlayers();
         fetchTournaments();
+
+        console.log('delete', tourID)
     }
     
     const handleAdd = (id) => {
@@ -57,7 +60,7 @@ const Player = props => {
 
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
-                    <Button className='button-delete' onClick={() => handleDelete(id)}>
+                    <Button className='button-delete' onClick={() => handleDelete(id, match.params.id)}>
                         x
                     </Button>
                  </td> :
@@ -87,8 +90,8 @@ const mapDispatchToProps = dispatch => ({
     }
 })
 
-const withReduxFormPlayer = reduxForm({
+const withReduxFormPlayerRegistered = reduxForm({
     form : 'checked-players'
-})(Player)
+})(PlayerRegistered)
 
-export default connect(mapStateToProps, mapDispatchToProps )(withReduxFormPlayer);
+export default connect(mapStateToProps, mapDispatchToProps )(withReduxFormPlayerRegistered);
