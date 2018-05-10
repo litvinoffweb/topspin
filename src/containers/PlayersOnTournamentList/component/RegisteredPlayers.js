@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Box from 'grommet/components/Box'
+import Box from 'grommet/components/Box';
+import Button from 'grommet/components/Button';
+
 import { fetchRegisteredPlayers } from '../module/actions';
 import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered'
 
@@ -11,11 +13,14 @@ class RegisteredPlayers extends Component {
         //console.log('willt', this.props)
     }
 
+    handleTossUp = () => {
+        console.log('jerebievka');
+    }
     render() {
         //console.log('render',this.props)
         const {registeredPlayers} = this.props
         return(
-            <Box>
+            <Box direction='row'>
                 <table>
                     <thead>
                         <th>#</th>
@@ -32,8 +37,14 @@ class RegisteredPlayers extends Component {
                                 <PlayerRegistered key={index} player={player} {...this.props}/>
                             )
                         })}
+                        <tr>
+                           
+                            <Button onClick={() => this.handleTossUp()}>TOSS UP</Button>
+                              
+                        </tr>
                     </tbody>
                 </table>
+                
             </Box>
         )
     }

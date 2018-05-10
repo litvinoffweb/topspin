@@ -6,10 +6,11 @@ import { fetchTournaments } from '../TournamentsList/module/actions';
 import Button from 'grommet/components/Button';
 import { Link } from 'react-router-dom';
 import PlayersList from '../PlayersList/PlayersList';
+import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList/module/actions';
 
 const Tournament = props => {
 
-    const { tournament: {name, date, current, id}, user, fetchTournament, pathname, location} = props;
+    const { tournament: {name, date, current, id}, user, fetchTournament, pathname, location, fetchRegisteredPLayerss} = props;
 
     const handleUpdate = (id) => {
         const db = firebase.database()
@@ -27,9 +28,9 @@ const Tournament = props => {
 
     return(
         <tr>
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button style={{width: '70px'}} onClick={() => handleUpdate(id)}>{current ? 'Finish' : 'Start'}</Button></td> : <td> - </td>}
+            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button style={{width: '70px'}} onClick={() => handleUpdate(id)}>{current ? 'FINISH' : 'START'}</Button></td> : <td> - </td>}
             <td>
-                <span className='td-span-float-left'><Link to={`tournaments/${id}`}>{name}</Link></span>
+                <span className='td-span-float-left'><Link to={`tournaments/${id}`} onClick={() => fetchRegisteredPlayers(id)}>{name}</Link></span>
             </td>
             <td>
                 {date}
@@ -41,7 +42,7 @@ const Tournament = props => {
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
                     <Button className='button-delete' style={{width: '45px', heigth: '45px'}} onClick={() => handleDelete(id)}>
-                        x
+                        X
                     </Button>
                  </td> :
                  <td>
@@ -61,6 +62,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchTournament: () => {
         dispatch(fetchTournaments())
+    },
+    fetchRegisteredPlayerss: id => {
+        dispatch(fetchRegisteredPlayers(id))
     }
 })
 

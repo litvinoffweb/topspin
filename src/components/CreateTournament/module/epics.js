@@ -17,6 +17,7 @@ const createTournamentOnDB = ({name, date, players}) => {
         id: Date.now().toString(),
         current: false,
         players: '',
-        tables: null
+        tables: '',
+        groups: ''
     })
 }

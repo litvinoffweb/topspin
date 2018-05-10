@@ -88,6 +88,7 @@ class AdminPage extends Component  {
                         {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
                         {location === '/admin/create_tournament' ? <Box direction='row'>
                             <Box className='col-4'><CreateTournament {...this.props} onSubmit={createTour}/> </Box>
+                            <Box className='col-1'/>
                             <Box className='col-6'><TournamentsList {...this.props}/></Box>
                             </Box> : null}
                         <Switch>

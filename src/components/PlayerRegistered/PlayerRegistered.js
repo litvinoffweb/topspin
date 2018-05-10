@@ -23,22 +23,6 @@ const PlayerRegistered = props => {
         fetchRegisteredPlayerss(tourID);
     }
     
-    const handleAdd = (id) => {
-        const db = firebase.database();
-        db.ref().child('tournaments/' + match.params.id + '/players/' + id).update({
-            Name: Name,
-            Surname: Surname,
-            Rating: Rating,
-            Age: Age,
-            Style: Style,
-            id: id,
-            facebookID: facebookID
-        })
-
-        fetchRegisteredPlayerss(tourID);
-        console.log(id)
-        
-    }
 
     return(
         <tr>

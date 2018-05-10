@@ -26,4 +26,11 @@
     font-size: 11px;
     font-weight: bold;
     min-height: 17px;
+    
+}
+
+.nav-link-admin:hover {
+    background-color: $nav-link-admin-bg-color-hover;
+    color: $nav-link-admin-font-color-hover;
+    text-decoration: none;
 }
