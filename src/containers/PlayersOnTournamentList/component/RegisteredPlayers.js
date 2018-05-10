@@ -20,10 +20,10 @@ class RegisteredPlayers extends Component {
                     <thead>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Surname</th>
                         <th>Rating</th>
                         <th>Age</th>
                         <th>Style</th>
+                        <th>Delete </th>
                         
                     </thead>
                     <tbody>

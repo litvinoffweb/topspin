@@ -10,7 +10,7 @@ import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList
 const Player = props => {
 
     const { player: {Name, Surname, Rating, Age, Style, id, facebookID}, user, fetchPlayers, match, location, fetchTournaments, fetchRegisteredPlayerss } = props;
-   
+    const tourID = match.params.id
     const handleDelete = (id) => {
 
         const db = firebase.database();   
@@ -33,8 +33,8 @@ const Player = props => {
             facebookID: facebookID
         })
 
-        fetchRegisteredPlayerss(id);
-        console.log(id)
+        fetchRegisteredPlayerss(tourID);
+        console.log('fetchRegisteredPlayerss')
         
     }
 

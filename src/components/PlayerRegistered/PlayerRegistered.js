@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import firebase from 'firebase';
 import { fetchPlayer } from '../PlayersList/module/actions';
 import Button from 'grommet/components/Button';
@@ -20,8 +20,9 @@ const PlayerRegistered = props => {
         
         fetchPlayers();
         fetchTournaments();
+        console.log('id = ', id)
 
-        console.log('delete', tourID)
+        console.log('tourID = ', tourID)
     }
     
     const handleAdd = (id) => {
@@ -36,8 +37,8 @@ const PlayerRegistered = props => {
             facebookID: facebookID
         })
 
-        fetchRegisteredPlayerss(id);
-        console.log(id)
+        fetchRegisteredPlayerss(tourID);
+        //console.log(id)
         
     }
 
@@ -68,7 +69,7 @@ const PlayerRegistered = props => {
                      :P
                 </td> 
             }
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` ? <td> <Button style={{width: '45px', heigth: '45px'}} onClick={ () => handleAdd(id)}> ADD </Button> </td> : null}
+            
             
         </tr>
     )
