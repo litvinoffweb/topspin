@@ -10,6 +10,7 @@ import { store } from './redux/store';
 import './index.scss';
 import { fetchPlayer } from './components/PlayersList/module/actions';
 import { fetchTournaments } from './components/TournamentsList/module/actions';
+import calculateGroups from './utils/calculateGroups';
 
 
 
@@ -26,7 +27,7 @@ ReactDOM.render(
 // db.ref().child('players/' + 1525352326608 + '/').remove()
 
 
-
+console.log(calculateGroups('sssssssssssssssssssssssssssssssssssssssssssssss'));
 
 store.dispatch(fetchPlayer());
 store.dispatch(fetchTournaments());

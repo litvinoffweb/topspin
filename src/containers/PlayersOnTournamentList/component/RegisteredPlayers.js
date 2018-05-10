@@ -5,7 +5,8 @@ import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 
 import { fetchRegisteredPlayers } from '../module/actions';
-import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered'
+import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered';
+import firebase from 'firebase';
 
 class RegisteredPlayers extends Component {
 
@@ -14,11 +15,15 @@ class RegisteredPlayers extends Component {
     }
 
     handleTossUp = () => {
-        console.log('jerebievka');
+        const db = firebase.database();
+        db.ref().child('tournaments/' + this.match.params.id + '/groups').update({
+            groups: ''
+        })
     }
     render() {
         //console.log('render',this.props)
         const {registeredPlayers} = this.props
+        console.log(this.props)
         return(
             <Box direction='row'>
                 <table>
@@ -37,11 +42,9 @@ class RegisteredPlayers extends Component {
                                 <PlayerRegistered key={index} player={player} {...this.props}/>
                             )
                         })}
-                        <tr>
-                           
-                            <Button onClick={() => this.handleTossUp()}>TOSS UP</Button>
-                              
-                        </tr>
+                        
+                        <Button onClick={() => this.handleTossUp()}>TOSS UP</Button>
+                       
                     </tbody>
                 </table>
                 
