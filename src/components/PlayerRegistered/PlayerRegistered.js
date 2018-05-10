@@ -10,19 +10,17 @@ import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList
 const PlayerRegistered = props => {
 
     const { player: {Name, Surname, Rating, Age, Style, id, facebookID}, user, fetchPlayers, match, location, fetchTournaments, fetchRegisteredPlayerss } = props;
-    const tourID = match.params.id
+    const tourID = user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? match.params.id : '';
 
     const handleDelete = (id, tourID) => {
 
         const db = firebase.database();   
 
-        db.ref().child('tournaments/' + tourID + '/' + id).remove();
-        
+        db.ref().child('tournaments/' + tourID + '/players/' + id).remove();
+        console.log('tournaments/' + tourID + '/players/' + id);
         fetchPlayers();
         fetchTournaments();
-        console.log('id = ', id)
-
-        console.log('tourID = ', tourID)
+        fetchRegisteredPlayerss(tourID);
     }
     
     const handleAdd = (id) => {
@@ -38,7 +36,7 @@ const PlayerRegistered = props => {
         })
 
         fetchRegisteredPlayerss(tourID);
-        //console.log(id)
+        console.log(id)
         
     }
 
