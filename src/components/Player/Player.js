@@ -35,7 +35,6 @@ const Player = props => {
         })
 
         fetchRegisteredPlayerss(tourID);
-        console.log('fetchRegisteredPlayerss')
         
     }
 

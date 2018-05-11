@@ -42,7 +42,7 @@ const Tournament = props => {
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
                     <Button className='button-delete' onClick={() => handleDelete(id)}>
-                        x
+                        -
                     </Button>
                  </td> :
                  <td>

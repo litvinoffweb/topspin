@@ -58,3 +58,17 @@ button.#{$grommet-namespace}button.button-add {
     width: 35px;
     height: 35px;
 }
+button.#{$grommet-namespace}button.button-add:hover {
+    background-color: $btn-bg-color-add-hover;
+    color: #fff;
+    border: $btn-bg-color-add-hover 1px solid;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+button.#{$grommet-namespace}button.button-delete:hover {
+    background-color: $btn-bg-color-delete-hover;
+    color: #fff;
+    border: $btn-bg-color-delete-hover 1px solid;
+    border-radius: 3px;
+    transition: 0.5s;
+}

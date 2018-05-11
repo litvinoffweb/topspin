@@ -28,7 +28,8 @@ class PlayersOnTournamentList extends Component {
 }
 
 const mapStateToProps = state => ({
-    registeredPlayers: state.registeredPlayers.registeredPlayers
+    registeredPlayers: state.registeredPlayers.registeredPlayers,
+    players: state.players.players
 });
 
 const mapDispatchToProps = dispatch => ({

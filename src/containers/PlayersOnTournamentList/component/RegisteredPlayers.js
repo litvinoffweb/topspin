@@ -7,18 +7,35 @@ import Button from 'grommet/components/Button';
 import { fetchRegisteredPlayers } from '../module/actions';
 import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered';
 import firebase from 'firebase';
+import calculateGroups from '../../../utils/calculateGroups';
 
 class RegisteredPlayers extends Component {
+
+    state = {
+        showGroops: false 
+    }
 
     componentWillMount() {
         //console.log('willt', this.props)
     }
 
-    handleTossUp = () => {
+    handleTossUp = (registeredPlayers) => {
+
+        const calculated = calculateGroups(registeredPlayers);
+
         const db = firebase.database();
         db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
-            groups: ''
+            groups: calculated
         })
+        console.log(calculated, 'calculated')
+        const sortedPlayers = registeredPlayers.sort( (p1, p2) => {
+            return p2.Rating - p1.Rating
+        })
+        db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
+            sortedPlayers
+        })
+        console.log(sortedPlayers);
+
     }
     render() {
         
@@ -49,8 +66,8 @@ class RegisteredPlayers extends Component {
                             )
                         })}
                         
-                        <tr><td colSpan='6'><Button style={{width: '170px'}} onClick={() => this.handleTossUp()}>TOSS UP</Button></td></tr>
-                       
+                        <tr><td colSpan='6'><Button style={{width: '170px'}} onClick={() => this.handleTossUp(registeredPlayers)}>TOSS UP</Button></td></tr>
+                        
                     </tbody>
                 </table>
                 
