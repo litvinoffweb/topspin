@@ -1,6 +1,6 @@
 const calculateGroups = players => {
     let groups;
-    console.log(players.length)
+    
     
         if (players.length < 10){
             groups = 2;

@@ -65,7 +65,7 @@ const Player = props => {
                      :P
                 </td> 
             }
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` ? <td> <Button  className='button-add' style={{marginTop: '5px', marginBottom: '5px'}} onClick={ () => handleAdd(id)}>+</Button> </td> : null}
+            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` ? <td> <Button  className='button-add' style={{marginTop: '0px', marginBottom: '0px'}} onClick={ () => handleAdd(id)}>+</Button> </td> : null}
             
         </tr>
     )
