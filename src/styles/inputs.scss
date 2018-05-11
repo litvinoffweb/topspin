@@ -35,3 +35,9 @@ input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 1000px $input-bg-color inset !important;
     -webkit-text-fill-color: #555555 !important;
     }
+input[type=text] .input-main {
+    width: 100%;
+}
+.input-main[type=password] {
+    width: 100%;
+}

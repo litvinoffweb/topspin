@@ -44,7 +44,7 @@ const PlayerRegistered = props => {
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
                     <Button className='button-delete' onClick={() => handleDelete(id, match.params.id)}>
-                        x
+                        -
                     </Button>
                  </td> :
                  <td>

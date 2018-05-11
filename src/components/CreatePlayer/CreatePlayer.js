@@ -31,45 +31,59 @@ class CreatePlayer extends Component  {
 
     render() {
         return (
-            <Box >
-                
-                <Box direction='row' justify='around'>
-                    <Box direction='row' align='center' justify='center' className='box-shadow'> 
-                        <Form onSubmit={this.submitAndClearForms}>
-                            <Field className='input-main' name="Name" component="input" id="name" placeholder='Name:'/>
-                            <Field className='input-main' name="Surname" component="input" id="surname" placeholder='Surname:'/>
-                            <Field className='input-main' name="Age"  component="input" id="age" placeholder='Age:'/>
-                            <Field className='input-main' name="Rating" component="input" id="rate" placeholder='Rate:'/>
-                            
-                            <List align='center'>
-                                <ListItem align='center' justify='between'>
-                                    <span> Deffender : </span>
-                                    <Field className='input-main' name="Style" component="input" id="defender" type="radio" value="defender"/>
-                                </ListItem>
-                                <ListItem align='center' justify='between'>
-                                    <span> Attacker : </span>
-                                    <Field className='input-main' name="Style" component="input" id="attacker" type="radio" value="attacker"/>
-                                </ListItem>
-                                <ListItem align='center' justify='between'>
-                                    <span> Classic : </span>
-                                    <Field className='input-main' name='Classic' component='input' id='classic' type='checkbox' />
-                                </ListItem>
-                                <ListItem align='center' justify='between'>
-                                    <span> Asian : </span>
-                                    <Field className='input-main' name='Asian' component='input' id='Asian' type='checkbox' />
-                                </ListItem>
-                                <ListItem align='center' justify='between'>
-                                    <span> Japan : </span>
-                                    <Field className='input-main' name='Japan' component='input' id='Japan' type='checkbox' />
-                                </ListItem>
-                            </List>
+            <Box>
+                <table>
+                    <thead>
+                        <tr>
+                            <th className='th-bg'>
+                                Create player :
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{paddingLeft: '0px' , paddingRight: '0px'}}>
+                            <Box direction='row' justify='around'>
+                                <Box direction='row' align='center' justify='center' className='box-shadow'> 
+                                    <Form onSubmit={this.submitAndClearForms}>
+                                        <Field className='input-main' style={{width: '100%'}} name="Name" component="input" id="name" placeholder='Name:'/>
+                                        <Field className='input-main' style={{width: '100%'}} name="Surname" component="input" id="surname" placeholder='Surname:'/>
+                                        <Field className='input-main' style={{width: '100%'}} name="Age"  component="input" id="age" placeholder='Age:'/>
+                                        <Field className='input-main' style={{width: '100%'}} name="Rating" component="input" id="rate" placeholder='Rate:'/>
+                                        
+                                        <List align='center'>
+                                            <ListItem align='center' justify='between'>
+                                                <span> Deffender : </span>
+                                                <Field className='input-main' name="Style" component="input" id="defender" type="radio" value="defender"/>
+                                            </ListItem>
+                                            <ListItem align='center' justify='between'>
+                                                <span> Attacker : </span>
+                                                <Field className='input-main' name="Style" component="input" id="attacker" type="radio" value="attacker"/>
+                                            </ListItem>
+                                            <ListItem align='center' justify='between'>
+                                                <span> Classic : </span>
+                                                <Field className='input-main' name='Classic' component='input' id='classic' type='checkbox' />
+                                            </ListItem>
+                                            <ListItem align='center' justify='between'>
+                                                <span> Asian : </span>
+                                                <Field className='input-main' name='Asian' component='input' id='Asian' type='checkbox' />
+                                            </ListItem>
+                                            <ListItem align='center' justify='between'>
+                                                <span> Japan : </span>
+                                                <Field className='input-main' name='Japan' component='input' id='Japan' type='checkbox' />
+                                            </ListItem>
+                                        </List>
 
-                            <Button type='submit' label='ADD PLAYER'/>
-                        </Form>
-                        
-                    </Box>
-                    
-                </Box>
+                                        <Button type='submit' label='ADD PLAYER'/>
+                                    </Form>
+                                    
+                                </Box>
+                                
+                            </Box>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 
                 
             </Box>

@@ -16,10 +16,11 @@ button.#{$grommet-namespace}button {
     }
 }
 button.#{$grommet-namespace}button.button-delete {
-        height: 45px;
-        width: 45px;
+        height: 35px;
+        width: 35px;
         margin-top: 5px;
         margin-bottom: 5px;
+        background-color: $btn-bg-color-delete;
 }
 button.#{$grommet-namespace}button:hover {
     background-color: $btn-bg-hover;
@@ -50,4 +51,10 @@ button.#{$grommet-namespace}button.log_out {
 
 button.#{$grommet-namespace}button.toss-up {
     width: 50%;
+}
+
+button.#{$grommet-namespace}button.button-add {
+    background-color: $btn-bg-color-add;
+    width: 35px;
+    height: 35px;
 }

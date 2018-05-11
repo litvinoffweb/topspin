@@ -28,7 +28,7 @@ const Tournament = props => {
 
     return(
         <tr>
-            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button style={{width: '70px'}} onClick={() => handleUpdate(id)}>{current ? 'FINISH' : 'START'}</Button></td> : <td> - </td>}
+            {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button style={{width: '70px', marginTop: '5px', marginBottom: '5px'}} onClick={() => handleUpdate(id)}>{current ? 'FINISH' : 'START'}</Button></td> : <td> - </td>}
             <td>
                 <span className='td-span-float-left'><Link to={`tournaments/${id}`} onClick={() => fetchRegisteredPlayers(id)}>{name}</Link></span>
             </td>
@@ -36,13 +36,13 @@ const Tournament = props => {
                 {date}
             </td>
             <td>
-                {current}
+                {current.toString()}
             </td>
             
                 {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? 
                 <td>
-                    <Button className='button-delete' style={{width: '45px', heigth: '45px'}} onClick={() => handleDelete(id)}>
-                        X
+                    <Button className='button-delete' onClick={() => handleDelete(id)}>
+                        x
                     </Button>
                  </td> :
                  <td>

@@ -9,11 +9,11 @@ const AddPlayer = props => {
     return(
         <Box direction='row'>
             
-            <Box className='col-4'>
-                <CreatePlayer {...props}  />
+            <Box className='col-3'>
+                <CreatePlayer {...props}  className='with-shadow'/>
             </Box>
-            <Box className='col-1' />            
-            <Box className='col-6'>
+                       
+            <Box className='col-9'>
                 <PlayersList {...props} />
             </Box>
         </Box>

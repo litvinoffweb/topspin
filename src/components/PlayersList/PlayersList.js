@@ -36,7 +36,7 @@ class PlayersList extends Component {
                     <table>
                         <thead>
                         {(userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/create_player`) || (userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` )
-                            ? <tr><th colSpan='7' className='th-bg'> Players list: </th></tr> 
+                            ? <tr><th colSpan='7' className='th-bg'> Players list : </th></tr> 
                             : null}
                             <tr>
                                 <th> # </th>

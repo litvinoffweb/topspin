@@ -21,15 +21,28 @@ class CreateTournament extends Component {
     render() {
         return(
             <Box direction='row'>
-                <Box className='col-1'>
-                </Box>
                 <Box className='col-10'>
-                    <Form onSubmit={this.createTournament} className='create-tournament'>
-                        {/* <Heading tag='h2'>NEW TOURNAMENT</Heading> */}
-                        <Field component='input' type='text' name='name' className='input-main input-tournament' style={{width: '100%'}} placeholder='Name:'/>
-                        <Field component='input' type='date' name='date' className='input-main input-tournament' style={{width: '100%'}} placeholder='New tournament:'/>
-                        <Button type='submit' label='CREATE' />
-                    </Form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th className='th-bg'>Create tournament : </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{paddingLeft: '0px' , paddingRight: '0px'}}>
+                                
+                                    <Form onSubmit={this.createTournament} className='create-tournament'>
+                                        {/* <Heading tag='h2'>NEW TOURNAMENT</Heading> */}
+                                        <Field component='input' type='text' name='name' className='input-main input-tournament' style={{width: '100%'}} placeholder='Name:'/>
+                                        <Field component='input' type='date' name='date' className='input-main input-tournament' style={{width: '100%'}} placeholder='New tournament:'/>
+                                        <Button type='submit' label='CREATE' />
+                                    </Form>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 </Box>
             </Box>
         )
