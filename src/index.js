@@ -27,7 +27,7 @@ ReactDOM.render(
 // db.ref().child('players/' + 1525352326608 + '/').remove()
 
 
-console.log(calculateGroups('sssssssssssssssssssssssssssssssssssssssssssssss'));
+console.log(calculateGroups('sss'));
 
 store.dispatch(fetchPlayer());
 store.dispatch(fetchTournaments());

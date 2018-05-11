@@ -21,7 +21,7 @@ class PlayersList extends Component {
 
     shouldComponentUpdate(nextProps) {
         if(this.props.players !== nextProps.players) {
-            console.log(nextProps, 'nextprops')
+            //console.log(nextProps, 'nextprops')
 
             return true;
         }
@@ -29,20 +29,25 @@ class PlayersList extends Component {
     }
 
     render() {
-        console.log(this.props)
+       // console.log(this.props)
         const { players, location, match, userID } = this.props;
         return(
                 players ? <Box>
                     <table>
                         <thead>
+                        {(userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/create_player`) || (userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` )
+                            ? <tr><th colSpan='7' className='th-bg'> Players list: </th></tr> 
+                            : null}
                             <tr>
-                            <th> # </th>
-                            <th><span className='th-span-float-left'>Name</span></th>
-                            <th>Age</th>
-                            <th>Rating</th>
-                            <th>Style</th>
-                            <th>Delete</th>
-                            {userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` ? <th> Add </th> : null}
+                                <th> # </th>
+                                <th><span className='th-span-float-left'>Name</span></th>
+                                <th>Age</th>
+                                <th>Rating</th>
+                                <th>Style</th>
+                                <th>Delete</th>
+                                {userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` 
+                                    ? <th> Add </th> 
+                                    : null}
                             </tr>
                             
                         </thead>

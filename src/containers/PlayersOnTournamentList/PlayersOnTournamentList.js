@@ -16,16 +16,10 @@ class PlayersOnTournamentList extends Component {
         render() {
             return(
                 <Box>
-                    <Box direction='row'>
-                        <Box className='col-3' ><Heading tag='h3'>Registered players:</Heading></Box>
-                        <Box className='col-3'/>
-                        <Box className='col-3' ><Heading tag='h3'>Players list:</Heading></Box>
-                        <Box className='col-3'/>
-                    </Box>
+                    
                     <Box direction='row'>
                         <Box className='col-6'><RegisteredPlayers {...this.props}/></Box>
                         <Box className='col-6'><PlayersList {...this.props}/></Box>
-                        
                     </Box>
                 </Box>
                 

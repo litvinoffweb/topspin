@@ -18,6 +18,10 @@ class TournamentsList extends Component {
                     <table>
                         <thead>
                             <tr>
+                                <th colSpan='5' className='th-bg'>Tournament list: </th>
+                            </tr>
+                            <tr>
+                            
                             <th> # </th>
                             <th><span className='th-span-float-left'>Name</span></th>
                             <th>Date</th>

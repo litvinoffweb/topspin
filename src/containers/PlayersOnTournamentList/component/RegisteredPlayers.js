@@ -16,25 +16,31 @@ class RegisteredPlayers extends Component {
 
     handleTossUp = () => {
         const db = firebase.database();
-        db.ref().child('tournaments/' + this.match.params.id + '/groups').update({
+        db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
             groups: ''
         })
     }
     render() {
-        //console.log('render',this.props)
+        
         const {registeredPlayers} = this.props
-        console.log(this.props)
+        
         return(
             <Box direction='row'>
                 <table>
                     <thead>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Rating</th>
-                        <th>Age</th>
-                        <th>Style</th>
-                        <th>Delete </th>
-                        
+                        <tr>
+                            <th colSpan='6' className='th-bg'>
+                                Registered players:
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Rating</th>
+                            <th>Age</th>
+                            <th>Style</th>
+                            <th>Delete </th>
+                        </tr>
                     </thead>
                     <tbody>
                         {registeredPlayers.map( (player, index) => {
@@ -43,7 +49,7 @@ class RegisteredPlayers extends Component {
                             )
                         })}
                         
-                        <Button onClick={() => this.handleTossUp()}>TOSS UP</Button>
+                        <tr><td colSpan='6'><Button style={{width: '170px'}} onClick={() => this.handleTossUp()}>TOSS UP</Button></td></tr>
                        
                     </tbody>
                 </table>

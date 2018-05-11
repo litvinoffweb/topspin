@@ -58,17 +58,17 @@ class AdminPage extends Component  {
                 {!admin
                      ? <Redirect to='/auth'/> 
                      : <Box direction='row' className='direction_box'>
-                            <Box className='col-1'/>
+                            
                             <Box className='col-2'>
                                 <Image className='size-img-small' src='https://pp.userapi.com/c846123/v846123305/2694e/WQPablEfvHc.jpg' alt='/' />
                             </Box>
-                            <Box className='col-6' />
+                            <Box className='col-8' />
                             <Box className='col-2'>
                                 <Button onClick={e => this.redirectAfterLogout(e)} className='log_out' label='LOGOUT'/>
                             </Box>
                         </Box>}
                     <Box direction='row'>
-                        <Box className='col-1'/>
+                        
                         <Box className='col-2'>
                             <Heading tag="h3" className='h3-style' strong={true}>
                                 Admin : Stanislav
@@ -76,15 +76,14 @@ class AdminPage extends Component  {
                         </Box>
                     </Box>     
                 <Box direction='row' justify='around'>
-                    <Box className='col-1'>
-                    </Box>
+                    
                     <Box className='col-2'>
                         <Link to='/admin' className='nav-link-admin'>ADMIN</Link>
                         <Link to='/admin/create_player' className='nav-link-admin'>CREATE PLAYER</Link>
                         <Link to='/admin/create_tournament' className='nav-link-admin'>CREATE TOURNAMENT</Link>
                     </Box>
                     
-                    <Box className='col-9'>
+                    <Box className='col-10'>
                         {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
                         {location === '/admin/create_tournament' ? <Box direction='row'>
                             <Box className='col-4'><CreateTournament {...this.props} onSubmit={createTour}/> </Box>
