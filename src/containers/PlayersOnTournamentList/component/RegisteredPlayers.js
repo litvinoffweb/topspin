@@ -27,14 +27,33 @@ class RegisteredPlayers extends Component {
         db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
             groups: calculated
         })
-        console.log(calculated, 'calculated')
+        
         const sortedPlayers = registeredPlayers.sort( (p1, p2) => {
+            
             return p2.Rating - p1.Rating
         })
+        
+        const sortedGroups = (sortedPlayers) => {
+            const sorted = sortedPlayers;
+            const matrix = [];
+                for (let i = 0; i < calculateGroups(registeredPlayers); i++) {
+                    const group = [];
+                    for ( let i = 0; i < calculateGroups(registeredPlayers); i++) {
+                        group.push(sorted[i]);
+                        
+                    }
+                    matrix.push(group);
+                    
+                }
+                
+            return matrix
+        }
+        console.log(sortedGroups(sortedPlayers))
+        const result = sortedGroups(sortedPlayers);
         db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
-            sortedPlayers
+            result
         })
-        console.log(sortedPlayers);
+        
 
     }
     render() {
