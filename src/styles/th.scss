@@ -13,6 +13,9 @@ table
         background-color: $td-bg-color-nth-child-2;
         border-radius: 2px;
     }
+    tr.groups {
+        background-color: #fff;
+    }
        
     td {
         max-height: 70px;

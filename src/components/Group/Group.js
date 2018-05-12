@@ -5,20 +5,22 @@ import PlayerInGroup from '../PlayerInGroup/PlayerInGroup';
 
 const Group = props => {
     const { index, Age, Name, Rating, Style, Surname, id, facebookID, group } = props
-    console.log('Group', props)
+    //console.log('Group', props)
     return(
         <Box>
             <table>
                 <thead>
                     <tr>
                         <th><span className='td-span-float-left'>Group : { index + 1 }</span></th>
-                        <th>Rating : </th>
+                        <th><span className='td-span-float-left'>Rating : </span></th>
+                        <th><span className='td-span-float-left'>#</span></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     {group.map( (player, index) => {
                         return(
-                            <PlayerInGroup player={player} key={index} {...this.props}/>
+                            <PlayerInGroup player={player} key={index} number={index} {...this.props}/>
                         )
                     })}
                 </tbody>

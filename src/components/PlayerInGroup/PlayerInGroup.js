@@ -2,16 +2,22 @@ import React from 'react';
 import Box from 'grommet/components/Box';
 
 const PlayerInGroup = props => {
-    const { player: {
-        Age, Name, id, facebookID, Surname, Rating, Style
-    } } = props;
-
+    
+    console.log(props)
     return(
-        <tr>
-            <td>{Name} {Surname}</td>
-            <td>{Rating}</td>
-            
-        </tr>
+        props.player !== undefined ?
+            <tr className='group' style={{backGroundColor: '#fff'}}>
+                <td><span className='td-span-float-left'>{props.number + 1}</span></td>
+                
+                <td><span className='td-span-float-left'>{props.player.Name} {props.player.Surname}</span></td>
+                <td><span className='td-span-float-left'>{props.player.Rating}</span></td>
+                
+            </tr>
+            : <tr>
+                <td><span className='td-span-float-left'>{props.number + 1}</span></td>
+                <td><span className='td-span-float-left'>-----</span></td>
+                <td><span className='td-span-float-left'>-----</span></td>
+                </tr>
     )
 }
 
