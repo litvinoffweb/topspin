@@ -10,7 +10,7 @@ import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList
 const Player = props => {
 
     const { player: {Name, Surname, Rating, Age, Style, id, facebookID}, user, fetchPlayers, match, location, fetchTournaments, fetchRegisteredPlayerss } = props;
-    
+
     const tourID = user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? match.params.id : ''; 
     const handleDelete = (id) => {
 
