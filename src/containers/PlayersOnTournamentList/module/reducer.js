@@ -5,6 +5,10 @@ import { compose } from 'ramda';
 
 
 export const ACTION_HANDLERS = {
+    [actionTypes.SORT_BY_NAME_REGISTERED_PLAYERS]: (state, action) => immutableSet(['registeredPlayers'], action.players.sort((a,b) => a.Name > b.Name), state),
+    [actionTypes.SORT_BY_RATING_REGISTERED_PLAYERS]: (state, action) => immutableSet(['registeredPlayers'], action.players.sort((a,b) => b.Rating > a.Rating), state),
+    [actionTypes.SORT_BY_AGE_REGISTERED_PLAYERS]: (state, action) => immutableSet(['registeredPlayers'], action.players.sort((a,b) => b.Age > a.Age), state),
+    
     [actionTypes.FETCH_REGISTERED_PLAYERS]: (state, action) => immutableSet(['isFetching'], true, state),
     [actionTypes.FETCH_REGISTERED_PLAYERS_SUCCESS]: (state, action) => compose(
         immutableSet(['isLoaded'], true),

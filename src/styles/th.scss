@@ -28,3 +28,10 @@ table
         text-align: left;
         color: #fff;
     }
+    .th-pointer {
+        text-decoration: none;
+    }
+    .th-pointer:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }

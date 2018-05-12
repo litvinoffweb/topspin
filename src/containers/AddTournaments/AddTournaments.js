@@ -11,11 +11,11 @@ const AddTournaments = props => {
         <Box direction='row'>
             
             <Box>
-                <CreateTournament {...props} className='margin-right col-3' />
+                <CreateTournament {...props} className='margin-right col-4' />
             </Box>
                        
             <Box>
-                <TournamentsList {...props} className='col-9'/>
+                <TournamentsList {...props} className='col-8'/>
             </Box>
         </Box>
     )

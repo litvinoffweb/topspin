@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 
-import { fetchRegisteredPlayers } from '../module/actions';
+import { fetchRegisteredPlayers, sortByNameRegisteredPlayers, sortByRatingRegisteredPlayers, sortByAgeRegisteredPlayers } from '../module/actions';
 import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered';
 import firebase from 'firebase';
 import calculateGroups from '../../../utils/calculateGroups';
@@ -21,11 +21,11 @@ class RegisteredPlayers extends Component {
 
     handleTossUp = (registeredPlayers) => {
 
-        const calculated = calculateGroups(registeredPlayers);
+        const countGroups = calculateGroups(registeredPlayers);
 
         const db = firebase.database();
         db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
-            groups: calculated
+            groups: countGroups
         })
         
         const sortedPlayers = registeredPlayers.sort( (p1, p2) => {
@@ -36,18 +36,18 @@ class RegisteredPlayers extends Component {
         const sortedGroups = (sortedPlayers) => {
             const sorted = sortedPlayers;
             const matrix = [];
-                if ( sortedPlayers.length % calculateGroups(registeredPlayers) === 0) {
-                    for (let i = 0; i < calculateGroups(registeredPlayers); i++) {
+                if ( sortedPlayers.length % countGroups === 0) {
+                    for (let i = 0; i < countGroups; i++) {
                         const group = [];
-                        const chunk = sorted.slice(calculateGroups(registeredPlayers) * i, calculateGroups(registeredPlayers) * (i + 1));
+                        const chunk = sorted.slice(countGroups * i, countGroups * (i + 1));
                         group.push(chunk)
                         matrix.push(group);
                     }
                 }
                 else {
-                    for (let i = 0; i < calculateGroups(registeredPlayers) + 1; i++) {
+                    for (let i = 0; i < countGroups + 1; i++) {
                         const group = [];
-                        const chunk = sorted.slice(calculateGroups(registeredPlayers) * i, calculateGroups(registeredPlayers) * (i + 1));
+                        const chunk = sorted.slice(countGroups * i, countGroups * (i + 1));
                         group.push(chunk)
                         matrix.push(group);
                     }
@@ -57,16 +57,35 @@ class RegisteredPlayers extends Component {
             console.log(matrix);
             return matrix
         }
+
         const result = sortedGroups(sortedPlayers);
+
         db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
             result
         })
         
 
     }
+
+    handleSortByName = (players, tourID) => {
+        const db = firebase.database();
+    
+        const sortedByName = players.sort((p1, p2) => {
+            
+            return p1.Name > p2.Name
+        })
+        console.log(players)
+        console.log(sortedByName)
+        db.ref().child('tournaments/' + tourID + '/players').update({
+            sortedByName
+        })
+        this.props.fetchRegisteredPlayerss(tourID)
+        
+    }
+
     render() {
         
-        const {registeredPlayers} = this.props
+        const {registeredPlayers, sortByNameRegisteredPlayerss, sortByRatingRegisteredPlayerss, sortByAgeRegisteredPlayerss} = this.props
         
         return(
             <Box direction='row'>
@@ -79,9 +98,9 @@ class RegisteredPlayers extends Component {
                         </tr>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>Rating</th>
-                            <th>Age</th>
+                            <th className='th-pointer' onClick={() => sortByNameRegisteredPlayerss(registeredPlayers)}>Name</th>
+                            <th className='th-pointer' onClick={() => sortByAgeRegisteredPlayerss(registeredPlayers)}>Age</th>
+                            <th className='th-pointer' onClick={() => sortByRatingRegisteredPlayerss(registeredPlayers)}>Rating</th>
                             <th>Style</th>
                             <th>Delete </th>
                         </tr>
@@ -110,6 +129,15 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchRegisteredPlayerss: id => {
         dispatch(fetchRegisteredPlayers(id))
+    },
+    sortByNameRegisteredPlayerss: players => {
+        dispatch(sortByNameRegisteredPlayers(players))
+    },
+    sortByRatingRegisteredPlayerss: players => {
+        dispatch(sortByRatingRegisteredPlayers(players))
+    },
+    sortByAgeRegisteredPlayerss: players => {
+        dispatch(sortByAgeRegisteredPlayers(players))
     }
 })
 
