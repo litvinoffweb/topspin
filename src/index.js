@@ -22,12 +22,6 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('root'));
 
-// const db = firebase.database();
-
-// db.ref().child('players/' + 1525352326608 + '/').remove()
-
-
-console.log(calculateGroups('sss6666'));
 
 store.dispatch(fetchPlayer());
 store.dispatch(fetchTournaments());
