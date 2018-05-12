@@ -86,9 +86,9 @@ class AdminPage extends Component  {
                     <Box className='col-10'>
                         {location === '/admin/create_player' ? <AddPlayers {...this.props}/> : null}
                         {location === '/admin/create_tournament' ? <Box direction='row'>
-                            <Box className='col-4'><CreateTournament {...this.props} onSubmit={createTour}/> </Box>
+                            <Box className='col-3'><CreateTournament {...this.props} onSubmit={createTour}/> </Box>
                             
-                            <Box className='col-8'><TournamentsList {...this.props}/></Box>
+                            <Box className='col-9'><TournamentsList {...this.props}/></Box>
                             </Box> : null}
                         <Switch>
                             <Route path='/admin/tournaments/:id' component={PlayersOnTournamentList}/>

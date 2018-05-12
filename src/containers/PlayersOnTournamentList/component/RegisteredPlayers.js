@@ -38,11 +38,12 @@ class RegisteredPlayers extends Component {
             const matrix = [];
                 for (let i = 0; i < calculateGroups(registeredPlayers); i++) {
                     const group = [];
-                    for ( let y = 0; y < calculateGroups(registeredPlayers); y++) {
-                        group.push(sorted[y]);
+                    // for ( let y = 0; y < calculateGroups(registeredPlayers); y++) {
+                    //     group.push(sorted[y]);
                         
-                    }
-                    
+                    // }
+                    const chunk = sorted.slice(calculateGroups(registeredPlayers) * i, calculateGroups(registeredPlayers) * (i + 1));
+                    group.push(chunk)
                     matrix.push(group);
                 }
               

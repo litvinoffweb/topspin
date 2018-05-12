@@ -13,9 +13,9 @@ const AddTournaments = props => {
             <Box>
                 <CreateTournament {...props} className='margin-right col-3' />
             </Box>
-            <Box className='col-1' />            
+                       
             <Box>
-                <TournamentsList {...props} className='col-7'/>
+                <TournamentsList {...props} className='col-9'/>
             </Box>
         </Box>
     )
