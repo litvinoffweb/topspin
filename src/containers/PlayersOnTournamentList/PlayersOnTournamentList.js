@@ -4,6 +4,8 @@ import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Box';
 
 import PlayersList from '../../components/PlayersList/PlayersList';
+import GroupsList from '../../components/GroupsList/GroupsList';
+
 import RegisteredPlayers from './component/RegisteredPlayers';
 import { fetchRegisteredPlayers } from './module/actions';
 
@@ -18,7 +20,10 @@ class PlayersOnTournamentList extends Component {
                 <Box>
                     
                     <Box direction='row'>
-                        <Box className='col-6'><RegisteredPlayers {...this.props}/></Box>
+                        <Box className='col-6'>
+                            <GroupsList {...this.props}/>
+                            <RegisteredPlayers {...this.props}/>
+                        </Box>
                         <Box className='col-6'><PlayersList {...this.props}/></Box>
                     </Box>
                 </Box>

@@ -4,7 +4,12 @@ import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
 import Button from 'grommet/components/Button';
 
-import { fetchRegisteredPlayers, sortByNameRegisteredPlayers, sortByRatingRegisteredPlayers, sortByAgeRegisteredPlayers } from '../module/actions';
+import { 
+    fetchRegisteredPlayers, 
+    sortByNameRegisteredPlayers, 
+    sortByRatingRegisteredPlayers, 
+    sortByAgeRegisteredPlayers 
+        } from '../module/actions';
 import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered';
 import firebase from 'firebase';
 import calculateGroups from '../../../utils/calculateGroups';
@@ -12,7 +17,7 @@ import calculateGroups from '../../../utils/calculateGroups';
 class RegisteredPlayers extends Component {
 
     state = {
-        showGroops: false 
+        showGroups: false
     }
 
     componentWillMount() {
@@ -63,7 +68,9 @@ class RegisteredPlayers extends Component {
         db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
             result
         })
-        
+        this.setState({
+            showGroups: !this.state.showGroups
+        })
 
     }
 
@@ -79,7 +86,7 @@ class RegisteredPlayers extends Component {
         db.ref().child('tournaments/' + tourID + '/players').update({
             sortedByName
         })
-        this.props.fetchRegisteredPlayerss(tourID)
+        this.props.fetchRegisteredPlayerss(tourID);
         
     }
 
@@ -88,7 +95,7 @@ class RegisteredPlayers extends Component {
         const {registeredPlayers, sortByNameRegisteredPlayerss, sortByRatingRegisteredPlayerss, sortByAgeRegisteredPlayerss} = this.props
         
         return(
-            <Box direction='row'>
+            this.state.showGroups ? <Button onClick={() => this.setState({ showGroups: !this.state.showGroups})}> Toggle </Button> : <Box direction='row'>
                 <table>
                     <thead>
                         <tr>

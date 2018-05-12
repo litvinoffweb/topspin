@@ -19,6 +19,9 @@ const calculateGroups = players => {
         else if ( players.length < 35) {
             groups = 6;
         }
+        else if (players.length < 40) {
+            groups = 7;
+        }
         else if ( players.length < 45 ) {
             groups = 8;
         }
