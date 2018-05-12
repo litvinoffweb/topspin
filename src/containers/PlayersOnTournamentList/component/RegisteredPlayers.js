@@ -36,16 +36,23 @@ class RegisteredPlayers extends Component {
         const sortedGroups = (sortedPlayers) => {
             const sorted = sortedPlayers;
             const matrix = [];
-                for (let i = 0; i < calculateGroups(registeredPlayers); i++) {
-                    const group = [];
-                    // for ( let y = 0; y < calculateGroups(registeredPlayers); y++) {
-                    //     group.push(sorted[y]);
-                        
-                    // }
-                    const chunk = sorted.slice(calculateGroups(registeredPlayers) * i, calculateGroups(registeredPlayers) * (i + 1));
-                    group.push(chunk)
-                    matrix.push(group);
+                if ( sortedPlayers.length % calculateGroups(registeredPlayers) === 0) {
+                    for (let i = 0; i < calculateGroups(registeredPlayers); i++) {
+                        const group = [];
+                        const chunk = sorted.slice(calculateGroups(registeredPlayers) * i, calculateGroups(registeredPlayers) * (i + 1));
+                        group.push(chunk)
+                        matrix.push(group);
+                    }
                 }
+                else {
+                    for (let i = 0; i < calculateGroups(registeredPlayers) + 1; i++) {
+                        const group = [];
+                        const chunk = sorted.slice(calculateGroups(registeredPlayers) * i, calculateGroups(registeredPlayers) * (i + 1));
+                        group.push(chunk)
+                        matrix.push(group);
+                    }
+                }
+                
               
             console.log(matrix);
             return matrix
