@@ -5,10 +5,10 @@ import firebase from 'firebase'
 
 export const fetchGroupsEpic = action$ =>
     action$.ofType(actionTypes.FETCH_GROUPS)
-    .do((data) => console.log(data))
+    //.do((data) => console.log(data))
         .switchMap( ({id}) => 
             Observable.of(getGroupsFromFirebase('tournaments/' + id + '/groups/result/result'))
-            .do( tours => console.log(tours, 'groups'))
+            //.do( tours => console.log(tours, 'groups'))
             .map( groups => fetchGroupsSuccess(groups))
             .catch( error => Observable.of(fetchGroupsError(error)))
     )
@@ -43,7 +43,7 @@ export const fetchGroupsEpic = action$ =>
                         //console.log(newItem)
                             for (let keys in newItem) {
                                 var smallItem = newItem[keys]
-                                console.log(smallItem)
+                                
                             }
                          items[keys] = smallItem;
                     }

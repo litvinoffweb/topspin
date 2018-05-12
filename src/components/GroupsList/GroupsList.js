@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
+import Group from '../Group/Group';
 
 class GroupsList extends Component {
 
     getGroups = count => {
         const counts = []
-        for (let i = 0; i < count; i++) {
-            
-            counts.push(<tr key={i * 3}><td key={i}>{i}</td></tr>)
-                
-            
+        for (let i = 0; i < this.props.groupsCount; i++) {
+            let group = []
+            for(let y = 0; y < this.props.groupsCount; y++) {
+                console.log('i = ', i, 'y = ', y)
+                group.push(this.props.groups[y][i])
+            }
+            console.log(group)
+            counts.push(<tr key={i * 3}><td key={i}><Group {...this.props} index={i} /></td></tr>)
+
         }
         return counts
     }
 
     render() {
+        console.log(this.props.groups.length)
         const {groupsCount} = this.props
         return(
             <Box>

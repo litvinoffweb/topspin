@@ -20,12 +20,12 @@ class CreateTournament extends Component {
 
     render() {
         return(
-            <Box direction='row'>
-                <Box className='col-10'>
-                <table>
+            <Box>
+               
+                <table style={{width: '280px'}}>
                     <thead>
                         <tr>
-                            <th className='th-bg'>Create tournament : </th>
+                            <th className='th-bg' style={{width: '250px'}}>Create tournament : </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,16 +34,16 @@ class CreateTournament extends Component {
                                 
                                     <Form onSubmit={this.createTournament} className='create-tournament'>
                                         {/* <Heading tag='h2'>NEW TOURNAMENT</Heading> */}
-                                        <Field component='input' type='text' name='name' className='input-main input-tournament' style={{width: '100%'}} placeholder='Name:'/>
-                                        <Field component='input' type='date' name='date' className='input-main input-tournament' style={{width: '100%'}} placeholder='New tournament:'/>
-                                        <Button type='submit' label='CREATE' />
+                                        <Field component='input' type='text' name='name' className='input-main input-tournament' style={{width: '100%', marginRight: '0px'}} placeholder='Name:'/>
+                                        <Field component='input' type='date' name='date' className='input-main input-tournament' style={{width: '100%', marginRight: '0px'}} placeholder='New tournament:'/>
+                                        <Button type='submit' label='CREATE' style={{marginRight: '0px'}}/>
                                     </Form>
                                 
                             </td>
                         </tr>
                     </tbody>
                 </table>
-                </Box>
+                
             </Box>
         )
     }

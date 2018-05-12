@@ -99,7 +99,7 @@ class RegisteredPlayers extends Component {
         
         return(
             this.state.showGroups ? <Button onClick={() => this.setState({ showGroups: !this.state.showGroups})}> Toggle </Button> : <Box direction='row'>
-                <table>
+                <table style={{width: '100%'}}>
                     <thead>
                         <tr>
                             <th colSpan='6' className='th-bg'>
