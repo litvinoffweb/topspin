@@ -7,8 +7,8 @@ class GroupsList extends Component {
     getGroups = count => {
         const counts = []
         for (let i = 0; i < count; i++) {
-            console.log(count)
-            counts.push(<tr><td>{i}</td></tr>)
+            
+            counts.push(<tr key={i * 3}><td key={i}>{i}</td></tr>)
                 
             
         }
@@ -16,7 +16,7 @@ class GroupsList extends Component {
     }
 
     render() {
-        console.log(this.props);
+        const {groupsCount} = this.props
         return(
             <Box>
                 <table>
@@ -26,7 +26,8 @@ class GroupsList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.getGroups(5)}
+                        {this.getGroups(groupsCount)}
+
                     </tbody>
                 </table>
             </Box>
@@ -34,4 +35,14 @@ class GroupsList extends Component {
     }
 }
 
-export default GroupsList;
+const mapStateToProps = state => ({
+    groups: state.groups.groups,
+    groupsCount: state.groups.count
+})
+const mapDispatchToProps = dispatch => ({
+    x: () => {
+        console.log('x')
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(GroupsList);

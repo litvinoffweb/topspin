@@ -7,6 +7,9 @@ import authorized from '../../containers/Auth/Authorized/module/reducer';
 import players from '../../components/PlayersList/module/reducer';
 import tournaments from '../../components/TournamentsList/module/reducer';
 import registeredPlayers from '../../containers/PlayersOnTournamentList/module/reducer';
+import groups from '../../components/GroupsList/module/reducer';
+
+
 
 
 
@@ -19,6 +22,7 @@ export const reducers = combineReducers({
     authorized,
     players,
     tournaments,
-    registeredPlayers
+    registeredPlayers,
+    groups
 
 });

@@ -13,6 +13,8 @@ import {
 import PlayerRegistered from '../../../components/PlayerRegistered/PlayerRegistered';
 import firebase from 'firebase';
 import calculateGroups from '../../../utils/calculateGroups';
+import { fetchGroups, fetchGroupsCount } from '../../../components/GroupsList/module/actions';
+
 
 class RegisteredPlayers extends Component {
 
@@ -29,7 +31,7 @@ class RegisteredPlayers extends Component {
         const countGroups = calculateGroups(registeredPlayers);
 
         const db = firebase.database();
-        db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
+        db.ref().child('tournaments/' + this.props.match.params.id + '/groups/count').update({
             groups: countGroups
         })
         
@@ -57,20 +59,20 @@ class RegisteredPlayers extends Component {
                         matrix.push(group);
                     }
                 }
-                
-              
-            console.log(matrix);
+            
             return matrix
         }
 
         const result = sortedGroups(sortedPlayers);
 
-        db.ref().child('tournaments/' + this.props.match.params.id + '/groups').update({
+        db.ref().child('tournaments/' + this.props.match.params.id + '/groups/result').update({
             result
-        })
-        this.setState({
-            showGroups: !this.state.showGroups
-        })
+        });
+        this.props.fetchGroupss(this.props.match.params.id);
+        this.props.fetchGroupsCounts(this.props.match.params.id);
+        // this.setState({
+        //     showGroups: !this.state.showGroups
+        // })
 
     }
 
@@ -87,6 +89,7 @@ class RegisteredPlayers extends Component {
             sortedByName
         })
         this.props.fetchRegisteredPlayerss(tourID);
+        
         
     }
 
@@ -145,6 +148,12 @@ const mapDispatchToProps = dispatch => ({
     },
     sortByAgeRegisteredPlayerss: players => {
         dispatch(sortByAgeRegisteredPlayers(players))
+    },
+    fetchGroupss: id => {
+        dispatch(fetchGroups(id))
+    },
+    fetchGroupsCounts: id => {
+        dispatch(fetchGroupsCount(id))
     }
 })
 
