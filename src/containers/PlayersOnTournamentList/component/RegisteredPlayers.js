@@ -103,10 +103,10 @@ class RegisteredPlayers extends Component {
                     <thead>
                         <tr>
                             <th colSpan='6' className='th-bg'>
-                                Registered players :
+                                Registered players : {registeredPlayers.length}
                             </th>
                         </tr>
-                        <tr>
+                        <tr className='all-seconds-players'>
                             <th>#</th>
                             <th className='th-pointer' onClick={() => sortByNameRegisteredPlayerss(registeredPlayers)}>Name</th>
                             <th className='th-pointer' onClick={() => sortByAgeRegisteredPlayerss(registeredPlayers)}>Age</th>

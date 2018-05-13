@@ -25,7 +25,7 @@ const PlayerRegistered = props => {
     
 
     return(
-        <tr>
+        <tr className='all-seconds-players'>
             <td> <img src={`https://graph.facebook.com/${facebookID}/picture?type=small`} className='avatar-facebook' alt='\' /> </td>
             <td>
                 <span className='td-span-float-left'>{Name} {Surname}</span>

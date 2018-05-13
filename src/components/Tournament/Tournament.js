@@ -27,7 +27,7 @@ const Tournament = props => {
     
 
     return(
-        <tr>
+        <tr className='all-seconds-tournaments'>
             {user.uid === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' ? <td> <Button style={{width: '70px', marginTop: '5px', marginBottom: '5px'}} onClick={() => handleUpdate(id)}>{current ? 'FINISH' : 'START'}</Button></td> : <td> - </td>}
             <td>
                 <span className='td-span-float-left'><Link to={`tournaments/${id}`} onClick={() => fetchRegisteredPlayers(id)}>{name}</Link></span>

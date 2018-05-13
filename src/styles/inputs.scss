@@ -15,7 +15,7 @@ input:focus {
 input[type=text] {
     background-color: $input-bg-color;
     .input-tournament {
-        width: 300px;
+        width: 250px;
     }
 }
 
@@ -36,7 +36,7 @@ input:-webkit-autofill:focus {
     -webkit-text-fill-color: #555555 !important;
     }
 input[type=text] .input-main {
-    width: 100%;
+    width: 250px;
 }
 .input-main[type=password] {
     width: 100%;

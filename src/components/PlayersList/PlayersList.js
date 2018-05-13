@@ -36,7 +36,7 @@ class PlayersList extends Component {
                     <table>
                         <thead>
                         {(userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/create_player`) || (userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` )
-                            ? <tr><th colSpan='7' className='th-bg'> Players list : </th></tr> 
+                            ? <tr><th colSpan='8' className='th-bg'> Players list : {this.props.players.length}</th></tr> 
                             : null}
                             <tr>
                                 <th> # </th>
@@ -46,8 +46,11 @@ class PlayersList extends Component {
                                 <th>Style</th>
                                 <th>Delete</th>
                                 {userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` 
-                                    ? <th> Add </th> 
+                                    ? <th>Add</th> 
                                     : null}
+                                {userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' 
+                                ? <th>Update</th> 
+                                : null}
                             </tr>
                             
                         </thead>

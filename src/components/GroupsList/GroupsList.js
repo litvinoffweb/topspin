@@ -10,17 +10,20 @@ class GroupsList extends Component {
         
             for (let i = 0; i < this.props.groupsCount; i++) {
                 let group = []
+                console.log(this.props.registeredPlayers.length)
+
                 if (this.props.registeredPlayers.length % this.props.groupsCount === 0) {
                     for(let y = 0; y < this.props.groupsCount; y++) {
-                   
+                        //console.log(y)
                         group.push(this.props.groups[y][i])
                     }
+                    
                     
                 }
                 else {
                     for(let y = 0; y < this.props.groupsCount + 1; y++) {
-               
-                        group.push(this.props.groups[y][i])
+
+                       group.push(this.props.groups[y][i])
                     }
                 }
                 
@@ -40,7 +43,7 @@ class GroupsList extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th className='th-bg'>Groups :</th>
+                            <th className='th-bg'>Groups : {this.props.groupsCount}</th>
                         </tr>
                     </thead>
                     <tbody>

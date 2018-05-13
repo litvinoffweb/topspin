@@ -22,6 +22,13 @@ button.#{$grommet-namespace}button.button-delete {
         margin-bottom: 5px;
         background-color: $btn-bg-color-delete;
 }
+button.#{$grommet-namespace}button.button-update {
+    height: 35px;
+    width: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: $btn-bg-color-update;
+}
 button.#{$grommet-namespace}button:hover {
     background-color: $btn-bg-hover;
     color: #000;
@@ -73,6 +80,13 @@ button.#{$grommet-namespace}button.button-delete:hover {
     background-color: $btn-bg-color-delete-hover;
     color: #fff;
     border: $btn-bg-color-delete-hover 1px solid;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+button.#{$grommet-namespace}button.button-update:hover {
+    background-color: $btn-bg-color-update-hover;
+    color: #fff;
+    border: $btn-bg-color-update-hover 1px solid;
     border-radius: 3px;
     transition: 0.5s;
 }

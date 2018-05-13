@@ -18,7 +18,7 @@ class TournamentsList extends Component {
                     <table>
                         <thead>
                             <tr>
-                                <th colSpan='5' className='th-bg'>Tournaments list : </th>
+                                <th colSpan='5' className='th-bg'>Tournaments list : {tournaments.length}</th>
                             </tr>
                             <tr>
                             

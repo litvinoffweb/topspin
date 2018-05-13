@@ -9,9 +9,16 @@ table
             float: left;
         }
         
-    tr:nth-child(2n) {
+    tr.all-seconds-players:nth-child(2n) {
         background-color: $td-bg-color-nth-child-2;
         border-radius: 2px;
+    }
+    tr.all-seconds-tournaments:nth-child(2n) {
+        background-color: $td-bg-color-nth-child-2;
+        border-radius: 2px;
+    }
+    tr.chosen-player {
+        background-color: #DCEDC8;
     }
     tr.groups {
         background-color: #fff;

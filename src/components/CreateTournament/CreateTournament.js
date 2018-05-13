@@ -32,7 +32,7 @@ class CreateTournament extends Component {
                         <tr>
                             <td style={{paddingLeft: '0px' , paddingRight: '0px'}}>
                                 
-                                    <Form onSubmit={this.createTournament} className='create-tournament'>
+                                    <Form onSubmit={this.createTournament} className='create-tournament' style={{paddingRight: '0px'}}>
                                         {/* <Heading tag='h2'>NEW TOURNAMENT</Heading> */}
                                         <Field component='input' type='text' name='name' className='input-main input-tournament' style={{width: '100%', marginRight: '0px'}} placeholder='Name:'/>
                                         <Field component='input' type='date' name='date' className='input-main input-tournament' style={{width: '100%', marginRight: '0px'}} placeholder='New tournament:'/>
