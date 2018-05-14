@@ -8,11 +8,12 @@ import GroupsList from '../../components/GroupsList/GroupsList';
 
 import RegisteredPlayers from './component/RegisteredPlayers';
 import { fetchRegisteredPlayers } from './module/actions';
-
+import { fetchPlayer } from '../../components/PlayersList/module/actions';
 class PlayersOnTournamentList extends Component {
 
         componentWillMount() {
             this.props.fetchRegisteredPlayerss(this.props.match.params.id);
+            this.props.fetchPlayerss();
         }
 
         render() {
@@ -40,6 +41,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchRegisteredPlayerss: id => {
         dispatch(fetchRegisteredPlayers(id))
+    },
+    fetchPlayerss: () => {
+        dispatch(fetchPlayer())
     }
 })
 

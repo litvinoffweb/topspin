@@ -10,22 +10,30 @@ import Player from '../Player/Player';
 
 class PlayersList extends Component {
 
+    state = {
+        isOpen: true
+    }
+
     componentWillMount() {
         this.props.fetchPlayers();
-        //console.log('will mount', this.props)
     }
 
-    componentDidMount() {
-        //console.log('did mount ', this.props)
-    }
-
+    
     shouldComponentUpdate(nextProps) {
         if(this.props.players !== nextProps.players) {
-            //console.log(nextProps, 'nextprops')
+            
 
             return true;
         }
         return false;
+    }
+
+    handleClose = () => {
+        this.setState({
+            isOpen: !this.state.isOpen
+        })
+        console.log(this.state.isOpen)
+        this.props.fetchPlayers();
     }
 
     render() {
@@ -36,7 +44,7 @@ class PlayersList extends Component {
                     <table>
                         <thead>
                         {(userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/create_player`) || (userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/tournaments/${match.params.id}` )
-                            ? <tr><th colSpan='8' className='th-bg'> Players list : {this.props.players.length}</th></tr> 
+                            ? <tr><th colSpan='7' className='th-bg'> Players list : {this.props.players.length}</th><th className='th-bg' onClick={() => this.handleClose()}>-</th></tr> 
                             : null}
                             <tr>
                                 <th> # </th>
@@ -85,4 +93,4 @@ const mapDispatchToProps = dispatch => ({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(withConnect)(PlayersList)
+export default compose(withConnect)(PlayersList);

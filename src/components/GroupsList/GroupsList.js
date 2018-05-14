@@ -22,7 +22,7 @@ class GroupsList extends Component {
                 }
                 else {
                     for(let y = 0; y < this.props.groupsCount + 1; y++) {
-
+                       
                        group.push(this.props.groups[y][i])
                     }
                 }

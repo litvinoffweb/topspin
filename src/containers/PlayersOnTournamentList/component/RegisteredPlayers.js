@@ -59,7 +59,7 @@ class RegisteredPlayers extends Component {
                         matrix.push(group);
                     }
                 }
-            
+            console.log(matrix)
             return matrix
         }
 
@@ -106,7 +106,7 @@ class RegisteredPlayers extends Component {
                                 Registered players : {registeredPlayers.length}
                             </th>
                         </tr>
-                        <tr className='all-seconds-players'>
+                        <tr >
                             <th>#</th>
                             <th className='th-pointer' onClick={() => sortByNameRegisteredPlayerss(registeredPlayers)}>Name</th>
                             <th className='th-pointer' onClick={() => sortByAgeRegisteredPlayerss(registeredPlayers)}>Age</th>
