@@ -27,7 +27,7 @@ class GroupsList extends Component {
                     }
                 }
                 
-                counts.push(<tr key={i * 3}><td key={i}><Group {...this.props} index={i} group={group}/></td></tr>)
+                counts.push(<tr key={i * 3}><td key={i} style={{padding: '0px'}}><Group {...this.props} index={i} group={group}/></td></tr>)
     
             }
         
