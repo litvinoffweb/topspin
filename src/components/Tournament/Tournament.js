@@ -1,16 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import firebase from 'firebase';
 import { fetchTournaments } from '../TournamentsList/module/actions';
 import Button from 'grommet/components/Button';
 import { Link } from 'react-router-dom';
-import PlayersList from '../PlayersList/PlayersList';
 import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList/module/actions';
 
 const Tournament = props => {
 
-    const { tournament: {name, date, current, id}, user, fetchTournament, pathname, location, fetchRegisteredPLayerss} = props;
+    const { tournament: {name, date, current, id}, user, fetchTournament} = props;
 
     const handleUpdate = (id) => {
         const db = firebase.database()

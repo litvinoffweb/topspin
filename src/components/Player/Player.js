@@ -6,15 +6,40 @@ import { fetchPlayer } from '../PlayersList/module/actions';
 import Button from 'grommet/components/Button';
 import { fetchTournaments } from '../TournamentsList/module/actions';
 import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList/module/actions';
+import Form from 'grommet/components/Form';
+import DefaultValue from '../DefaultValue/DefaultValue';
 
 class Player extends Component{
 
     state = {
-        chosen: false
+        chosen: false,
+        updating: false,
+        Name: this.props.player.Name
+    }
+
+    handleUpdateCancel = () => {
+        this.setState({
+            updating: !this.state.updating
+        })
     }
 
     handleUpdate = id => {
-        console.log(id)
+        console.log(this.state)
+        this.setState({
+            updating: !this.state.updating
+        })
+
+        const updatePlayer = ({}) => {
+
+            const db = firebase.database();
+            db.ref.child('players/' + this.props.id + '/').update({
+
+            })
+        }
+
+        this.state.updating ? null : null;
+
+
     }
     handleDelete = (id) => {
 
@@ -48,7 +73,7 @@ class Player extends Component{
         render() {
             const { player: { Age, Name, Surname, id, facebookID, Rating, Style, chosen}, match, user, fetchPlayers, fetchTournaments, fetchRegisteredPlayerss, location} = this.props;
             return(
-                <tr style={this.state.chosen ? {backGroundColor: 'green'} : null} className={!this.state.chosen ? 'all-seconds-players' : 'chosen-player'} >
+                !this.state.updating ? <tr style={this.state.chosen ? {backGroundColor: 'green'} : null} className={!this.state.chosen ? 'all-seconds-players' : 'chosen-player'} >
                     <td> <img src={`https://graph.facebook.com/${facebookID}/picture?type=small`} className='avatar-facebook' alt='\' /> </td>
                     <td>
                         <span className='td-span-float-left'>{Name} {Surname}</span>
@@ -90,6 +115,30 @@ class Player extends Component{
                         : null}
                     
                 </tr>
+                : 
+                <tr>
+                    <Form >
+                        <table>
+                            <tbody>
+                            <tr><td><span className='td-span-float-left'>Name: </span></td><td><Field className='input-main' style={{width: '100%', padding: '0px', marginBottom: '0px'}}  name="Name" component='input' id="name" placeholder='Name:'/></td></tr>
+                            <tr><td><span className='td-span-float-left'>Surname: </span></td><td><Field className='input-main' style={{width: '100%', padding: '0px', marginBottom: '0px'}} name="Surname" component="input" id="surname" placeholder='Surname:'/></td></tr>
+                            <tr><td><span className='td-span-float-left'>Age: </span></td><td><Field className='input-main' style={{width: '100%', padding: '0px', marginBottom: '0px'}} name="Age" component="input" id="age" placeholder='Age:'/></td></tr>
+                            <tr><td><span className='td-span-float-left'>Rating: </span></td><td><Field className='input-main' style={{width: '100%', padding: '0px', marginBottom: '0px'}} name="Rating" component="input" id="rating" placeholder='Rating:'/></td></tr>
+                            <tr><td><Button  className='button-update' style={{marginTop: '0px', marginBottom: '0px', width: '70px'}} onClick={ () => this.handleUpdate(id)}>
+                                        UPDATE
+                                    </Button>
+                                </td>
+                                <td>
+                                <Button  className='button-update' style={{marginTop: '0px', marginBottom: '0px', width:'70px'}} onClick={ () => this.handleUpdateCancel(id)}>
+                                        CANCEL
+                                    </Button>
+                                </td>
+                            </tr>
+                            </tbody>
+                    </table>
+                    </Form>
+                </tr>
+                  
             )
         }
     
@@ -112,7 +161,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const withReduxFormPlayer = reduxForm({
-    form : 'checked-players'
+    form : 'updating'
 })(Player)
 
 export default connect(mapStateToProps, mapDispatchToProps )(withReduxFormPlayer);

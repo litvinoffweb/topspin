@@ -1,5 +1,5 @@
-form.#{$grommet-namespace}form {
-    max-width: 250px;
+form.#{$grommet-namespace}form.create-player-form {
+    max-width: 380px;
     margin-right: 0px;
 }
 
@@ -8,4 +8,9 @@ form.create-tournament {
     .input {
         width: 280px;
     }
+}
+
+form.#{$grommet-namespace}form {
+    max-width: 280px;
+    margin-right: 0px;
 }

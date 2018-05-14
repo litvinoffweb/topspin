@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Box from 'grommet/components/Box';
 import Group from '../Group/Group';
+import firebase from 'firebase';
 
 class GroupsList extends Component {
 
     getGroups = count => {
         const counts = []
-        
+        const db = firebase.database();
             for (let i = 0; i < this.props.groupsCount; i++) {
                 let group = []
-                console.log(this.props.registeredPlayers.length)
+                db.ref().child('tournaments/' + this.props.match.params.id + '/groups/rendered/').set({
+                    i: group
+                })
 
                 if (this.props.registeredPlayers.length % this.props.groupsCount === 0) {
                     for(let y = 0; y < this.props.groupsCount; y++) {
-                        //console.log(y)
+                      console.log('group',group)
+                        
                         group.push(this.props.groups[y][i])
                     }
                     
@@ -26,8 +30,8 @@ class GroupsList extends Component {
                        group.push(this.props.groups[y][i])
                     }
                 }
-                
-                counts.push(<tr key={i * 3}><td key={i} style={{padding: '0px'}}><Group {...this.props} index={i} group={group}/></td></tr>)
+                console.log('group',group)
+                counts.push(<tr key={i}><td key={i} style={{padding: '0px'}}><Group {...this.props} index={i} group={group}/></td></tr>)
     
             }
         
@@ -36,7 +40,7 @@ class GroupsList extends Component {
     }
 
     render() {
-        //console.log('GroupsList', this.props)
+        console.log('GroupsList', this.props)
         const {groupsCount} = this.props
         return(
             <Box>

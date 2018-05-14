@@ -45,7 +45,7 @@ class CreatePlayer extends Component  {
                             <td style={{paddingLeft: '0px' , paddingRight: '0px'}}>
                             <Box direction='row' justify='around'>
                                 <Box direction='row' align='center' justify='center' className='box-shadow'> 
-                                    <Form onSubmit={this.submitAndClearForms}>
+                                    <Form onSubmit={this.submitAndClearForms} className='create-player-form'>
                                         <Field className='input-main' style={{width: '100%'}} name="Name" component="input" id="name" placeholder='Name:'/>
                                         <Field className='input-main' style={{width: '100%'}} name="Surname" component="input" id="surname" placeholder='Surname:'/>
                                         <Field className='input-main' style={{width: '100%'}} name="Age"  component="input" id="age" placeholder='Age:'/>
