@@ -32,10 +32,9 @@ class Player extends Component{
 
         const db = firebase.database();   
 
-        db.ref().child('players/' + this.props.id + '/').remove();
-
+        db.ref().child('players/' + this.props.player.id + '/').remove();
+        console.log('players/' + this.props.player.id + '/')
         this.props.fetchPlayers();
-        this.props.fetchTournaments();
     }
     
     handleAdd = (id) => {
