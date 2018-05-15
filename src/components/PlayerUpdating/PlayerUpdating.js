@@ -78,7 +78,7 @@ class PlayerUpdating  extends Component {
                                 </table>
                             </Form>
                    </td>
-                   <td colSpan='3'>
+                   <td colSpan='2'>
                         <table>
                             <tbody>
                                 <tr><td colSpan='2'><img src={`https://graph.facebook.com/${facebookID}/picture?type=small`} className='avatar-facebook' alt='\' /></td></tr>
@@ -90,8 +90,8 @@ class PlayerUpdating  extends Component {
                             </tbody>
                         </table>
                     </td>
-                    <td colSpan={(userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/create_player`) ? '2' : '3'} style={{position: 'relative'}}>
-                        <Button  className='button-cancel' label='CANCEL' style={{marginTop: '0px', marginBottom: '0px', position: 'absolute', width: '50%', top:'10px', right: '10px'}} onClick={ () => handleUpdateCancel(id)}>
+                    <td colSpan={(userID === 'YK4O4xkCEtcwBIdwyRVVzuFCbzH3' && location.pathname === `/admin/create_player`) ? '1' : '2'} style={{position: 'relative'}}>
+                        <Button  className='button-cancel' label='CANCEL' style={{marginTop: '0px', marginBottom: '0px', position: 'absolute', top:'10px', right: '10px'}} onClick={ () => handleUpdateCancel(id)}>
                             
                          </Button>                   
                     </td>
