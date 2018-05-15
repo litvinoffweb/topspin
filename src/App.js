@@ -9,7 +9,6 @@ import UserPage from './containers/Routes/UserPage/UserPage';
 
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import ProtectedAdmin from './components/ProtectedAdmin/ProtectedAdmin';
-import AddPlayers from './containers/AddPlayers/AddPlayers';
 
 
 import Box from 'grommet/components/Box';

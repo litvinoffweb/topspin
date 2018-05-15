@@ -15,7 +15,6 @@ import { Link, Route, Switch } from 'react-router-dom';
 import CreateTournament from '../../../components/CreateTournament/CreateTournament';
 import { createTournament } from '../../../components/CreateTournament/module/actions';
 import TournamentsList from '../../../components/TournamentsList/TournamentsList';
-import AddTournaments from '../../AddTournaments/AddTournaments';
 import { fetchTournaments } from '../../../components/TournamentsList/module/actions';
 import PlayersOnTournamentList from '../../PlayersOnTournamentList/PlayersOnTournamentList';
 
@@ -51,7 +50,7 @@ class AdminPage extends Component  {
 
     render() {
         
-        const { admin, location, createTour, match } = this.props
+        const { admin, location, createTour } = this.props
         
         return (
             <Box >

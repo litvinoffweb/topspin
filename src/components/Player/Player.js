@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import firebase from 'firebase';
 import { fetchPlayer } from '../PlayersList/module/actions';
 import Button from 'grommet/components/Button';
 import { fetchTournaments } from '../TournamentsList/module/actions';
 import { fetchRegisteredPlayers } from '../../containers/PlayersOnTournamentList/module/actions';
-import Form from 'grommet/components/Form';
-import DefaultValue from '../DefaultValue/DefaultValue';
 import PlayerUpdating from '../PlayerUpdating/PlayerUpdating';
 
 class Player extends Component{
@@ -27,16 +25,6 @@ class Player extends Component{
         this.setState({
             updating: !this.state.updating
         })
-
-        // const updatePlayer = ({}) => {
-
-        //     const db = firebase.database();
-        //     db.ref.child('players/' + this.props.id + '/').update({
-
-        //     })
-        // }
-
-        this.state.updating ? null : null;
 
 
     }
@@ -70,7 +58,7 @@ class Player extends Component{
         
     }
         render() {
-            const { player: { Age, Name, Surname, id, facebookID, Rating, Style, chosen}, match, user, fetchPlayers, fetchTournaments, fetchRegisteredPlayerss, location} = this.props;
+            const { player: { Age, Name, Surname, id, facebookID, Rating, Style}, match, user, location} = this.props;
             return(
                 !this.state.updating ? <tr style={this.state.chosen ? {backGroundColor: 'green'} : null} className={!this.state.chosen ? 'all-seconds-players' : 'chosen-player'} >
                     <td> <img src={`https://graph.facebook.com/${facebookID}/picture?type=small`} className='avatar-facebook' alt='\' /> </td>

@@ -12,7 +12,7 @@ import PlayersList from '../../../components/PlayersList/PlayersList';
 
 const UserPage = props => {
 
-        const { user, firebase, players } = props
+        const { user, firebase } = props
         return (
             <Box>           
                 {!user.uid 

@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+
 import { actionTypes, signInOrSignUp } from './actions'
 
 export const signInOrSignUpEpic = action$ => 

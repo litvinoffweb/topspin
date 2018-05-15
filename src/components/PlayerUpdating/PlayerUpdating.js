@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Form from 'grommet/components/Form';
 import Button from 'grommet/components/Button';
-import Box from 'grommet/components/Box';
 import firebase from 'firebase';
 import { fetchPlayer } from '../PlayersList/module/actions';
 
@@ -51,7 +50,7 @@ class PlayerUpdating  extends Component {
     render(){
 
         
-        const { player: { Age, Name, Surname, id, facebookID, Rating, Style, chosen},userID, handleUpdateCancel, match, location} = this.props;
+        const { player: { Age, Name, Surname, id, facebookID, Rating},userID, handleUpdateCancel, location} = this.props;
         return(
              <tr>
                  

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
-import { Redirect } from 'react-router-dom';
 import { compose } from 'ramda';
 import { connect } from 'react-redux';
 import Button from 'grommet/components/Button';

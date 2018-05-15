@@ -4,16 +4,16 @@ import Box from 'grommet/components/Box';
 import PlayerInGroup from '../PlayerInGroup/PlayerInGroup';
 
 const Group = props => {
-    const { index, Age, Name, Rating, Style, Surname, id, facebookID, group } = props
-    //console.log('Group', props)
+    const { index, group } = props
+    
     return(
         <Box>
             <table>
                 <thead>
                     <tr>
                         <th><span className='td-span-float-left'>Group : { index + 1 }</span></th>
+                        <th><span className='td-span-float-left'>Name : </span></th>
                         <th><span className='td-span-float-left'>Rating : </span></th>
-                        <th><span className='td-span-float-left'>#</span></th>
                         
                     </tr>
                 </thead>
