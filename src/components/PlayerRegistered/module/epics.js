@@ -16,4 +16,3 @@ const deletePlayerRegisteredFromDB = (tourID, playerID) => {
     const db = firebase.database();
     db.ref().child('tournaments/' + tourID + '/' + playerID).remove();
 }
-    

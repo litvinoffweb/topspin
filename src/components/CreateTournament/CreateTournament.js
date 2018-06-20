@@ -18,6 +18,7 @@ class CreateTournament extends Component {
     }
 
     render() {
+        console.log('create-tournament', this.props)
         return(
             <Box>
                

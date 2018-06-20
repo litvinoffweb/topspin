@@ -17,7 +17,6 @@ class GroupsList extends Component {
 
                 if (this.props.registeredPlayers.length % this.props.groupsCount === 0) {
                     for(let y = 0; y < this.props.groupsCount; y++) {
-                      console.log('group',group)
                         
                         group.push(this.props.groups[y][i])
                     }
@@ -30,7 +29,6 @@ class GroupsList extends Component {
                        group.push(this.props.groups[y][i])
                     }
                 }
-                console.log('group',group)
                 counts.push(<tr key={i}><td key={i} style={{padding: '0px'}}><Group {...this.props} index={i} group={group}/></td></tr>)
     
             }
@@ -40,7 +38,6 @@ class GroupsList extends Component {
     }
 
     render() {
-        console.log('GroupsList', this.props)
         const {groupsCount} = this.props
         return(
             <Box>

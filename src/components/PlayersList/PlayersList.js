@@ -37,7 +37,6 @@ class PlayersList extends Component {
     }
 
     render() {
-       // console.log(this.props)
         const { players, location, match, userID } = this.props;
         return(
                 players ? <Box>

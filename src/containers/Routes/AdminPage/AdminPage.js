@@ -18,7 +18,6 @@ import TournamentsList from '../../../components/TournamentsList/TournamentsList
 import { fetchTournaments } from '../../../components/TournamentsList/module/actions';
 import PlayersOnTournamentList from '../../PlayersOnTournamentList/PlayersOnTournamentList';
 
-
 class AdminPage extends Component  {
 
     componentWillMount() {
@@ -49,9 +48,8 @@ class AdminPage extends Component  {
     }
 
     render() {
-        
+        //console.log('admin page', this.props)
         const { admin, location, createTour } = this.props
-        
         return (
             <Box >
                 {!admin
@@ -78,6 +76,7 @@ class AdminPage extends Component  {
                                 Admin: Stanislav
                             </Heading>
                         </Box>
+                        
                     </Box>     
                 <Box direction='row' justify='around'>
                     
@@ -127,7 +126,7 @@ const mapDispatchToProps = dispatch => ({
         dispatch(logOut())
     },
     createTour: values => {
-        console.log(values)
+        console.log('admin--page', values)
         dispatch(createTournament(values.name, values.date))
     },
     fetchTournament: () => {

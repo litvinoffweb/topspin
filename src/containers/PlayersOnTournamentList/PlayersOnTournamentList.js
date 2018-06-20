@@ -16,6 +16,7 @@ class PlayersOnTournamentList extends Component {
         }
 
         render() {
+            //console.log(this.props, 'players on ')
             return(
                 <Box>
                     
@@ -24,7 +25,12 @@ class PlayersOnTournamentList extends Component {
                             <GroupsList {...this.props}/>
                             <RegisteredPlayers {...this.props}/>
                         </Box>
-                        <Box className='col-6'><PlayersList {...this.props}/></Box>
+                        
+
+                        <Box className='col-6'>
+                            <Box>Search: </Box>
+                            <PlayersList {...this.props}/>
+                        </Box>
                     </Box>
                 </Box>
                 

@@ -59,7 +59,6 @@ class RegisteredPlayers extends Component {
                         matrix.push(group);
                     }
                 }
-            console.log(matrix)
             return matrix
         }
 
@@ -70,9 +69,7 @@ class RegisteredPlayers extends Component {
         });
         this.props.fetchGroupss(this.props.match.params.id);
         this.props.fetchGroupsCounts(this.props.match.params.id);
-        // this.setState({
-        //     showGroups: !this.state.showGroups
-        // })
+        
 
     }
 
@@ -83,8 +80,7 @@ class RegisteredPlayers extends Component {
             
             return p1.Name > p2.Name
         })
-        console.log(players)
-        console.log(sortedByName)
+
         db.ref().child('tournaments/' + tourID + '/players').update({
             sortedByName
         })

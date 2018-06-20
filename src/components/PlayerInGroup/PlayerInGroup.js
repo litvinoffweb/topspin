@@ -2,7 +2,7 @@ import React from 'react';
 
 const PlayerInGroup = props => {
     
-   
+    
     return(
         props.player !== undefined ?
             <tr className='group' style={{backGroundColor: '#fff'}}>

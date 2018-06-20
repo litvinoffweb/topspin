@@ -26,7 +26,7 @@ export const fetchRegisteredPlayersEpic = action$ =>
                 
                 for (let keys in item) {
                     if(contains(item[keys], items)) {
-                        //console.log(item[keys])
+                        
                     }
                     else {
                         const newItem = item[keys]

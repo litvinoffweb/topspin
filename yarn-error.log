@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js start
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js run start-js
 
 PATH: 
-  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\slitvinov\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\Microsoft VS Code\bin;C:\Users\slitvinov\AppData\Local\Yarn\bin;C:\Users\slitvinov\AppData\Roaming\npm
+  C:\Users\slitvinov\Desktop\dev_2\topspin\topspin-dev_2\node_modules\.bin;C:\Users\slitvinov\AppData\Local\Yarn\Data\link\node_modules\.bin;C:\Users\slitvinov\Desktop\dev_2\topspin\topspin-dev_2\node_modules\.bin;C:\Users\slitvinov\AppData\Local\Yarn\Data\link\node_modules\.bin;C:\Program Files\libexec\lib\node_modules\npm\bin\node-gyp-bin;C:\Program Files\lib\node_modules\npm\bin\node-gyp-bin;C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\slitvinov\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\slitvinov\AppData\Local\Yarn\bin;C:\Users\slitvinov\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
@@ -8316,7 +8316,7 @@ Trace:
   Error: Command failed.
   Exit code: 3221225786
   Command: C:\Windows\system32\cmd.exe
-  Arguments: /d /s /c npm-run-all -p start-js
+  Arguments: /d /s /c node scripts/start.js
   Directory: C:\Users\slitvinov\Desktop\dev_2\topspin\topspin-dev_2
   Output:
   
