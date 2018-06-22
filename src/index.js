@@ -37,7 +37,7 @@ ReactDOM.render(
     )
 
     //const subscribe = example.subscribe(val => console.log(val))
-//before
+//after 1
 
 store.dispatch(fetchPlayer());
 store.dispatch(fetchTournaments());
