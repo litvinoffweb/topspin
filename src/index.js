@@ -37,7 +37,7 @@ ReactDOM.render(
     )
 
     //const subscribe = example.subscribe(val => console.log(val))
-//before 11
+//after 11
 
 
 store.dispatch(fetchPlayer());
