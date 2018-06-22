@@ -4,6 +4,7 @@ import { compose } from 'ramda';
 import { fetchPlayer } from './module/actions';
 import Box from 'grommet/components/Box';
 import Player from '../Player/Player';
+import { getPlayersName, getPlayersAges, getMediumAge, totalSelector } from './module/selectors';
 
 
 
@@ -32,11 +33,12 @@ class PlayersList extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         })
-        console.log(this.state.isOpen)
+        //console.log(this.state.isOpen)
         this.props.fetchPlayers();
     }
 
     render() {
+        //console.log(this.props)
         const { players, location, match, userID } = this.props;
         return(
                 players ? <Box>
@@ -69,8 +71,11 @@ class PlayersList extends Component {
                             
                                 }
                             )}
+                            
                         </tbody>
                     </table>
+                     
+                        
             </Box> : 'loading'
         )
     }
@@ -81,7 +86,10 @@ const mapStateToProps = state => ({
     isFetching: state.players.isFetching,
     players: state.players.players,
     location: state.router.location,
-    userID: state.firebase.auth.uid
+    userID: state.firebase.auth.uid,
+    playersName: getPlayersName(state),
+    playersAge: getPlayersAges(state),
+    totalSelector: totalSelector(state)
 })
 
 const mapDispatchToProps = dispatch => ({
